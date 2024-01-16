@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Awesome on 林风's Blog</title><link>https://leoxiewl.github.io/awesome/</link><description>Recent content in Awesome on 林风's Blog</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Tue, 16 Jan 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://leoxiewl.github.io/awesome/index.xml" rel="self" type="application/rss+xml"/><item><title>React 常用网站&amp;资源汇总</title><link>https://leoxiewl.github.io/2024/01/16/react-awesome/</link><pubDate>Tue, 16 Jan 2024 00:00:00 +0000</pubDate><guid>https://leoxiewl.github.io/2024/01/16/react-awesome/</guid><description>&lt;h2 id="react-官方网站">React 官方网站&lt;/h2>
+&lt;p>官网地址：https://react.dev/&lt;/p>
+&lt;p>GitHub 地址：https://github.com/facebook/react&lt;/p>
+&lt;h2 id="教程">教程&lt;/h2>
+&lt;h3 id="文档">文档&lt;/h3>
+&lt;ul>
+&lt;li>&lt;a class="link" href="http://nav.react-china.org/" target="_blank" rel="noopener"
+>React 中文索引&lt;/a>&lt;/li>
+&lt;li>&lt;a class="link" href="https://www.runoob.com/react/react-tutorial.html" target="_blank" rel="noopener"
+>React 菜鸟教程&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="视频">视频&lt;/h3>
+&lt;ul>
+&lt;li>&lt;a class="link" href="https://www.bilibili.com/video/BV1ZB4y1Z7o8/" target="_blank" rel="noopener"
+>黑马程序员前端React18入门到实战视频教程&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>有基础有实战，学完基础直接上手开发小案例&lt;/p>
+&lt;h2 id="组件库">组件库&lt;/h2>
+&lt;ul>
+&lt;li>&lt;strong>Material-UI&lt;/strong>&lt;/li>
+&lt;/ul>
+&lt;p>目前最强大和最流行的UI组件库之一，可以使用MUI轻松构建精美的UI，从谷歌的Material Design开始。&lt;/p>
+&lt;p>官网：https://mui.com/&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Ant Design&lt;/strong>&lt;/li>
+&lt;/ul>
+&lt;p>蚂蚁集团体验技术部经过大量项目实践和总结，逐步打磨出一个服务于企业级产品的设计体系 —— Ant Design&lt;/p>
+&lt;p>官网：https://ant-design.antgroup.com/index-cn&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>React Vant（移动端）&lt;/strong>&lt;/li>
+&lt;/ul>
+&lt;p>性能极佳的高质量组件库，覆盖移动端主流场景&lt;/p>
+&lt;blockquote>
+&lt;p>&lt;strong>Vant&lt;/strong> 是有赞前端团队开源的移动端组件库，于 2017 年开源。&lt;/p>
+&lt;/blockquote>
+&lt;p>官网：https://react-vant.3lang.dev/&lt;/p>
+&lt;h2 id="开箱即用后台模板">开箱即用后台模板&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a class="link" href="https://pro.ant.design/zh-CN" target="_blank" rel="noopener"
+>Ant Design Pro&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>蚂蚁开源的开箱即用的中台前端/设计解决方案。&lt;/p>
+&lt;blockquote>
+&lt;p>更新非常快 bug 有点多&lt;/p>
+&lt;/blockquote>
+&lt;p>官网：https://pro.ant.design/zh-CN
+GitHub：https://github.com/ant-design/ant-design-pro/&lt;/p>
+&lt;h2 id="社区">社区&lt;/h2></description></item><item><title>什么是 Awesome | Awesome 系列</title><link>https://leoxiewl.github.io/2024/01/16/awesome/</link><pubDate>Tue, 16 Jan 2024 00:00:00 +0000</pubDate><guid>https://leoxiewl.github.io/2024/01/16/awesome/</guid><description>&lt;h2 id="awesome-介绍">Awesome 介绍&lt;/h2>
+&lt;p>Awesome 是在 GitHub 中一个经过精选和认可的高质量资源列表，以帮助用户发现与特定主题或领域相关的有价值的资源。这些资源列表通常包含与特定主题、技术或领域相关的链接、工具、库、框架、教程或其他资源。&lt;/p>
+&lt;p>&amp;ldquo;awesome&amp;quot;前缀的资源列表通常由社区成员创建和维护，旨在为其他人提供一个精选的资源集合，以帮助他们在特定主题或领域中找到有用的工具、资料和参考资料。这些列表往往是开源的，任何人都可以通过提交请求或提供建议来增加或改进列表中的内容。&lt;/p>
+&lt;p>使用&amp;quot;awesome&amp;quot;前缀的资源列表通常具有一定的标准，以确保列出的资源具有高质量和广泛认可度。这可以帮助使用者在众多可用资源中筛选出最佳的选择，节省时间和精力。&lt;/p>
+&lt;blockquote>
+&lt;p>以上内容由 ChatGPT 生成&lt;/p>
+&lt;/blockquote>
+&lt;h2 id="热门-awesome-仓库">热门 awesome 仓库&lt;/h2>
+&lt;ul>
+&lt;li>
+&lt;p>&lt;a class="link" href="https://github.com/sindresorhus/awesome" target="_blank" rel="noopener"
+>awesome&lt;/a>
+关于各种有趣话题的列表&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;a class="link" href="https://github.com/vinta/awesome-python" target="_blank" rel="noopener"
+>awesome-python&lt;/a>
+一份很棒的Python框架、库、软件和资源的列表&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;a class="link" href="https://github.com/avelino/awesome-go" target="_blank" rel="noopener"
+>awesome-go&lt;/a>
+一份很棒的Go框架、库和软件的列表&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;a class="link" href="https://github.com/akullpp/awesome-java" target="_blank" rel="noopener"
+>awesome-java&lt;/a>
+一份关于Java编程语言的很棒的框架、库和软件的列表。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;a class="link" href="https://github.com/f/awesome-chatgpt-prompts" target="_blank" rel="noopener"
+>awesome-chatgpt-prompts&lt;/a>
+This repo includes ChatGPT prompt curation to use ChatGPT better.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;a class="link" href="https://github.com/PlexPt/awesome-chatgpt-prompts-zh" target="_blank" rel="noopener"
+>awesome-chatgpt-prompts-zh&lt;/a>
+ChatGPT 中文调教指南。各种场景使用指南。学习怎么让它听你的话。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;a class="link" href="https://github.com/prakhar1989/awesome-courses" target="_blank" rel="noopener"
+>awesome-courses&lt;/a>
+学习计算机科学的很棒的大学课程列表!&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;a class="link" href="https://github.com/xingshaocheng/architect-awesome" target="_blank" rel="noopener"
+>后端架构师技术图谱&lt;/a>
+后端架构师技术图谱&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;a class="link" href="https://github.com/enaqx/awesome-react" target="_blank" rel="noopener"
+>awesome-react&lt;/a>
+关于React生态系统的一系列很棒的东西&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;a class="link" href="https://github.com/MunGell/awesome-for-beginners" target="_blank" rel="noopener"
+>awesome-for-beginners&lt;/a>
+一份对初学者友好的项目清单。&lt;/p>
+&lt;/li>
+&lt;/ul></description></item></channel></rss>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>React on 林风's Blog</title><link>https://leoxiewl.github.io/tags/react/</link><description>Recent content in React on 林风's Blog</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Tue, 16 Jan 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://leoxiewl.github.io/tags/react/index.xml" rel="self" type="application/rss+xml"/><item><title>React 基础工具</title><link>https://leoxiewl.github.io/2024/01/16/react-base-tools/</link><pubDate>Tue, 16 Jan 2024 00:00:00 +0000</pubDate><guid>https://leoxiewl.github.io/2024/01/16/react-base-tools/</guid><description>&lt;h2 id="react-基础">React 基础&lt;/h2>
+&lt;p>React由Meta公司开发，是一个用于 构建Web和原生交互界面的库&lt;/p></description></item><item><title>React 常用网站&amp;资源汇总</title><link>https://leoxiewl.github.io/2024/01/16/react-awesome/</link><pubDate>Tue, 16 Jan 2024 00:00:00 +0000</pubDate><guid>https://leoxiewl.github.io/2024/01/16/react-awesome/</guid><description>&lt;h2 id="react-官方网站">React 官方网站&lt;/h2>
+&lt;p>官网地址：https://react.dev/&lt;/p>
+&lt;p>GitHub 地址：https://github.com/facebook/react&lt;/p>
+&lt;h2 id="教程">教程&lt;/h2>
+&lt;h3 id="文档">文档&lt;/h3>
+&lt;ul>
+&lt;li>&lt;a class="link" href="http://nav.react-china.org/" target="_blank" rel="noopener"
+>React 中文索引&lt;/a>&lt;/li>
+&lt;li>&lt;a class="link" href="https://www.runoob.com/react/react-tutorial.html" target="_blank" rel="noopener"
+>React 菜鸟教程&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="视频">视频&lt;/h3>
+&lt;ul>
+&lt;li>&lt;a class="link" href="https://www.bilibili.com/video/BV1ZB4y1Z7o8/" target="_blank" rel="noopener"
+>黑马程序员前端React18入门到实战视频教程&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>有基础有实战，学完基础直接上手开发小案例&lt;/p>
+&lt;h2 id="组件库">组件库&lt;/h2>
+&lt;ul>
+&lt;li>&lt;strong>Material-UI&lt;/strong>&lt;/li>
+&lt;/ul>
+&lt;p>目前最强大和最流行的UI组件库之一，可以使用MUI轻松构建精美的UI，从谷歌的Material Design开始。&lt;/p>
+&lt;p>官网：https://mui.com/&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Ant Design&lt;/strong>&lt;/li>
+&lt;/ul>
+&lt;p>蚂蚁集团体验技术部经过大量项目实践和总结，逐步打磨出一个服务于企业级产品的设计体系 —— Ant Design&lt;/p>
+&lt;p>官网：https://ant-design.antgroup.com/index-cn&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>React Vant（移动端）&lt;/strong>&lt;/li>
+&lt;/ul>
+&lt;p>性能极佳的高质量组件库，覆盖移动端主流场景&lt;/p>
+&lt;blockquote>
+&lt;p>&lt;strong>Vant&lt;/strong> 是有赞前端团队开源的移动端组件库，于 2017 年开源。&lt;/p>
+&lt;/blockquote>
+&lt;p>官网：https://react-vant.3lang.dev/&lt;/p>
+&lt;h2 id="开箱即用后台模板">开箱即用后台模板&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a class="link" href="https://pro.ant.design/zh-CN" target="_blank" rel="noopener"
+>Ant Design Pro&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>蚂蚁开源的开箱即用的中台前端/设计解决方案。&lt;/p>
+&lt;blockquote>
+&lt;p>更新非常快 bug 有点多&lt;/p>
+&lt;/blockquote>
+&lt;p>官网：https://pro.ant.design/zh-CN
+GitHub：https://github.com/ant-design/ant-design-pro/&lt;/p>
+&lt;h2 id="社区">社区&lt;/h2></description></item></channel></rss>
