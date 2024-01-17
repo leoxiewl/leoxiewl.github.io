@@ -1,0 +1,611 @@
+<!doctype html><html lang=zh-cn dir=ltr><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="React 基础 React由Meta公司开发，是一个用于 构建Web和原生交互界面的库 The library for web and native user interfaces React 优势 虚拟DOM（Virtual DOM） 使用虚拟D"><title>React 基础</title>
+<link rel=canonical href=https://leoxiewl.github.io/2024/01/16/react-base/><link rel=stylesheet href=/scss/style.min.abbd69b2908fdfcd5179898beaafd374514a86538d81639ddd2c58c06ae54e40.css><meta property="og:title" content="React 基础"><meta property="og:description" content="React 基础 React由Meta公司开发，是一个用于 构建Web和原生交互界面的库 The library for web and native user interfaces React 优势 虚拟DOM（Virtual DOM） 使用虚拟D"><meta property="og:url" content="https://leoxiewl.github.io/2024/01/16/react-base/"><meta property="og:site_name" content="林风's Blog"><meta property="og:type" content="article"><meta property="article:section" content="Post"><meta property="article:tag" content="React"><meta property="article:published_time" content="2024-01-16T00:00:00+00:00"><meta property="article:modified_time" content="2024-01-16T00:00:00+00:00"><meta name=twitter:title content="React 基础"><meta name=twitter:description content="React 基础 React由Meta公司开发，是一个用于 构建Web和原生交互界面的库 The library for web and native user interfaces React 优势 虚拟DOM（Virtual DOM） 使用虚拟D"><link rel="shortcut icon" href=image.jpg></head><body class=article-page><script>(function(){const e="StackColorScheme";localStorage.getItem(e)||localStorage.setItem(e,"auto")})()</script><script>(function(){const t="StackColorScheme",e=localStorage.getItem(t),n=window.matchMedia("(prefers-color-scheme: dark)").matches===!0;e=="dark"||e==="auto"&&n?document.documentElement.dataset.scheme="dark":document.documentElement.dataset.scheme="light"})()</script><div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky"><button class="hamburger hamburger--spin" type=button id=toggle-menu aria-label="Toggle Menu">
+<span class=hamburger-box><span class=hamburger-inner></span></span></button><header><figure class=site-avatar><a href=/><img src=/img/image_hua30b0e19ea032fb55ca92f5e02a987e8_35363_300x0_resize_q75_box.jpg width=300 height=300 class=site-logo loading=lazy alt=Avatar>
+</a><span class=emoji>🍥</span></figure><div class=site-meta><h1 class=site-name><a href=/>林风's Blog</a></h1><h2 class=site-description>软件开发 | 读书</h2></div></header><ol class=social-menu><li><a href=https://github.com/leoxiewl target=_blank title=GitHub rel=me><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6.0 00-1.3-3.2 4.2 4.2.0 00-.1-3.2s-1.1-.3-3.5 1.3a12.3 12.3.0 00-6.2.0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2.0 00-.1 3.2A4.6 4.6.0 004 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg></a></li></ol><ol class=menu id=main-menu><li><a href=/><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><polyline points="5 12 3 12 12 3 21 12 19 12"/><path d="M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7"/><path d="M9 21v-6a2 2 0 012-2h2a2 2 0 012 2v6"/></svg><span>主页</span></a></li><li><a href=/archives/><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><rect x="3" y="4" width="18" height="4" rx="2"/><path d="M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8"/><line x1="10" y1="12" x2="14" y2="12"/></svg><span>归档</span></a></li><li><a href=/links/><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><path d="M10 14a3.5 3.5.0 005 0l4-4a3.5 3.5.0 00-5-5l-.5.5"/><path d="M14 10a3.5 3.5.0 00-5 0l-4 4a3.5 3.5.0 005 5l.5-.5"/></svg><span>Links</span></a></li><div class=menu-bottom-section><li id=dark-mode-toggle><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="8" cy="12" r="2"/><rect x="2" y="6" width="20" height="12" rx="6"/></svg><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="16" cy="12" r="2"/><rect x="2" y="6" width="20" height="12" rx="6"/></svg><span>Dark Mode</span></li></div></ol></aside><aside class="sidebar right-sidebar sticky"><section class="widget archives"><div class=widget-icon><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><line x1="5" y1="9" x2="19" y2="9"/><line x1="5" y1="15" x2="19" y2="15"/><line x1="11" y1="4" x2="7" y2="20"/><line x1="17" y1="4" x2="13" y2="20"/></svg></div><h2 class="widget-title section-title">Table of contents</h2><div class=widget--toc><nav id=TableOfContents><ol><li><a href=#react-基础>React 基础</a></li><li><a href=#react-优势>React 优势</a></li><li><a href=#react-开发环境搭建>React 开发环境搭建</a><ol><li><a href=#create-react-app>create-react-app</a></li><li><a href=#nextjs>Next.js</a></li></ol></li><li><a href=#组件-组合页面>组件: 组合页面</a></li><li><a href=#jsx-构建-ui>JSX: 构建 UI</a><ol><li><a href=#jsx-语法限制>JSX 语法限制</a></li><li><a href=#jsx-渲染数据>JSX 渲染数据</a></li><li><a href=#map-方法实现列表渲染>map 方法实现列表渲染</a></li><li><a href=#逻辑符号实现条件渲染>逻辑符号实现条件渲染</a></li><li><a href=#复杂条件渲染>复杂条件渲染</a></li></ol></li><li><a href=#组件样式-css>组件样式 CSS</a></li><li><a href=#组件属性传参-props>组件属性传参 props</a></li><li><a href=#react-事件绑定>React 事件绑定</a><ol><li><a href=#事件参数>事件参数</a></li><li><a href=#传递自定义参数>传递自定义参数</a></li><li><a href=#同时传递事件对象和自定义参数>同时传递事件对象和自定义参数</a></li></ol></li><li><a href=#更新界面状态管理-usestate>更新界面(状态管理)-useState</a><ol><li><a href=#基础使用>基础使用</a></li><li><a href=#修改对象状态>修改对象状态</a></li></ol></li><li><a href=#hook-函数>Hook 函数</a><ol><li><a href=#自定义-hook-函数>自定义 Hook 函数</a></li><li><a href=#react-hooks使用规则>React Hooks使用规则</a></li></ol></li><li><a href=#组件间共享数据>组件间共享数据</a></li><li><a href=#react副作用管理-useeffect>React副作用管理-useEffect</a><ol><li><a href=#基础使用-1>基础使用</a></li><li><a href=#清除副作用>清除副作用</a></li></ol></li><li><a href=#参考>参考</a></li></ol></nav></div></section></aside><main class="main full-width"><article class=main-article><header class=article-header><div class=article-details><header class=article-category><a href=/%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AE%B0/>编程笔记</a></header><div class=article-title-wrapper><h2 class=article-title><a href=/2024/01/16/react-base/>React 基础</a></h2></div><footer class=article-time><div><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><path d="M11.795 21H5a2 2 0 01-2-2V7a2 2 0 012-2h12a2 2 0 012 2v4"/><circle cx="18" cy="18" r="4"/><path d="M15 3v4"/><path d="M7 3v4"/><path d="M3 11h16"/><path d="M18 16.496V18l1 1"/></svg><time class=article-time--published>Jan 16, 2024</time></div><div><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg><time class=article-time--reading>8 minute read</time></div></footer></div></header><section class=article-content><h2 id=react-基础>React 基础</h2><p>React由Meta公司开发，是一个用于 构建Web和原生交互界面的库</p><blockquote><p>The library for web and native user interfaces</p></blockquote><h2 id=react-优势>React 优势</h2><p><strong>虚拟DOM（Virtual DOM）</strong></p><p>使用虚拟DOM，通过比较前后两个状态的差异，最小化DOM操作，提高性能。</p><p><strong>组件化</strong></p><p>强调组件化开发，将用户界面划分为独立的、可复用的组件。</p><p><strong>生态系统</strong></p><p>拥有庞大的生态系统，许多公司和项目使用 React，有丰富的社区支持。</p><p><strong>社区支持</strong></p><p>拥有庞大的社区，得到了来自Facebook等大公司的支持。</p><p><strong>适用场景</strong></p><p>更适用于大型应用和需要高度定制化的项目。</p><h2 id=react-开发环境搭建>React 开发环境搭建</h2><h3 id=create-react-app>create-react-app</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>npx create-react-app react-project-name
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>// 启动项目
+</span></span><span class=line><span class=cl>npm start
+</span></span></code></pre></td></tr></table></div></div><h3 id=nextjs>Next.js</h3><p>Next.js 是生产级的 React 框架</p><p><a class=link href=https://zh-hans.react.dev/learn/start-a-new-react-project target=_blank rel=noopener>https://zh-hans.react.dev/learn/start-a-new-react-project</a></p><h2 id=组件-组合页面>组件: 组合页面</h2><p>React 应用程序是由 <strong>组件</strong> 组成的。一个组件是 UI（用户界面）的一部分，它拥有自己的逻辑和外观。组件可以小到一个按钮，也可以大到整个页面。经过组合，形成一整个页面。</p><p><img src=https://pic.imgdb.cn/item/65a7c0df871b83018acd2a95.jpg loading=lazy></p><p><img src=/react-base.assets/image-20240117194613170.png loading=lazy alt=image-20240117194613170></p><p><strong>React 组件是一个 JavaScript 函数</strong></p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=kd>function</span> <span class=nx>MyButton</span><span class=p>()</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=k>return</span> <span class=p>(</span>
+</span></span><span class=line><span class=cl>    <span class=o>&lt;</span><span class=nx>button</span><span class=o>&gt;</span><span class=nx>I</span><span class=err>&#39;</span><span class=nx>m</span> <span class=nx>a</span> <span class=nx>button</span><span class=o>&lt;</span><span class=err>/button&gt;</span>
+</span></span><span class=line><span class=cl>  <span class=p>);</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></td></tr></table></div></div><p>上述是 MyButton 组件的声明</p><p>现在把它嵌套到另一个组件中</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=kr>export</span> <span class=k>default</span> <span class=kd>function</span> <span class=nx>MyApp</span><span class=p>()</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=k>return</span> <span class=p>(</span>
+</span></span><span class=line><span class=cl>    <span class=o>&lt;</span><span class=nx>div</span><span class=o>&gt;</span>
+</span></span><span class=line><span class=cl>      <span class=o>&lt;</span><span class=nx>h1</span><span class=o>&gt;</span><span class=nx>Welcome</span> <span class=nx>to</span> <span class=nx>my</span> <span class=nx>app</span><span class=o>&lt;</span><span class=err>/h1&gt;</span>
+</span></span><span class=line><span class=cl>      <span class=o>&lt;</span><span class=nx>MyButton</span> <span class=o>/&gt;</span>
+</span></span><span class=line><span class=cl>    <span class=o>&lt;</span><span class=err>/div&gt;</span>
+</span></span><span class=line><span class=cl>  <span class=p>);</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></td></tr></table></div></div><p><code>export default</code> 关键字指定了文件中的主要组件。</p><p><strong>React 组件必须以大写字母开头，而 HTML 标签则必须是小写字母</strong>。</p><h2 id=jsx-构建-ui>JSX: 构建 UI</h2><p>JSX 是 React 中用来构建 UI 的方式。</p><blockquote><p>JSX并不是标准的JS语法，它是 JS的语法扩展，浏览器本身不能识别，需要通过解析工具做解析之后才能在浏览器中使用</p></blockquote><h3 id=jsx-语法限制>JSX 语法限制</h3><ul><li>必须闭合标签，如 <code>&lt;br /></code></li><li>组件不能返回多个 JSX 标签，必须将它们包裹到一个共享的父级中，比如 <code>&lt;div>...&lt;/div></code> 或使用空的 <code>&lt;>...&lt;/></code> 包裹</li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=kd>function</span> <span class=nx>AboutPage</span><span class=p>()</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=k>return</span> <span class=p>(</span>
+</span></span><span class=line><span class=cl>    <span class=o>&lt;&gt;</span>
+</span></span><span class=line><span class=cl>      <span class=o>&lt;</span><span class=nx>h1</span><span class=o>&gt;</span><span class=nx>About</span><span class=o>&lt;</span><span class=err>/h1&gt;</span>
+</span></span><span class=line><span class=cl>      <span class=o>&lt;</span><span class=nx>p</span><span class=o>&gt;</span><span class=nx>Hello</span> <span class=nx>there</span><span class=p>.</span><span class=o>&lt;</span><span class=nx>br</span> <span class=o>/&gt;</span><span class=nx>How</span> <span class=k>do</span> <span class=nx>you</span> <span class=k>do</span><span class=o>?&lt;</span><span class=err>/p&gt;</span>
+</span></span><span class=line><span class=cl>    <span class=o>&lt;</span><span class=err>/&gt;</span>
+</span></span><span class=line><span class=cl>  <span class=p>);</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></td></tr></table></div></div><h3 id=jsx-渲染数据>JSX 渲染数据</h3><ul><li>在JSX中可以通过 <code>大括号语法{}</code> 识别JavaScript中的表达式，比如常见的变量、函数调用、方法调用等等</li></ul><p>注意：if语句、switch语句、变量声明不属于表达式，不能出现在{}中</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kr>const</span> <span class=nx>message</span> <span class=o>=</span> <span class=s1>&#39;this is message&#39;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kd>function</span> <span class=nx>getAge</span><span class=p>(){</span>
+</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=mi>18</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kd>function</span> <span class=nx>App</span><span class=p>(){</span>
+</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=p>(</span>
+</span></span><span class=line><span class=cl>        <span class=o>&lt;</span><span class=nx>div</span><span class=o>&gt;</span>
+</span></span><span class=line><span class=cl>            <span class=o>&lt;</span><span class=nx>h1</span><span class=o>&gt;</span><span class=k>this</span> <span class=nx>is</span> <span class=nx>title</span><span class=o>&lt;</span><span class=err>/h1&gt;</span>
+</span></span><span class=line><span class=cl>            
+</span></span><span class=line><span class=cl>            <span class=p>{</span><span class=cm>/* 字符串识别 */</span><span class=p>}</span>
+</span></span><span class=line><span class=cl>            <span class=p>{</span><span class=s1>&#39;this is str&#39;</span><span class=p>}</span>
+</span></span><span class=line><span class=cl>            
+</span></span><span class=line><span class=cl>            <span class=p>{</span><span class=cm>/* 变量识别 */</span><span class=p>}</span>
+</span></span><span class=line><span class=cl>            <span class=p>{</span><span class=nx>message</span><span class=p>}</span>
+</span></span><span class=line><span class=cl>            
+</span></span><span class=line><span class=cl>            <span class=p>{</span><span class=cm>/* 函数调用 渲染为函数的返回值 */</span><span class=p>}</span>
+</span></span><span class=line><span class=cl>            <span class=p>{</span><span class=nx>getAge</span><span class=p>()}</span>
+</span></span><span class=line><span class=cl>        <span class=o>&lt;</span><span class=err>/div&gt;</span>
+</span></span><span class=line><span class=cl>    <span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=kr>export</span> <span class=k>default</span> <span class=nx>App</span><span class=p>;</span>
+</span></span></code></pre></td></tr></table></div></div><h3 id=map-方法实现列表渲染>map 方法实现列表渲染</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=kr>const</span> <span class=nx>list</span> <span class=o>=</span> <span class=p>[</span>
+</span></span><span class=line><span class=cl>    <span class=p>{</span><span class=nx>id</span><span class=o>:</span><span class=mi>1001</span><span class=p>,</span> <span class=nx>name</span><span class=o>:</span><span class=s1>&#39;Vue&#39;</span><span class=p>},</span>
+</span></span><span class=line><span class=cl>    <span class=p>{</span><span class=nx>id</span><span class=o>:</span><span class=mi>1002</span><span class=p>,</span> <span class=nx>name</span><span class=o>:</span> <span class=s1>&#39;React&#39;</span><span class=p>},</span>
+</span></span><span class=line><span class=cl>    <span class=p>{</span><span class=nx>id</span><span class=o>:</span><span class=mi>1003</span><span class=p>,</span> <span class=nx>name</span><span class=o>:</span> <span class=s1>&#39;Angular&#39;</span><span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=p>]</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kd>function</span> <span class=nx>App</span><span class=p>(){</span>
+</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=p>(</span>
+</span></span><span class=line><span class=cl>        <span class=o>&lt;</span><span class=nx>div</span><span class=o>&gt;</span>
+</span></span><span class=line><span class=cl>            <span class=o>&lt;</span><span class=nx>ul</span><span class=o>&gt;</span>
+</span></span><span class=line><span class=cl>                <span class=p>{</span><span class=nx>list</span><span class=p>.</span><span class=nx>map</span><span class=p>(</span><span class=nx>item</span> <span class=p>=&gt;</span> <span class=o>&lt;</span><span class=nx>li</span> <span class=nx>key</span><span class=o>=</span><span class=p>{</span><span class=nx>item</span><span class=p>.</span><span class=nx>id</span><span class=p>}</span><span class=o>&gt;</span><span class=p>{</span><span class=nx>item</span><span class=p>.</span><span class=nx>name</span><span class=p>}</span><span class=o>&lt;</span><span class=err>/li&gt;)}</span>
+</span></span><span class=line><span class=cl>            <span class=o>&lt;</span><span class=err>/ul&gt;</span>
+</span></span><span class=line><span class=cl>        <span class=o>&lt;</span><span class=err>/div&gt;</span>
+</span></span><span class=line><span class=cl>    <span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kr>export</span> <span class=k>default</span> <span class=nx>App</span><span class=p>;</span>
+</span></span></code></pre></td></tr></table></div></div><p>对于列表中的每一个元素，你都应该传递一个字符串或者数字给 <code>key</code>，用于在其<strong>兄弟节点中唯一标识该元素</strong>。</p><p>通常 key 来自你的数据，比如数据库中的 ID。如果你在后续插入、删除或重新排序这些项目，React 将依靠你提供的 key 来思考发生了什么。</p><h3 id=逻辑符号实现条件渲染>逻辑符号实现条件渲染</h3><p><strong>逻辑与运算符 <code>&&</code></strong></p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=kr>const</span> <span class=nx>flag</span> <span class=o>=</span> <span class=kc>false</span>
+</span></span><span class=line><span class=cl><span class=kd>function</span> <span class=nx>App</span><span class=p>(){</span>
+</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=p>(</span>
+</span></span><span class=line><span class=cl>        <span class=o>&lt;</span><span class=nx>div</span><span class=o>&gt;</span>
+</span></span><span class=line><span class=cl>            <span class=p>{</span><span class=nx>flag</span> <span class=o>&amp;&amp;</span> <span class=o>&lt;</span><span class=nx>span</span><span class=o>&gt;</span><span class=nx>测试条件渲染</span><span class=o>&lt;</span><span class=err>/span&gt;}</span>
+</span></span><span class=line><span class=cl>        <span class=o>&lt;</span><span class=err>/div&gt;</span>
+</span></span><span class=line><span class=cl>    <span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kr>export</span> <span class=k>default</span> <span class=nx>App</span><span class=p>;</span>
+</span></span></code></pre></td></tr></table></div></div><p><strong>三元表达式 (?:)</strong></p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=kr>const</span> <span class=nx>flag</span> <span class=o>=</span> <span class=kc>false</span>
+</span></span><span class=line><span class=cl><span class=kd>function</span> <span class=nx>App</span><span class=p>(){</span>
+</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=p>(</span>
+</span></span><span class=line><span class=cl>        <span class=o>&lt;</span><span class=nx>div</span><span class=o>&gt;</span>
+</span></span><span class=line><span class=cl>            <span class=p>{</span><span class=nx>flag</span> <span class=o>?</span> <span class=o>&lt;</span><span class=nx>span</span><span class=o>&gt;</span><span class=nx>flag</span><span class=o>&lt;</span><span class=err>/span&gt; : &lt;span&gt;测试&lt;/span&gt;}</span>
+</span></span><span class=line><span class=cl>        <span class=o>&lt;</span><span class=err>/div&gt;</span>
+</span></span><span class=line><span class=cl>    <span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kr>export</span> <span class=k>default</span> <span class=nx>App</span><span class=p>;</span>
+</span></span></code></pre></td></tr></table></div></div><h3 id=复杂条件渲染>复杂条件渲染</h3><p>解决方案：自定义函数 + 判断语句</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=kr>const</span> <span class=nx>type</span> <span class=o>=</span> <span class=mi>1</span>  <span class=c1>// 0|1|3
+</span></span></span><span class=line><span class=cl><span class=c1></span>
+</span></span><span class=line><span class=cl><span class=kd>function</span> <span class=nx>getArticleJSX</span><span class=p>(){</span>
+</span></span><span class=line><span class=cl>  <span class=k>if</span><span class=p>(</span><span class=nx>type</span> <span class=o>===</span> <span class=mi>0</span><span class=p>){</span>
+</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=o>&lt;</span><span class=nx>div</span><span class=o>&gt;</span><span class=nx>无图模式模版</span><span class=o>&lt;</span><span class=err>/div&gt;</span>
+</span></span><span class=line><span class=cl>  <span class=p>}</span><span class=k>else</span> <span class=k>if</span><span class=p>(</span><span class=nx>type</span> <span class=o>===</span> <span class=mi>1</span><span class=p>){</span>
+</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=o>&lt;</span><span class=nx>div</span><span class=o>&gt;</span><span class=nx>单图模式模版</span><span class=o>&lt;</span><span class=err>/div&gt;</span>
+</span></span><span class=line><span class=cl>  <span class=p>}</span><span class=k>else</span><span class=p>(</span><span class=nx>type</span> <span class=o>===</span> <span class=mi>3</span><span class=p>){</span>
+</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=o>&lt;</span><span class=nx>div</span><span class=o>&gt;</span><span class=nx>三图模式模版</span><span class=o>&lt;</span><span class=err>/div&gt;</span>
+</span></span><span class=line><span class=cl>  <span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kd>function</span> <span class=nx>App</span><span class=p>(){</span>
+</span></span><span class=line><span class=cl>  <span class=k>return</span> <span class=p>(</span>
+</span></span><span class=line><span class=cl>    <span class=o>&lt;&gt;</span>
+</span></span><span class=line><span class=cl>      <span class=p>{</span> <span class=nx>getArticleJSX</span><span class=p>()</span> <span class=p>}</span>
+</span></span><span class=line><span class=cl>    <span class=o>&lt;</span><span class=err>/&gt;</span>
+</span></span><span class=line><span class=cl>  <span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></td></tr></table></div></div><h2 id=组件样式-css>组件样式 CSS</h2><p>在 React 中，可以使用 <code>className</code> 来指定一个 CSS 的 class。与 HTML 的 <a class=link href=https://developer.mozilla.org/zh-CN/docs/Web/HTML/Global_attributes/class target=_blank rel=noopener><code>class</code></a> 属性的工作方式相同：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=o>&lt;</span><span class=nx>img</span> <span class=nx>className</span><span class=o>=</span><span class=s2>&#34;avatar&#34;</span> <span class=o>/&gt;</span>
+</span></span></code></pre></td></tr></table></div></div><p>可以在一个单独的 CSS 文件中为它编写 CSS 规则</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-css data-lang=css><span class=line><span class=cl><span class=c>/* In your CSS */</span>
+</span></span><span class=line><span class=cl><span class=p>.</span><span class=nc>avatar</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=k>border-radius</span><span class=p>:</span> <span class=mi>50</span><span class=kt>%</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></td></tr></table></div></div><blockquote><p>React 并没有规定你如何添加 CSS 文件，言外之意，如何添加由你自己决定</p></blockquote><p><strong>行内样式</strong></p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-html data-lang=html><span class=line><span class=cl><span class=p>&lt;</span><span class=nt>div</span> <span class=na>style</span><span class=o>=</span><span class=s>{{</span> <span class=na>color:</span><span class=err>&#39;</span><span class=na>red</span><span class=err>&#39;}}</span><span class=p>&gt;</span>this is div<span class=p>&lt;/</span><span class=nt>div</span><span class=p>&gt;</span>
+</span></span></code></pre></td></tr></table></div></div><p><strong>变量抽取出来定义</strong></p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=kr>const</span> <span class=nx>style</span> <span class=o>=</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=nx>color</span><span class=o>:</span> <span class=s1>&#39;red&#39;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=nx>fontSize</span><span class=o>:</span> <span class=s1>&#39;100px&#39;</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=kd>function</span> <span class=nx>App</span><span class=p>()</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=k>return</span> <span class=p>(</span>
+</span></span><span class=line><span class=cl>    <span class=o>&lt;</span><span class=nx>div</span><span class=o>&gt;</span>
+</span></span><span class=line><span class=cl>        <span class=o>&lt;</span><span class=nx>span</span> <span class=nx>style</span><span class=o>=</span><span class=p>{</span><span class=nx>style</span><span class=p>}</span><span class=o>&gt;</span><span class=nx>Hello</span><span class=o>&lt;</span><span class=err>/span&gt;!</span>
+</span></span><span class=line><span class=cl>    <span class=o>&lt;</span><span class=err>/div&gt;</span>
+</span></span><span class=line><span class=cl>  <span class=p>);</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kr>export</span> <span class=k>default</span> <span class=nx>App</span><span class=p>;</span>
+</span></span></code></pre></td></tr></table></div></div><h2 id=组件属性传参-props>组件属性传参 props</h2><p><strong>props可以传递任意的合法数据</strong>，比如数字、字符串、布尔值、数组、对象、函数、JSX</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=kr>const</span> <span class=nx>user</span> <span class=o>=</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=nx>name</span><span class=o>:</span> <span class=s1>&#39;Hedy Lamarr&#39;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>  <span class=nx>imageUrl</span><span class=o>:</span> <span class=s1>&#39;https://i.imgur.com/yXOvdOSs.jpg&#39;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>  <span class=nx>imageSize</span><span class=o>:</span> <span class=mi>90</span><span class=p>,</span>
+</span></span><span class=line><span class=cl><span class=p>};</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kr>export</span> <span class=k>default</span> <span class=kd>function</span> <span class=nx>Profile</span><span class=p>()</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=k>return</span> <span class=p>(</span>
+</span></span><span class=line><span class=cl>    <span class=o>&lt;&gt;</span>
+</span></span><span class=line><span class=cl>      <span class=o>&lt;</span><span class=nx>h1</span><span class=o>&gt;</span><span class=p>{</span><span class=nx>user</span><span class=p>.</span><span class=nx>name</span><span class=p>}</span><span class=o>&lt;</span><span class=err>/h1&gt;</span>
+</span></span><span class=line><span class=cl>      <span class=o>&lt;</span><span class=nx>img</span>
+</span></span><span class=line><span class=cl>        <span class=nx>className</span><span class=o>=</span><span class=s2>&#34;avatar&#34;</span>
+</span></span><span class=line><span class=cl>        <span class=nx>src</span><span class=o>=</span><span class=p>{</span><span class=nx>user</span><span class=p>.</span><span class=nx>imageUrl</span><span class=p>}</span>
+</span></span><span class=line><span class=cl>        <span class=nx>alt</span><span class=o>=</span><span class=p>{</span><span class=s1>&#39;Photo of &#39;</span> <span class=o>+</span> <span class=nx>user</span><span class=p>.</span><span class=nx>name</span><span class=p>}</span>
+</span></span><span class=line><span class=cl>        <span class=nx>style</span><span class=o>=</span><span class=p>{{</span>
+</span></span><span class=line><span class=cl>          <span class=nx>width</span><span class=o>:</span> <span class=nx>user</span><span class=p>.</span><span class=nx>imageSize</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>          <span class=nx>height</span><span class=o>:</span> <span class=nx>user</span><span class=p>.</span><span class=nx>imageSize</span>
+</span></span><span class=line><span class=cl>        <span class=p>}}</span>
+</span></span><span class=line><span class=cl>      <span class=o>/&gt;</span>
+</span></span><span class=line><span class=cl>    <span class=o>&lt;</span><span class=err>/&gt;</span>
+</span></span><span class=line><span class=cl>  <span class=p>);</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></td></tr></table></div></div><h2 id=react-事件绑定>React 事件绑定</h2><p><strong>React中的事件绑定，通过语法 <code>on + 事件名称 = { 事件处理程序 }</code>，整体上遵循驼峰命名法</strong></p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=kd>function</span> <span class=nx>App</span><span class=p>(){</span>
+</span></span><span class=line><span class=cl>  <span class=kr>const</span> <span class=nx>clickHandler</span> <span class=o>=</span> <span class=p>()=&gt;{</span>
+</span></span><span class=line><span class=cl>    <span class=nx>console</span><span class=p>.</span><span class=nx>log</span><span class=p>(</span><span class=s1>&#39;button按钮点击了&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>  <span class=p>}</span>
+</span></span><span class=line><span class=cl>  <span class=k>return</span> <span class=p>(</span>
+</span></span><span class=line><span class=cl>    <span class=o>&lt;</span><span class=nx>button</span> <span class=nx>onClick</span><span class=o>=</span><span class=p>{</span><span class=nx>clickHandler</span><span class=p>}</span><span class=o>&gt;</span><span class=nx>click</span> <span class=nx>me</span><span class=o>&lt;</span><span class=err>/button&gt;</span>
+</span></span><span class=line><span class=cl>  <span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></td></tr></table></div></div><blockquote><p>注意，<code>onClick={handleClick}</code> 的结尾没有小括号！不要 <strong>调用</strong> 事件处理函数：你只需 <strong>把函数传递给事件</strong> 即可。当用户点击按钮时 React 会调用你传递的事件处理函数。</p></blockquote><h3 id=事件参数>事件参数</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=kd>function</span> <span class=nx>App</span><span class=p>(){</span>
+</span></span><span class=line><span class=cl>  <span class=kr>const</span> <span class=nx>clickHandler</span> <span class=o>=</span> <span class=p>(</span><span class=nx>e</span><span class=p>)=&gt;{</span>
+</span></span><span class=line><span class=cl>    <span class=nx>console</span><span class=p>.</span><span class=nx>log</span><span class=p>(</span><span class=s1>&#39;button按钮点击了&#39;</span><span class=p>,</span> <span class=nx>e</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>  <span class=p>}</span>
+</span></span><span class=line><span class=cl>  <span class=k>return</span> <span class=p>(</span>
+</span></span><span class=line><span class=cl>    <span class=o>&lt;</span><span class=nx>button</span> <span class=nx>onClick</span><span class=o>=</span><span class=p>{</span><span class=nx>clickHandler</span><span class=p>}</span><span class=o>&gt;</span><span class=nx>click</span> <span class=nx>me</span><span class=o>&lt;</span><span class=err>/button&gt;</span>
+</span></span><span class=line><span class=cl>  <span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></td></tr></table></div></div><h3 id=传递自定义参数>传递自定义参数</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=kd>function</span> <span class=nx>App</span><span class=p>(){</span>
+</span></span><span class=line><span class=cl>  <span class=kr>const</span> <span class=nx>clickHandler</span> <span class=o>=</span> <span class=p>(</span><span class=nx>name</span><span class=p>)=&gt;{</span>
+</span></span><span class=line><span class=cl>    <span class=nx>console</span><span class=p>.</span><span class=nx>log</span><span class=p>(</span><span class=s1>&#39;button按钮点击了&#39;</span><span class=p>,</span> <span class=nx>name</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>  <span class=p>}</span>
+</span></span><span class=line><span class=cl>  <span class=k>return</span> <span class=p>(</span>
+</span></span><span class=line><span class=cl>    <span class=o>&lt;</span><span class=nx>button</span> <span class=nx>onClick</span><span class=o>=</span><span class=p>{()=&gt;</span><span class=nx>clickHandler</span><span class=p>(</span><span class=s1>&#39;jack&#39;</span><span class=p>)}</span><span class=o>&gt;</span><span class=nx>click</span> <span class=nx>me</span><span class=o>&lt;</span><span class=err>/button&gt;</span>
+</span></span><span class=line><span class=cl>  <span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></td></tr></table></div></div><h3 id=同时传递事件对象和自定义参数>同时传递事件对象和自定义参数</h3><p>在事件绑定的位置传递事件实参e和自定义参数，clickHandler中声明形参，注意顺序对应</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=kd>function</span> <span class=nx>App</span><span class=p>(){</span>
+</span></span><span class=line><span class=cl>  <span class=kr>const</span> <span class=nx>clickHandler</span> <span class=o>=</span> <span class=p>(</span><span class=nx>name</span><span class=p>,</span><span class=nx>e</span><span class=p>)=&gt;{</span>
+</span></span><span class=line><span class=cl>    <span class=nx>console</span><span class=p>.</span><span class=nx>log</span><span class=p>(</span><span class=s1>&#39;button按钮点击了&#39;</span><span class=p>,</span> <span class=nx>name</span><span class=p>,</span><span class=nx>e</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>  <span class=p>}</span>
+</span></span><span class=line><span class=cl>  <span class=k>return</span> <span class=p>(</span>
+</span></span><span class=line><span class=cl>    <span class=o>&lt;</span><span class=nx>button</span> <span class=nx>onClick</span><span class=o>=</span><span class=p>{(</span><span class=nx>e</span><span class=p>)=&gt;</span><span class=nx>clickHandler</span><span class=p>(</span><span class=s1>&#39;jack&#39;</span><span class=p>,</span><span class=nx>e</span><span class=p>)}</span><span class=o>&gt;</span><span class=nx>click</span> <span class=nx>me</span><span class=o>&lt;</span><span class=err>/button&gt;</span>
+</span></span><span class=line><span class=cl>  <span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></td></tr></table></div></div><h2 id=更新界面状态管理-usestate>更新界面(状态管理)-useState</h2><p>useState 是一个 React Hook（函数），它允许我们向组件添加一个<code>状态变量</code>, 从而控制影响组件的渲染结果
+和普通JS变量不同的是，状态变量一旦发生变化组件的视图UI也会跟着变化（数据驱动视图）</p><p><strong>其中的数据改变，渲染出的视图 UI 就会跟着发生变化</strong></p><h3 id=基础使用>基础使用</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=kd>function</span> <span class=nx>App</span><span class=p>(){</span>
+</span></span><span class=line><span class=cl>  <span class=kr>const</span> <span class=p>[</span> <span class=nx>count</span><span class=p>,</span> <span class=nx>setCount</span> <span class=p>]</span> <span class=o>=</span> <span class=nx>React</span><span class=p>.</span><span class=nx>useState</span><span class=p>(</span><span class=mi>0</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>  <span class=k>return</span> <span class=p>(</span>
+</span></span><span class=line><span class=cl>    <span class=o>&lt;</span><span class=nx>div</span><span class=o>&gt;</span>
+</span></span><span class=line><span class=cl>      <span class=o>&lt;</span><span class=nx>button</span> <span class=nx>onClick</span><span class=o>=</span><span class=p>{()=&gt;</span><span class=nx>setCount</span><span class=p>(</span><span class=nx>count</span><span class=o>+</span><span class=mi>1</span><span class=p>)}</span><span class=o>&gt;</span><span class=p>{</span> <span class=nx>count</span> <span class=p>}</span><span class=o>&lt;</span><span class=err>/button&gt;</span>
+</span></span><span class=line><span class=cl>    <span class=o>&lt;</span><span class=err>/div&gt;</span>
+</span></span><span class=line><span class=cl>  <span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></td></tr></table></div></div><p>⚠<strong>注意</strong></p><ul><li><p><strong>useState 参数可以用来初始化，传什么样的类型，操作的就是什么样的类型</strong></p></li><li><p><strong>状态修改只能用 <code>set...</code>方法</strong></p></li></ul><h3 id=修改对象状态>修改对象状态</h3><p>对于对象类型的状态变量，应该始终给set方法一个<code>全新的对象</code> 来进行修改</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=kr>import</span> <span class=p>{</span><span class=nx>useState</span><span class=p>}</span> <span class=nx>from</span> <span class=s2>&#34;react&#34;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kd>function</span> <span class=nx>App</span><span class=p>(){</span>
+</span></span><span class=line><span class=cl>    <span class=kr>const</span> <span class=p>[</span><span class=nb>Object</span><span class=p>,</span> <span class=nx>setObject</span><span class=p>]</span> <span class=o>=</span> <span class=nx>useState</span><span class=p>({</span><span class=nx>name</span><span class=o>:</span><span class=s1>&#39;leo&#39;</span><span class=p>})</span>
+</span></span><span class=line><span class=cl>    <span class=kr>const</span> <span class=nx>handleChangeName</span> <span class=o>=</span> <span class=p>()</span> <span class=p>=&gt;</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=nx>setObject</span><span class=p>({</span>
+</span></span><span class=line><span class=cl>            <span class=p>...</span><span class=nb>Object</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nx>name</span><span class=o>:</span><span class=s1>&#39;jack&#39;</span>
+</span></span><span class=line><span class=cl>        <span class=p>})</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=p>(</span>
+</span></span><span class=line><span class=cl>        <span class=o>&lt;</span><span class=nx>div</span><span class=o>&gt;</span>
+</span></span><span class=line><span class=cl>            <span class=p>{</span><span class=nb>Object</span><span class=p>.</span><span class=nx>name</span><span class=p>}</span>
+</span></span><span class=line><span class=cl>            <span class=o>&lt;</span><span class=nx>button</span> <span class=nx>onClick</span><span class=o>=</span><span class=p>{</span><span class=nx>handleChangeName</span><span class=p>}</span><span class=o>&gt;</span><span class=nx>button</span><span class=o>&lt;</span><span class=err>/button&gt;</span>
+</span></span><span class=line><span class=cl>        <span class=o>&lt;</span><span class=err>/div&gt;</span>
+</span></span><span class=line><span class=cl>    <span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kr>export</span> <span class=k>default</span> <span class=nx>App</span><span class=p>;</span>
+</span></span></code></pre></td></tr></table></div></div><h2 id=hook-函数>Hook 函数</h2><p>以 <code>use</code> 开头的函数被称为 <strong>Hook</strong>。<code>useState</code> 是 React 提供的一个内置 Hook</p><p>Hook 函数只能在你的组件（或其他 Hook）的 <strong>顶层</strong> 调用 Hook。如果你想在一个条件或循环中使用 <code>useState</code>，请提取一个新的组件并在组件内部使用它。</p><p>更多 Hook 函数 <a class=link href=https://zh-hans.react.dev/reference/react target=_blank rel=noopener>React API 参考</a></p><h3 id=自定义-hook-函数>自定义 Hook 函数</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span><span class=lnt>31
+</span><span class=lnt>32
+</span><span class=lnt>33
+</span><span class=lnt>34
+</span><span class=lnt>35
+</span><span class=lnt>36
+</span><span class=lnt>37
+</span><span class=lnt>38
+</span><span class=lnt>39
+</span><span class=lnt>40
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=c1>// 封装自定义Hook
+</span></span></span><span class=line><span class=cl><span class=c1></span>
+</span></span><span class=line><span class=cl><span class=c1>// 问题: 布尔切换的逻辑 当前组件耦合在一起的 不方便复用
+</span></span></span><span class=line><span class=cl><span class=c1></span>
+</span></span><span class=line><span class=cl><span class=c1>// 解决思路: 自定义hook
+</span></span></span><span class=line><span class=cl><span class=c1></span>
+</span></span><span class=line><span class=cl><span class=kr>import</span> <span class=p>{</span> <span class=nx>useState</span> <span class=p>}</span> <span class=nx>from</span> <span class=s2>&#34;react&#34;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kd>function</span> <span class=nx>useToggle</span> <span class=p>()</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=c1>// 可复用的逻辑代码
+</span></span></span><span class=line><span class=cl><span class=c1></span>  <span class=kr>const</span> <span class=p>[</span><span class=nx>value</span><span class=p>,</span> <span class=nx>setValue</span><span class=p>]</span> <span class=o>=</span> <span class=nx>useState</span><span class=p>(</span><span class=kc>true</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  <span class=kr>const</span> <span class=nx>toggle</span> <span class=o>=</span> <span class=p>()</span> <span class=p>=&gt;</span> <span class=nx>setValue</span><span class=p>(</span><span class=o>!</span><span class=nx>value</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  <span class=c1>// 哪些状态和回调函数需要在其他组件中使用 return
+</span></span></span><span class=line><span class=cl><span class=c1></span>  <span class=k>return</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=nx>value</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=nx>toggle</span>
+</span></span><span class=line><span class=cl>  <span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>// 封装自定义hook通用思路
+</span></span></span><span class=line><span class=cl><span class=c1></span>
+</span></span><span class=line><span class=cl><span class=c1>// 1. 声明一个以use打头的函数
+</span></span></span><span class=line><span class=cl><span class=c1>// 2. 在函数体内封装可复用的逻辑（只要是可复用的逻辑）
+</span></span></span><span class=line><span class=cl><span class=c1>// 3. 把组件中用到的状态或者回调return出去（以对象或者数组）
+</span></span></span><span class=line><span class=cl><span class=c1>// 4. 在哪个组件中要用到这个逻辑，就执行这个函数，解构出来状态和回调进行使用
+</span></span></span><span class=line><span class=cl><span class=c1></span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kd>function</span> <span class=nx>App</span> <span class=p>()</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=kr>const</span> <span class=p>{</span> <span class=nx>value</span><span class=p>,</span> <span class=nx>toggle</span> <span class=p>}</span> <span class=o>=</span> <span class=nx>useToggle</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>  <span class=k>return</span> <span class=p>(</span>
+</span></span><span class=line><span class=cl>    <span class=o>&lt;</span><span class=nx>div</span><span class=o>&gt;</span>
+</span></span><span class=line><span class=cl>      <span class=p>{</span><span class=nx>value</span> <span class=o>&amp;&amp;</span> <span class=o>&lt;</span><span class=nx>div</span><span class=o>&gt;</span><span class=k>this</span> <span class=nx>is</span> <span class=nx>div</span><span class=o>&lt;</span><span class=err>/div&gt;}</span>
+</span></span><span class=line><span class=cl>      <span class=o>&lt;</span><span class=nx>button</span> <span class=nx>onClick</span><span class=o>=</span><span class=p>{</span><span class=nx>toggle</span><span class=p>}</span><span class=o>&gt;</span><span class=nx>toggle</span><span class=o>&lt;</span><span class=err>/button&gt;</span>
+</span></span><span class=line><span class=cl>    <span class=o>&lt;</span><span class=err>/div&gt;</span>
+</span></span><span class=line><span class=cl>  <span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kr>export</span> <span class=k>default</span> <span class=nx>App</span>
+</span></span></code></pre></td></tr></table></div></div><h3 id=react-hooks使用规则>React Hooks使用规则</h3><ol><li>只能在组件中或者其他自定义Hook函数中调用</li><li>只能在组件的顶层调用，不能嵌套在if、for、其它的函数中</li></ol><h2 id=组件间共享数据>组件间共享数据</h2><p>控制两个 Button 同时发生改变</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=kr>import</span> <span class=p>{</span> <span class=nx>useState</span> <span class=p>}</span> <span class=nx>from</span> <span class=s1>&#39;react&#39;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kr>export</span> <span class=k>default</span> <span class=kd>function</span> <span class=nx>MyApp</span><span class=p>()</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=kr>const</span> <span class=p>[</span><span class=nx>count</span><span class=p>,</span> <span class=nx>setCount</span><span class=p>]</span> <span class=o>=</span> <span class=nx>useState</span><span class=p>(</span><span class=mi>0</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  <span class=kd>function</span> <span class=nx>handleClick</span><span class=p>()</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=nx>setCount</span><span class=p>(</span><span class=nx>count</span> <span class=o>+</span> <span class=mi>1</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>  <span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  <span class=k>return</span> <span class=p>(</span>
+</span></span><span class=line><span class=cl>    <span class=o>&lt;</span><span class=nx>div</span><span class=o>&gt;</span>
+</span></span><span class=line><span class=cl>      <span class=o>&lt;</span><span class=nx>h1</span><span class=o>&gt;</span><span class=nx>Counters</span> <span class=nx>that</span> <span class=nx>update</span> <span class=nx>together</span><span class=o>&lt;</span><span class=err>/h1&gt;</span>
+</span></span><span class=line><span class=cl>      <span class=o>&lt;</span><span class=nx>MyButton</span> <span class=nx>count</span><span class=o>=</span><span class=p>{</span><span class=nx>count</span><span class=p>}</span> <span class=nx>onClick</span><span class=o>=</span><span class=p>{</span><span class=nx>handleClick</span><span class=p>}</span> <span class=o>/&gt;</span>
+</span></span><span class=line><span class=cl>      <span class=o>&lt;</span><span class=nx>MyButton</span> <span class=nx>count</span><span class=o>=</span><span class=p>{</span><span class=nx>count</span><span class=p>}</span> <span class=nx>onClick</span><span class=o>=</span><span class=p>{</span><span class=nx>handleClick</span><span class=p>}</span> <span class=o>/&gt;</span>
+</span></span><span class=line><span class=cl>    <span class=o>&lt;</span><span class=err>/div&gt;</span>
+</span></span><span class=line><span class=cl>  <span class=p>);</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kd>function</span> <span class=nx>MyButton</span><span class=p>({</span> <span class=nx>count</span><span class=p>,</span> <span class=nx>onClick</span> <span class=p>})</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=k>return</span> <span class=p>(</span>
+</span></span><span class=line><span class=cl>    <span class=o>&lt;</span><span class=nx>button</span> <span class=nx>onClick</span><span class=o>=</span><span class=p>{</span><span class=nx>onClick</span><span class=p>}</span><span class=o>&gt;</span>
+</span></span><span class=line><span class=cl>      <span class=nx>Clicked</span> <span class=p>{</span><span class=nx>count</span><span class=p>}</span> <span class=nx>times</span>
+</span></span><span class=line><span class=cl>    <span class=o>&lt;</span><span class=err>/button&gt;</span>
+</span></span><span class=line><span class=cl>  <span class=p>);</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></td></tr></table></div></div><h2 id=react副作用管理-useeffect>React副作用管理-useEffect</h2><p>useEffect是一个React Hook函数，用于在React组件中创建不是由事件引起而是由渲染本身引起的操作（副作用）, 比<strong>如发送AJAX请求，更改DOM</strong>等等</p><p><strong>组件渲染完毕之后就需要和服务器要数据，整个过程属于“只由渲染引起的操作”</strong></p><h3 id=基础使用-1>基础使用</h3><p>需求：在组件渲染完毕之后，立刻从服务端获取平道列表数据并显示到页面中</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=nx>useEffect</span><span class=p>(()</span> <span class=p>=&gt;</span> <span class=p>{},</span> <span class=p>[])</span>
+</span></span></code></pre></td></tr></table></div></div><ol><li>参数1是一个函数，可以把它叫做副作用函数，在函数内部可以放置要执行的操作</li><li>参数2是一个数组（可选参），在数组里放置依赖项，不同依赖项会影响第一个参数函数的执行，当是一个空数组的时候，副作用函数只会在组件渲染完毕之后执行一次</li></ol><div class=table-wrapper><table><thead><tr><th><strong>依赖项</strong></th><th><strong>副作用功函数的执行时机</strong></th></tr></thead><tbody><tr><td>没有依赖项</td><td>组件初始渲染 + 组件更新时执行</td></tr><tr><td>空数组依赖</td><td>只在初始渲染时执行一次</td></tr><tr><td>添加特定依赖项</td><td>组件初始渲染 + 依赖项变化时执行</td></tr></tbody></table></div><h3 id=清除副作用>清除副作用</h3><p>概念：在useEffect中编写的由渲染本身引起的对接组件外部的操作，社区也经常把它叫做副作用操作</p><p>比如在useEffect中开启了一个定时器，我们想在组件卸载时把这个定时器再清理掉，这个过程就是清理副作用</p><p><img src=/react-base.assets/image-20240117210617500.png loading=lazy alt=image-20240117210617500></p><p>清除副作用的函数最常见的执行时机是在组件卸载时自动执行</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=kr>import</span> <span class=p>{</span> <span class=nx>useEffect</span><span class=p>,</span> <span class=nx>useState</span> <span class=p>}</span> <span class=nx>from</span> <span class=s2>&#34;react&#34;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kd>function</span> <span class=nx>Son</span> <span class=p>()</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=c1>// 1. 渲染时开启一个定时器
+</span></span></span><span class=line><span class=cl><span class=c1></span>  <span class=nx>useEffect</span><span class=p>(()</span> <span class=p>=&gt;</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=kr>const</span> <span class=nx>timer</span> <span class=o>=</span> <span class=nx>setInterval</span><span class=p>(()</span> <span class=p>=&gt;</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>      <span class=nx>console</span><span class=p>.</span><span class=nx>log</span><span class=p>(</span><span class=s1>&#39;定时器执行中...&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=p>},</span> <span class=mi>1000</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=p>()</span> <span class=p>=&gt;</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>      <span class=c1>// 清除副作用(组件卸载时)
+</span></span></span><span class=line><span class=cl><span class=c1></span>      <span class=nx>clearInterval</span><span class=p>(</span><span class=nx>timer</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span><span class=line><span class=cl>  <span class=p>},</span> <span class=p>[])</span>
+</span></span><span class=line><span class=cl>  <span class=k>return</span> <span class=o>&lt;</span><span class=nx>div</span><span class=o>&gt;</span><span class=k>this</span> <span class=nx>is</span> <span class=nx>son</span><span class=o>&lt;</span><span class=err>/div&gt;</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kd>function</span> <span class=nx>App</span> <span class=p>()</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=c1>// 通过条件渲染模拟组件卸载
+</span></span></span><span class=line><span class=cl><span class=c1></span>  <span class=kr>const</span> <span class=p>[</span><span class=nx>show</span><span class=p>,</span> <span class=nx>setShow</span><span class=p>]</span> <span class=o>=</span> <span class=nx>useState</span><span class=p>(</span><span class=kc>true</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>  <span class=k>return</span> <span class=p>(</span>
+</span></span><span class=line><span class=cl>    <span class=o>&lt;</span><span class=nx>div</span><span class=o>&gt;</span>
+</span></span><span class=line><span class=cl>      <span class=p>{</span><span class=nx>show</span> <span class=o>&amp;&amp;</span> <span class=o>&lt;</span><span class=nx>Son</span> <span class=o>/&gt;</span><span class=p>}</span>
+</span></span><span class=line><span class=cl>      <span class=o>&lt;</span><span class=nx>button</span> <span class=nx>onClick</span><span class=o>=</span><span class=p>{()</span> <span class=p>=&gt;</span> <span class=nx>setShow</span><span class=p>(</span><span class=kc>false</span><span class=p>)}</span><span class=o>&gt;</span><span class=nx>卸载Son组件</span><span class=o>&lt;</span><span class=err>/button&gt;</span>
+</span></span><span class=line><span class=cl>    <span class=o>&lt;</span><span class=err>/div&gt;</span>
+</span></span><span class=line><span class=cl>  <span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kr>export</span> <span class=k>default</span> <span class=nx>App</span>
+</span></span></code></pre></td></tr></table></div></div><h2 id=参考>参考</h2><p><a class=link href=https://react.dev/learn target=_blank rel=noopener>React 官方文档</a></p><p><a class=link href=https://zh-hans.react.dev/learn target=_blank rel=noopener>React 官方中文文档</a></p><p><a class=link href=https://www.bilibili.com/video/BV1ZB4y1Z7o8 target=_blank rel=noopener>黑马前端 React 18 文档</a></p></section><footer class=article-footer><section class=article-tags><a href=/tags/react/>React</a></section><section class=article-copyright><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><path d="M14.5 9a3.5 4 0 100 6"/></svg><span>Licensed under CC BY-NC-SA 4.0</span></section></footer></article><footer class=site-footer><section class=copyright>&copy;
+2024 林风's Blog</section><section class=powerby>Built with <a href=https://gohugo.io/ target=_blank rel=noopener>Hugo</a><br>Theme <b><a href=https://github.com/CaiJimmy/hugo-theme-stack target=_blank rel=noopener data-version=3.21.0>Stack</a></b> designed by <a href=https://jimmycai.com target=_blank rel=noopener>Jimmy</a></section></footer><div class=pswp tabindex=-1 role=dialog aria-hidden=true><div class=pswp__bg></div><div class=pswp__scroll-wrap><div class=pswp__container><div class=pswp__item></div><div class=pswp__item></div><div class=pswp__item></div></div><div class="pswp__ui pswp__ui--hidden"><div class=pswp__top-bar><div class=pswp__counter></div><button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+<button class="pswp__button pswp__button--share" title=Share></button>
+<button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+<button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button><div class=pswp__preloader><div class=pswp__preloader__icn><div class=pswp__preloader__cut><div class=pswp__preloader__donut></div></div></div></div></div><div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap"><div class=pswp__share-tooltip></div></div><button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+</button>
+<button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button><div class=pswp__caption><div class=pswp__caption__center></div></div></div></div></div><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo=" crossorigin=anonymous defer></script><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU=" crossorigin=anonymous defer></script><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css crossorigin=anonymous><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css crossorigin=anonymous></main></div><script src=https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z+KMkF24hUW8WePSA9HM=" crossorigin=anonymous></script><script type=text/javascript src=/ts/main.js defer></script><script>(function(){const e=document.createElement("link");e.href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap",e.type="text/css",e.rel="stylesheet",document.head.appendChild(e)})()</script></body></html>

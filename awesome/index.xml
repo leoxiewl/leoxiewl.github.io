@@ -36,8 +36,10 @@ GitHub 上很火的 JS 教程，是英文版。中文是《你不知道的JavaSc
 &lt;h2 id="教程">教程&lt;/h2>
 &lt;h3 id="文档">文档&lt;/h3>
 &lt;ul>
-&lt;li>&lt;a class="link" href="https://react.dev/learn/tutorial-tic-tac-toe" target="_blank" rel="noopener"
+&lt;li>&lt;a class="link" href="https://react.dev/learn" target="_blank" rel="noopener"
 >React 官方文档&lt;/a>&lt;/li>
+&lt;li>&lt;a class="link" href="https://zh-hans.react.dev/learn" target="_blank" rel="noopener"
+>React 官方中文文档&lt;/a>&lt;/li>
 &lt;li>&lt;a class="link" href="http://nav.react-china.org/" target="_blank" rel="noopener"
 >React 中文索引&lt;/a>&lt;/li>
 &lt;li>&lt;a class="link" href="https://www.runoob.com/react/react-tutorial.html" target="_blank" rel="noopener"
