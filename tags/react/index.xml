@@ -5,6 +5,8 @@
 &lt;h2 id="教程">教程&lt;/h2>
 &lt;h3 id="文档">文档&lt;/h3>
 &lt;ul>
+&lt;li>&lt;a class="link" href="https://react.dev/learn/tutorial-tic-tac-toe" target="_blank" rel="noopener"
+>React 官方文档&lt;/a>&lt;/li>
 &lt;li>&lt;a class="link" href="http://nav.react-china.org/" target="_blank" rel="noopener"
 >React 中文索引&lt;/a>&lt;/li>
 &lt;li>&lt;a class="link" href="https://www.runoob.com/react/react-tutorial.html" target="_blank" rel="noopener"
@@ -16,6 +18,11 @@
 >黑马程序员前端React18入门到实战视频教程&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;p>有基础有实战，学完基础直接上手开发小案例&lt;/p>
+&lt;h2 id="开发框架">开发框架&lt;/h2>
+&lt;h3 id="nextjs">Next.js&lt;/h3>
+&lt;p>Next.js 是一个用于生产环境的 React 框架，提供生产环境所需的所有功能以及最佳的开发体验：包括静态及服务器端融合渲染、 支持 TypeScript、智能化打包、 路由预取等功能 无需任何配置。&lt;/p>
+&lt;p>&lt;a class="link" href="https://www.nextjs.cn/" target="_blank" rel="noopener"
+>中文文档&lt;/a>&lt;/p>
 &lt;h2 id="组件库">组件库&lt;/h2>
 &lt;ul>
 &lt;li>&lt;strong>Material-UI&lt;/strong>&lt;/li>
@@ -44,6 +51,8 @@
 &lt;blockquote>
 &lt;p>更新非常快 bug 有点多&lt;/p>
 &lt;/blockquote>
-&lt;p>官网：https://pro.ant.design/zh-CN
-GitHub：https://github.com/ant-design/ant-design-pro/&lt;/p>
+&lt;p>&lt;a class="link" href="https://pro.ant.design/zh-CN" target="_blank" rel="noopener"
+>官网&lt;/a> |
+&lt;a class="link" href="https://github.com/ant-design/ant-design-pro/" target="_blank" rel="noopener"
+>GitHub&lt;/a>&lt;/p>
 &lt;h2 id="社区">社区&lt;/h2></description></item></channel></rss>
