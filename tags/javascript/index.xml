@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>JavaScript on 林风's Blog</title><link>https://leoxiewl.github.io/tags/javascript/</link><description>Recent content in JavaScript on 林风's Blog</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Wed, 17 Jan 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://leoxiewl.github.io/tags/javascript/index.xml" rel="self" type="application/rss+xml"/><item><title>JavaScript 常用网站&amp;资源汇总</title><link>https://leoxiewl.github.io/2024/01/17/javascript-awesome/</link><pubDate>Wed, 17 Jan 2024 00:00:00 +0000</pubDate><guid>https://leoxiewl.github.io/2024/01/17/javascript-awesome/</guid><description>&lt;h2 id="教程">教程&lt;/h2>
+&lt;h3 id="快速入门">快速入门&lt;/h3>
+&lt;ul>
+&lt;li>
+&lt;p>&lt;a class="link" href="https://developer.mozilla.org/zh-CN/docs/Learn/Getting_started_with_the_web/JavaScript_basics" target="_blank" rel="noopener"
+>MDN Web Docs-JavaScript&lt;/a>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;a class="link" href="https://www.liaoxuefeng.com/wiki/1022910821149312/1023020895584256" target="_blank" rel="noopener"
+>廖雪峰 JavaScript教程&lt;/a>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;a class="link" href="https://www.bilibili.com/video/BV15L4y1a7or" target="_blank" rel="noopener"
+>四十分钟JavaScript快速入门 | 无废话且清晰流畅 | 手敲键盘&lt;/a>&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="书籍推荐">书籍推荐&lt;/h3>
+&lt;ul>
+&lt;li>
+&lt;p>《JavaScript DOM 编程艺术》
+被推荐最多的前端入门书籍&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>《JavsScript高级程序设计（第三版）》
+学习 JS 最好的书，学习 JS 每个阶段再去读，仍然会有收获。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;a class="link" href="https://github.com/getify/You-Dont-Know-JS/tree/2nd-ed/get-started" target="_blank" rel="noopener"
+>You-Dont-Know-JS&lt;/a>
+GitHub 上很火的 JS 教程，是英文版。中文是《你不知道的JavaScript》
+可以用来提升自己对 JS 语法的理解程度。&lt;/p>
+&lt;/li>
+&lt;/ul></description></item></channel></rss>
