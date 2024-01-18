@@ -1,7 +1,7 @@
 <!doctype html><html lang=zh-cn dir=ltr><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="React 基础 React由Meta公司开发，是一个用于 构建Web和原生交互界面的库 The library for web and native user interfaces React 优势 虚拟DOM（Virtual DOM） 使用虚拟D"><title>React 基础</title>
 <link rel=canonical href=https://leoxiewl.github.io/2024/01/16/react-base/><link rel=stylesheet href=/scss/style.min.abbd69b2908fdfcd5179898beaafd374514a86538d81639ddd2c58c06ae54e40.css><meta property="og:title" content="React 基础"><meta property="og:description" content="React 基础 React由Meta公司开发，是一个用于 构建Web和原生交互界面的库 The library for web and native user interfaces React 优势 虚拟DOM（Virtual DOM） 使用虚拟D"><meta property="og:url" content="https://leoxiewl.github.io/2024/01/16/react-base/"><meta property="og:site_name" content="林风's Blog"><meta property="og:type" content="article"><meta property="article:section" content="Post"><meta property="article:tag" content="React"><meta property="article:published_time" content="2024-01-16T00:00:00+00:00"><meta property="article:modified_time" content="2024-01-16T00:00:00+00:00"><meta name=twitter:title content="React 基础"><meta name=twitter:description content="React 基础 React由Meta公司开发，是一个用于 构建Web和原生交互界面的库 The library for web and native user interfaces React 优势 虚拟DOM（Virtual DOM） 使用虚拟D"><link rel="shortcut icon" href=image.jpg></head><body class=article-page><script>(function(){const e="StackColorScheme";localStorage.getItem(e)||localStorage.setItem(e,"auto")})()</script><script>(function(){const t="StackColorScheme",e=localStorage.getItem(t),n=window.matchMedia("(prefers-color-scheme: dark)").matches===!0;e=="dark"||e==="auto"&&n?document.documentElement.dataset.scheme="dark":document.documentElement.dataset.scheme="light"})()</script><div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky"><button class="hamburger hamburger--spin" type=button id=toggle-menu aria-label="Toggle Menu">
 <span class=hamburger-box><span class=hamburger-inner></span></span></button><header><figure class=site-avatar><a href=/><img src=/img/image_hua30b0e19ea032fb55ca92f5e02a987e8_35363_300x0_resize_q75_box.jpg width=300 height=300 class=site-logo loading=lazy alt=Avatar>
-</a><span class=emoji>🍥</span></figure><div class=site-meta><h1 class=site-name><a href=/>林风's Blog</a></h1><h2 class=site-description>软件开发 | 读书</h2></div></header><ol class=social-menu><li><a href=https://github.com/leoxiewl target=_blank title=GitHub rel=me><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6.0 00-1.3-3.2 4.2 4.2.0 00-.1-3.2s-1.1-.3-3.5 1.3a12.3 12.3.0 00-6.2.0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2.0 00-.1 3.2A4.6 4.6.0 004 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg></a></li></ol><ol class=menu id=main-menu><li><a href=/><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><polyline points="5 12 3 12 12 3 21 12 19 12"/><path d="M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7"/><path d="M9 21v-6a2 2 0 012-2h2a2 2 0 012 2v6"/></svg><span>主页</span></a></li><li><a href=/archives/><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><rect x="3" y="4" width="18" height="4" rx="2"/><path d="M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8"/><line x1="10" y1="12" x2="14" y2="12"/></svg><span>归档</span></a></li><li><a href=/links/><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><path d="M10 14a3.5 3.5.0 005 0l4-4a3.5 3.5.0 00-5-5l-.5.5"/><path d="M14 10a3.5 3.5.0 00-5 0l-4 4a3.5 3.5.0 005 5l.5-.5"/></svg><span>Links</span></a></li><div class=menu-bottom-section><li id=dark-mode-toggle><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="8" cy="12" r="2"/><rect x="2" y="6" width="20" height="12" rx="6"/></svg><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="16" cy="12" r="2"/><rect x="2" y="6" width="20" height="12" rx="6"/></svg><span>Dark Mode</span></li></div></ol></aside><aside class="sidebar right-sidebar sticky"><section class="widget archives"><div class=widget-icon><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><line x1="5" y1="9" x2="19" y2="9"/><line x1="5" y1="15" x2="19" y2="15"/><line x1="11" y1="4" x2="7" y2="20"/><line x1="17" y1="4" x2="13" y2="20"/></svg></div><h2 class="widget-title section-title">Table of contents</h2><div class=widget--toc><nav id=TableOfContents><ol><li><a href=#react-基础>React 基础</a></li><li><a href=#react-优势>React 优势</a></li><li><a href=#react-开发环境搭建>React 开发环境搭建</a><ol><li><a href=#create-react-app>create-react-app</a></li><li><a href=#nextjs>Next.js</a></li></ol></li><li><a href=#组件-组合页面>组件: 组合页面</a></li><li><a href=#jsx-构建-ui>JSX: 构建 UI</a><ol><li><a href=#jsx-语法限制>JSX 语法限制</a></li><li><a href=#jsx-渲染数据>JSX 渲染数据</a></li><li><a href=#map-方法实现列表渲染>map 方法实现列表渲染</a></li><li><a href=#逻辑符号实现条件渲染>逻辑符号实现条件渲染</a></li><li><a href=#复杂条件渲染>复杂条件渲染</a></li></ol></li><li><a href=#组件样式-css>组件样式 CSS</a></li><li><a href=#组件属性传参-props>组件属性传参 props</a></li><li><a href=#react-事件绑定>React 事件绑定</a><ol><li><a href=#事件参数>事件参数</a></li><li><a href=#传递自定义参数>传递自定义参数</a></li><li><a href=#同时传递事件对象和自定义参数>同时传递事件对象和自定义参数</a></li></ol></li><li><a href=#更新界面状态管理-usestate>更新界面(状态管理)-useState</a><ol><li><a href=#基础使用>基础使用</a></li><li><a href=#修改对象状态>修改对象状态</a></li></ol></li><li><a href=#hook-函数>Hook 函数</a><ol><li><a href=#自定义-hook-函数>自定义 Hook 函数</a></li><li><a href=#react-hooks使用规则>React Hooks使用规则</a></li></ol></li><li><a href=#组件间共享数据>组件间共享数据</a></li><li><a href=#react副作用管理-useeffect>React副作用管理-useEffect</a><ol><li><a href=#基础使用-1>基础使用</a></li><li><a href=#清除副作用>清除副作用</a></li></ol></li><li><a href=#参考>参考</a></li></ol></nav></div></section></aside><main class="main full-width"><article class=main-article><header class=article-header><div class=article-details><header class=article-category><a href=/%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AE%B0/>编程笔记</a></header><div class=article-title-wrapper><h2 class=article-title><a href=/2024/01/16/react-base/>React 基础</a></h2></div><footer class=article-time><div><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><path d="M11.795 21H5a2 2 0 01-2-2V7a2 2 0 012-2h12a2 2 0 012 2v4"/><circle cx="18" cy="18" r="4"/><path d="M15 3v4"/><path d="M7 3v4"/><path d="M3 11h16"/><path d="M18 16.496V18l1 1"/></svg><time class=article-time--published>Jan 16, 2024</time></div><div><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg><time class=article-time--reading>8 minute read</time></div></footer></div></header><section class=article-content><h2 id=react-基础>React 基础</h2><p>React由Meta公司开发，是一个用于 构建Web和原生交互界面的库</p><blockquote><p>The library for web and native user interfaces</p></blockquote><h2 id=react-优势>React 优势</h2><p><strong>虚拟DOM（Virtual DOM）</strong></p><p>使用虚拟DOM，通过比较前后两个状态的差异，最小化DOM操作，提高性能。</p><p><strong>组件化</strong></p><p>强调组件化开发，将用户界面划分为独立的、可复用的组件。</p><p><strong>生态系统</strong></p><p>拥有庞大的生态系统，许多公司和项目使用 React，有丰富的社区支持。</p><p><strong>社区支持</strong></p><p>拥有庞大的社区，得到了来自Facebook等大公司的支持。</p><p><strong>适用场景</strong></p><p>更适用于大型应用和需要高度定制化的项目。</p><h2 id=react-开发环境搭建>React 开发环境搭建</h2><h3 id=create-react-app>create-react-app</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</a><span class=emoji>🍥</span></figure><div class=site-meta><h1 class=site-name><a href=/>林风's Blog</a></h1><h2 class=site-description>软件开发 | 读书</h2></div></header><ol class=social-menu><li><a href=https://github.com/leoxiewl target=_blank title=GitHub rel=me><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6.0 00-1.3-3.2 4.2 4.2.0 00-.1-3.2s-1.1-.3-3.5 1.3a12.3 12.3.0 00-6.2.0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2.0 00-.1 3.2A4.6 4.6.0 004 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg></a></li></ol><ol class=menu id=main-menu><li><a href=/><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><polyline points="5 12 3 12 12 3 21 12 19 12"/><path d="M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7"/><path d="M9 21v-6a2 2 0 012-2h2a2 2 0 012 2v6"/></svg><span>主页</span></a></li><li><a href=/archives/><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><rect x="3" y="4" width="18" height="4" rx="2"/><path d="M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8"/><line x1="10" y1="12" x2="14" y2="12"/></svg><span>归档</span></a></li><li><a href=/links/><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><path d="M10 14a3.5 3.5.0 005 0l4-4a3.5 3.5.0 00-5-5l-.5.5"/><path d="M14 10a3.5 3.5.0 00-5 0l-4 4a3.5 3.5.0 005 5l.5-.5"/></svg><span>Links</span></a></li><div class=menu-bottom-section><li id=dark-mode-toggle><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="8" cy="12" r="2"/><rect x="2" y="6" width="20" height="12" rx="6"/></svg><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="16" cy="12" r="2"/><rect x="2" y="6" width="20" height="12" rx="6"/></svg><span>Dark Mode</span></li></div></ol></aside><aside class="sidebar right-sidebar sticky"><section class="widget archives"><div class=widget-icon><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><line x1="5" y1="9" x2="19" y2="9"/><line x1="5" y1="15" x2="19" y2="15"/><line x1="11" y1="4" x2="7" y2="20"/><line x1="17" y1="4" x2="13" y2="20"/></svg></div><h2 class="widget-title section-title">Table of contents</h2><div class=widget--toc><nav id=TableOfContents><ol><li><a href=#react-基础>React 基础</a></li><li><a href=#react-优势>React 优势</a></li><li><a href=#react-开发环境搭建>React 开发环境搭建</a><ol><li><a href=#create-react-app>create-react-app</a></li><li><a href=#nextjs>Next.js</a></li></ol></li><li><a href=#组件-组合页面>组件: 组合页面</a></li><li><a href=#jsx-构建-ui>JSX: 构建 UI</a><ol><li><a href=#jsx-语法限制>JSX 语法限制</a></li><li><a href=#jsx-渲染数据>JSX 渲染数据</a></li><li><a href=#map-方法实现列表渲染>map 方法实现列表渲染</a></li><li><a href=#逻辑符号实现条件渲染>逻辑符号实现条件渲染</a></li><li><a href=#复杂条件渲染>复杂条件渲染</a></li></ol></li><li><a href=#组件样式-css>组件样式 CSS</a></li><li><a href=#组件属性传参-props>组件属性传参 props</a></li><li><a href=#react-事件绑定>React 事件绑定</a><ol><li><a href=#事件参数>事件参数</a></li><li><a href=#传递自定义参数>传递自定义参数</a></li><li><a href=#同时传递事件对象和自定义参数>同时传递事件对象和自定义参数</a></li></ol></li><li><a href=#更新界面状态管理-usestate>更新界面(状态管理)-useState</a><ol><li><a href=#基础使用>基础使用</a></li><li><a href=#修改对象状态>修改对象状态</a></li></ol></li><li><a href=#hook-函数>Hook 函数</a><ol><li><a href=#自定义-hook-函数>自定义 Hook 函数</a></li><li><a href=#react-hooks使用规则>React Hooks使用规则</a></li></ol></li><li><a href=#组件间共享数据>组件间共享数据</a></li><li><a href=#react副作用管理-useeffect>React副作用管理-useEffect</a><ol><li><a href=#基础使用-1>基础使用</a></li><li><a href=#清除副作用>清除副作用</a></li></ol></li><li><a href=#reactrouter>ReactRouter</a><ol><li><a href=#路由引入>路由引入</a></li><li><a href=#基本使用>基本使用</a></li><li><a href=#路由抽取>路由抽取</a></li><li><a href=#路由导航>路由导航</a><ol><li><a href=#声明式导航>声明式导航</a></li><li><a href=#编程式导航>编程式导航</a></li></ol></li><li><a href=#导航传参>导航传参</a></li><li><a href=#嵌套路由>嵌套路由</a><ol><li><a href=#嵌套路由配置>嵌套路由配置</a></li><li><a href=#默认二级路由配置>默认二级路由配置</a></li></ol></li><li><a href=#404-路由配置>404 路由配置</a></li><li><a href=#两种路由模式>两种路由模式</a></li></ol></li><li><a href=#参考>参考</a></li></ol></nav></div></section></aside><main class="main full-width"><article class=main-article><header class=article-header><div class=article-details><header class=article-category><a href=/%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AE%B0/>编程笔记</a></header><div class=article-title-wrapper><h2 class=article-title><a href=/2024/01/16/react-base/>React 基础</a></h2></div><footer class=article-time><div><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><path d="M11.795 21H5a2 2 0 01-2-2V7a2 2 0 012-2h12a2 2 0 012 2v4"/><circle cx="18" cy="18" r="4"/><path d="M15 3v4"/><path d="M7 3v4"/><path d="M3 11h16"/><path d="M18 16.496V18l1 1"/></svg><time class=article-time--published>Jan 16, 2024</time></div><div><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg><time class=article-time--reading>12 minute read</time></div></footer></div></header><section class=article-content><h2 id=react-基础>React 基础</h2><p>React由Meta公司开发，是一个用于 构建Web和原生交互界面的库</p><blockquote><p>The library for web and native user interfaces</p></blockquote><h2 id=react-优势>React 优势</h2><p><strong>虚拟DOM（Virtual DOM）</strong></p><p>使用虚拟DOM，通过比较前后两个状态的差异，最小化DOM操作，提高性能。</p><p><strong>组件化</strong></p><p>强调组件化开发，将用户界面划分为独立的、可复用的组件。</p><p><strong>生态系统</strong></p><p>拥有庞大的生态系统，许多公司和项目使用 React，有丰富的社区支持。</p><p><strong>社区支持</strong></p><p>拥有庞大的社区，得到了来自Facebook等大公司的支持。</p><p><strong>适用场景</strong></p><p>更适用于大型应用和需要高度定制化的项目。</p><h2 id=react-开发环境搭建>React 开发环境搭建</h2><h3 id=create-react-app>create-react-app</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
 </span><span class=lnt>2
 </span><span class=lnt>3
 </span><span class=lnt>4
@@ -602,7 +602,389 @@
 </span></span><span class=line><span class=cl><span class=p>}</span>
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl><span class=kr>export</span> <span class=k>default</span> <span class=nx>App</span>
-</span></span></code></pre></td></tr></table></div></div><h2 id=参考>参考</h2><p><a class=link href=https://react.dev/learn target=_blank rel=noopener>React 官方文档</a></p><p><a class=link href=https://zh-hans.react.dev/learn target=_blank rel=noopener>React 官方中文文档</a></p><p><a class=link href=https://www.bilibili.com/video/BV1ZB4y1Z7o8 target=_blank rel=noopener>黑马前端 React 18 文档</a></p></section><footer class=article-footer><section class=article-tags><a href=/tags/react/>React</a></section><section class=article-copyright><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><path d="M14.5 9a3.5 4 0 100 6"/></svg><span>Licensed under CC BY-NC-SA 4.0</span></section></footer></article><footer class=site-footer><section class=copyright>&copy;
+</span></span></code></pre></td></tr></table></div></div><h2 id=reactrouter>ReactRouter</h2><p>一个路径 path 对应一个组件 component 。</p><p>当我们在浏览器中访问一个 path 的时候，path 对应的组件会在页面中进行渲染</p><h3 id=路由引入>路由引入</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=c1># 安装最新的ReactRouter包</span>
+</span></span><span class=line><span class=cl>npm i react-router-dom
+</span></span></code></pre></td></tr></table></div></div><h3 id=基本使用>基本使用</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=kr>import</span> <span class=nx>React</span> <span class=nx>from</span> <span class=s1>&#39;react&#39;</span>
+</span></span><span class=line><span class=cl><span class=kr>import</span> <span class=nx>ReactDOM</span> <span class=nx>from</span> <span class=s1>&#39;react-dom/client&#39;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kr>const</span> <span class=nx>router</span> <span class=o>=</span> <span class=nx>createBrowserRouter</span><span class=p>([</span>
+</span></span><span class=line><span class=cl>  <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=nx>path</span><span class=o>:</span><span class=s1>&#39;/login&#39;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=nx>element</span><span class=o>:</span> <span class=o>&lt;</span><span class=nx>div</span><span class=o>&gt;</span><span class=nx>登录</span><span class=o>&lt;</span><span class=err>/div&gt;</span>
+</span></span><span class=line><span class=cl>  <span class=p>},</span>
+</span></span><span class=line><span class=cl>  <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=nx>path</span><span class=o>:</span><span class=s1>&#39;/article&#39;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=nx>element</span><span class=o>:</span> <span class=o>&lt;</span><span class=nx>div</span><span class=o>&gt;</span><span class=nx>文章</span><span class=o>&lt;</span><span class=err>/div&gt;</span>
+</span></span><span class=line><span class=cl>  <span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=p>])</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nx>ReactDOM</span><span class=p>.</span><span class=nx>createRoot</span><span class=p>(</span><span class=nb>document</span><span class=p>.</span><span class=nx>getElementById</span><span class=p>(</span><span class=s1>&#39;root&#39;</span><span class=p>)).</span><span class=nx>render</span><span class=p>(</span>
+</span></span><span class=line><span class=cl>  <span class=o>&lt;</span><span class=nx>RouterProvider</span> <span class=nx>router</span><span class=o>=</span><span class=p>{</span><span class=nx>router</span><span class=p>}</span><span class=o>/&gt;</span>
+</span></span><span class=line><span class=cl><span class=p>)</span>
+</span></span></code></pre></td></tr></table></div></div><h3 id=路由抽取>路由抽取</h3><p><strong>router.js</strong></p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=kr>import</span> <span class=p>{</span><span class=nx>createBrowserRouter</span><span class=p>}</span> <span class=nx>from</span> <span class=s2>&#34;react-router-dom&#34;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=kr>import</span> <span class=nx>Login</span> <span class=nx>from</span> <span class=s2>&#34;../page/Login&#34;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=kr>import</span> <span class=nx>Article</span> <span class=nx>from</span> <span class=s2>&#34;../page/Article&#34;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kr>const</span> <span class=nx>router</span> <span class=o>=</span> <span class=nx>createBrowserRouter</span><span class=p>([</span>
+</span></span><span class=line><span class=cl>    <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=nx>path</span><span class=o>:</span><span class=s1>&#39;/login&#39;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>        <span class=nx>element</span><span class=o>:</span> <span class=o>&lt;</span><span class=nx>Login</span><span class=o>/&gt;</span>
+</span></span><span class=line><span class=cl>    <span class=p>},</span>
+</span></span><span class=line><span class=cl>    <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=nx>path</span><span class=o>:</span><span class=s1>&#39;/article&#39;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>        <span class=nx>element</span><span class=o>:</span> <span class=o>&lt;</span><span class=nx>Article</span><span class=o>/&gt;</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=p>])</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kr>export</span> <span class=k>default</span> <span class=nx>router</span>
+</span></span></code></pre></td></tr></table></div></div><p><strong>index.js</strong></p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=kr>import</span> <span class=nx>React</span> <span class=nx>from</span> <span class=s1>&#39;react&#39;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=kr>import</span> <span class=nx>ReactDOM</span> <span class=nx>from</span> <span class=s1>&#39;react-dom/client&#39;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=kr>import</span> <span class=s1>&#39;./index.css&#39;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=kr>import</span> <span class=nx>reportWebVitals</span> <span class=nx>from</span> <span class=s1>&#39;./reportWebVitals&#39;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=kr>import</span> <span class=nx>router</span> <span class=nx>from</span> <span class=s2>&#34;./router&#34;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=kr>import</span> <span class=p>{</span><span class=nx>RouterProvider</span><span class=p>}</span> <span class=nx>from</span> <span class=s2>&#34;react-router-dom&#34;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nx>ReactDOM</span><span class=p>.</span><span class=nx>createRoot</span><span class=p>(</span><span class=nb>document</span><span class=p>.</span><span class=nx>getElementById</span><span class=p>(</span><span class=s1>&#39;root&#39;</span><span class=p>)).</span><span class=nx>render</span><span class=p>(</span>
+</span></span><span class=line><span class=cl>    <span class=o>&lt;</span><span class=nx>RouterProvider</span> <span class=nx>router</span><span class=o>=</span><span class=p>{</span><span class=nx>router</span><span class=p>}</span><span class=o>/&gt;</span>
+</span></span><span class=line><span class=cl><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>// If you want to start measuring performance in your app, pass a function
+</span></span></span><span class=line><span class=cl><span class=c1>// to log results (for example: reportWebVitals(console.log))
+</span></span></span><span class=line><span class=cl><span class=c1>// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=nx>reportWebVitals</span><span class=p>();</span>
+</span></span></code></pre></td></tr></table></div></div><p><strong>页面(也可以用 jsx)</strong></p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=kr>const</span> <span class=nx>Article</span> <span class=o>=</span> <span class=p>()</span> <span class=p>=&gt;</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=o>&lt;</span><span class=nx>div</span><span class=o>&gt;</span><span class=nx>我是文章页</span><span class=o>&lt;</span><span class=err>/div&gt;</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kr>export</span> <span class=k>default</span> <span class=nx>Article</span>
+</span></span></code></pre></td></tr></table></div></div><h3 id=路由导航>路由导航</h3><p>路由系统中的多个路由之间需要进行<strong>路由跳转</strong>，并且在跳转的同时有可能需要<strong>传递参数进行通信</strong></p><h4 id=声明式导航>声明式导航</h4><p>声明式导航是指通过在模版中通过 <code>&lt;Link/> </code>组件描述出要跳转到哪里去，比如后台管理系统的左侧菜单通常使用这种方式进行</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=o>&lt;</span><span class=nx>Link</span> <span class=nx>to</span><span class=o>=</span><span class=p>{</span><span class=s2>&#34;/article&#34;</span><span class=p>}</span><span class=o>&gt;</span><span class=nx>文章页</span><span class=o>&lt;</span><span class=err>/Link&gt;</span>
+</span></span></code></pre></td></tr></table></div></div><p>语法说明：通过给组件的to属性指定要跳转到路由path，组件会被渲染为浏览器支持的a链接，如果需要传参直接通过字符串拼接的方式拼接参数即可</p><h4 id=编程式导航>编程式导航</h4><p>编程式导航是指通过 <code>useNavigate</code> 钩子得到导航方法，然后通过调用方法以命令式的形式进行路由跳转，比如想在登录请求完毕之后跳转就可以选择这种方式，更加灵活</p><p><strong>只需要调用 navigate 方法就能跳转</strong></p><p>语法说明：通过调用navigate方法传入地址path实现跳转</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=kr>import</span> <span class=p>{</span><span class=nx>Link</span><span class=p>,</span> <span class=nx>useNavigate</span><span class=p>}</span> <span class=nx>from</span> <span class=s2>&#34;react-router-dom&#34;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kr>const</span> <span class=nx>Login</span> <span class=o>=</span> <span class=p>()</span> <span class=p>=&gt;</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=kr>const</span> <span class=nx>navicate</span> <span class=o>=</span> <span class=nx>useNavigate</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=p>(</span>
+</span></span><span class=line><span class=cl>        <span class=o>&lt;</span><span class=nx>div</span><span class=o>&gt;</span>
+</span></span><span class=line><span class=cl>            <span class=nx>我是登录页</span>
+</span></span><span class=line><span class=cl>            <span class=o>&lt;</span><span class=nx>Link</span> <span class=nx>to</span><span class=o>=</span><span class=p>{</span><span class=s2>&#34;/article&#34;</span><span class=p>}</span><span class=o>&gt;</span><span class=nx>文章页</span><span class=o>&lt;</span><span class=err>/Link&gt;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=p>{</span><span class=cm>/*  命令式*/</span><span class=p>}</span>
+</span></span><span class=line><span class=cl>            <span class=o>&lt;</span><span class=nx>button</span> <span class=nx>onClick</span><span class=o>=</span><span class=p>{()=&gt;</span><span class=nx>navicate</span><span class=p>(</span><span class=s1>&#39;/article&#39;</span><span class=p>)}</span><span class=o>&gt;</span><span class=nx>跳转到文章页</span><span class=o>&lt;</span><span class=err>/button&gt;</span>
+</span></span><span class=line><span class=cl>        <span class=o>&lt;</span><span class=err>/div&gt;</span>
+</span></span><span class=line><span class=cl>    <span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kr>export</span> <span class=k>default</span> <span class=nx>Login</span>
+</span></span></code></pre></td></tr></table></div></div><h3 id=导航传参>导航传参</h3><p><strong>searchParam 传参</strong></p><ol><li>导航跳转-路由拼接传参</li></ol><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=kr>import</span> <span class=p>{</span><span class=nx>Link</span><span class=p>,</span> <span class=nx>useNavigate</span><span class=p>}</span> <span class=nx>from</span> <span class=s2>&#34;react-router-dom&#34;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kr>const</span> <span class=nx>Login</span> <span class=o>=</span> <span class=p>()</span> <span class=p>=&gt;</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=kr>const</span> <span class=nx>navicate</span> <span class=o>=</span> <span class=nx>useNavigate</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=p>(</span>
+</span></span><span class=line><span class=cl>        <span class=o>&lt;</span><span class=nx>div</span><span class=o>&gt;</span>
+</span></span><span class=line><span class=cl>            <span class=nx>我是登录页</span>
+</span></span><span class=line><span class=cl>            <span class=o>&lt;</span><span class=nx>Link</span> <span class=nx>to</span><span class=o>=</span><span class=p>{</span><span class=s2>&#34;/article&#34;</span><span class=p>}</span><span class=o>&gt;</span><span class=nx>文章页</span><span class=o>&lt;</span><span class=err>/Link&gt;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>            <span class=p>{</span><span class=cm>/* 命令式 */</span><span class=p>}</span>
+</span></span><span class=line><span class=cl>            <span class=o>&lt;</span><span class=nx>button</span> <span class=nx>onClick</span><span class=o>=</span><span class=p>{()</span> <span class=p>=&gt;</span> <span class=nx>navicate</span><span class=p>(</span><span class=s1>&#39;/article&#39;</span><span class=p>)}</span><span class=o>&gt;</span><span class=nx>跳转到文章页</span><span class=o>&lt;</span><span class=err>/button&gt;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>            <span class=p>{</span><span class=cm>/* 导航 search 传参 */</span><span class=p>}</span>
+</span></span><span class=line><span class=cl>            <span class=o>&lt;</span><span class=nx>button</span> <span class=nx>onClick</span><span class=o>=</span><span class=p>{()</span> <span class=p>=&gt;</span> <span class=nx>navicate</span><span class=p>(</span><span class=s1>&#39;/article?id=1001&amp;name=jack&#39;</span><span class=p>)}</span><span class=o>&gt;</span><span class=nx>导航</span> <span class=nx>search</span> <span class=nx>传参</span><span class=o>&lt;</span><span class=err>/button&gt;</span>
+</span></span><span class=line><span class=cl>        <span class=o>&lt;</span><span class=err>/div&gt;</span>
+</span></span><span class=line><span class=cl>    <span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kr>export</span> <span class=k>default</span> <span class=nx>Login</span>
+</span></span></code></pre></td></tr></table></div></div><ol start=2><li>接收参数-useSearchParams</li></ol><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span><span class=lnt>9
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=kr>import</span> <span class=p>{</span><span class=nx>useSearchParams</span><span class=p>}</span> <span class=nx>from</span> <span class=s2>&#34;react-router-dom&#34;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kr>const</span> <span class=nx>Article</span> <span class=o>=</span> <span class=p>()</span> <span class=p>=&gt;</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=kr>const</span> <span class=p>[</span><span class=nx>params</span><span class=p>]</span> <span class=o>=</span> <span class=nx>useSearchParams</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>    <span class=kr>const</span> <span class=nx>name</span> <span class=o>=</span> <span class=nx>params</span><span class=p>.</span><span class=nx>get</span><span class=p>(</span><span class=s1>&#39;name&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=o>&lt;</span><span class=nx>div</span><span class=o>&gt;</span><span class=nx>我是文章页</span> <span class=nx>获取到的参数</span><span class=o>-</span><span class=p>{</span><span class=nx>name</span><span class=p>}</span><span class=o>&lt;</span><span class=err>/div&gt;</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kr>export</span> <span class=k>default</span> <span class=nx>Article</span>
+</span></span></code></pre></td></tr></table></div></div><p><strong>params 传参</strong></p><p>步骤</p><ol><li>路径添加参数</li><li>路由占位符</li><li>获取参数-useParams</li></ol><blockquote><p>可以加多个，只需要添加占位符即可</p></blockquote><ol><li>路径添加参数</li></ol><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=kr>import</span> <span class=p>{</span><span class=nx>Link</span><span class=p>,</span> <span class=nx>useNavigate</span><span class=p>}</span> <span class=nx>from</span> <span class=s2>&#34;react-router-dom&#34;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kr>const</span> <span class=nx>Login</span> <span class=o>=</span> <span class=p>()</span> <span class=p>=&gt;</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=kr>const</span> <span class=nx>navicate</span> <span class=o>=</span> <span class=nx>useNavigate</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=p>(</span>
+</span></span><span class=line><span class=cl>        <span class=o>&lt;</span><span class=nx>div</span><span class=o>&gt;</span>
+</span></span><span class=line><span class=cl>            <span class=p>{</span><span class=cm>/* 导航 params 传参 */</span><span class=p>}</span>
+</span></span><span class=line><span class=cl>            <span class=o>&lt;</span><span class=nx>button</span> <span class=nx>onClick</span><span class=o>=</span><span class=p>{()</span> <span class=p>=&gt;</span> <span class=nx>navicate</span><span class=p>(</span><span class=s1>&#39;/article/jack&#39;</span><span class=p>)}</span><span class=o>&gt;</span><span class=nx>导航</span> <span class=nx>params</span> <span class=nx>传参</span><span class=o>&lt;</span><span class=err>/button&gt;</span>
+</span></span><span class=line><span class=cl>        <span class=o>&lt;</span><span class=err>/div&gt;</span>
+</span></span><span class=line><span class=cl>    <span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kr>export</span> <span class=k>default</span> <span class=nx>Login</span>
+</span></span></code></pre></td></tr></table></div></div><ol start=2><li>路由占位符</li></ol><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=kr>import</span> <span class=p>{</span><span class=nx>createBrowserRouter</span><span class=p>}</span> <span class=nx>from</span> <span class=s2>&#34;react-router-dom&#34;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=kr>import</span> <span class=nx>Login</span> <span class=nx>from</span> <span class=s2>&#34;../page/Login&#34;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=kr>import</span> <span class=nx>Article</span> <span class=nx>from</span> <span class=s2>&#34;../page/Article&#34;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kr>const</span> <span class=nx>router</span> <span class=o>=</span> <span class=nx>createBrowserRouter</span><span class=p>([</span>
+</span></span><span class=line><span class=cl>    <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=nx>path</span><span class=o>:</span><span class=s1>&#39;/login&#39;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>        <span class=nx>element</span><span class=o>:</span> <span class=o>&lt;</span><span class=nx>Login</span><span class=o>/&gt;</span>
+</span></span><span class=line><span class=cl>    <span class=p>},</span>
+</span></span><span class=line><span class=cl>    <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=nx>path</span><span class=o>:</span><span class=s1>&#39;/article/:name&#39;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>        <span class=nx>element</span><span class=o>:</span> <span class=o>&lt;</span><span class=nx>Article</span><span class=o>/&gt;</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=p>])</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kr>export</span> <span class=k>default</span> <span class=nx>router</span>
+</span></span></code></pre></td></tr></table></div></div><ol start=3><li>获取参数</li></ol><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=kr>import</span> <span class=p>{</span><span class=nx>useParams</span><span class=p>,</span> <span class=nx>useSearchParams</span><span class=p>}</span> <span class=nx>from</span> <span class=s2>&#34;react-router-dom&#34;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kr>const</span> <span class=nx>Article</span> <span class=o>=</span> <span class=p>()</span> <span class=p>=&gt;</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=kr>const</span> <span class=nx>params1</span><span class=o>=</span> <span class=nx>useParams</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>    <span class=kd>let</span> <span class=nx>nameParams</span> <span class=o>=</span> <span class=nx>params1</span><span class=p>.</span><span class=nx>name</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=o>&lt;</span><span class=nx>div</span><span class=o>&gt;----</span> <span class=nx>params</span> <span class=nx>传参</span> <span class=p>{</span><span class=nx>nameParams</span><span class=p>}</span> <span class=o>&lt;</span><span class=err>/div&gt;</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kr>export</span> <span class=k>default</span> <span class=nx>Article</span>
+</span></span></code></pre></td></tr></table></div></div><h3 id=嵌套路由>嵌套路由</h3><p>在一级路由中又内嵌了其他路由，这种关系就叫做嵌套路由</p><h4 id=嵌套路由配置>嵌套路由配置</h4><p>实现步骤</p><pre><code>1. 使用 `children`属性配置路由嵌套关系  
+2. 使用 `&lt;Outlet/&gt;` 组件配置二级路由渲染位置
+</code></pre><ol><li>嵌套路由配置</li></ol><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=nx>path</span><span class=o>:</span> <span class=s1>&#39;/&#39;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>        <span class=nx>element</span><span class=o>:</span> <span class=o>&lt;</span><span class=nx>Layout</span><span class=o>/&gt;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>        <span class=nx>children</span><span class=o>:</span> <span class=p>[</span>
+</span></span><span class=line><span class=cl>            <span class=p>{</span>
+</span></span><span class=line><span class=cl>                <span class=nx>path</span><span class=o>:</span> <span class=s1>&#39;board&#39;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>                <span class=nx>element</span><span class=o>:</span> <span class=o>&lt;</span><span class=nx>Board</span><span class=o>/&gt;</span>
+</span></span><span class=line><span class=cl>            <span class=p>},</span>
+</span></span><span class=line><span class=cl>            <span class=p>{</span>
+</span></span><span class=line><span class=cl>                <span class=nx>path</span><span class=o>:</span> <span class=s1>&#39;about&#39;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>                <span class=nx>element</span><span class=o>:</span> <span class=o>&lt;</span><span class=nx>About</span><span class=o>/&gt;</span>
+</span></span><span class=line><span class=cl>            <span class=p>}</span>
+</span></span><span class=line><span class=cl>        <span class=p>]</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span></code></pre></td></tr></table></div></div><ol start=2><li>使用 <code>&lt;Outlet/></code> 组件配置二级路由渲染位置</li></ol><p>Layout</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=kr>import</span> <span class=p>{</span><span class=nx>Link</span><span class=p>,</span> <span class=nx>Outlet</span><span class=p>}</span> <span class=nx>from</span> <span class=s2>&#34;react-router-dom&#34;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kr>const</span> <span class=nx>Layout</span> <span class=o>=</span> <span class=p>()</span> <span class=p>=&gt;</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=p>(</span>
+</span></span><span class=line><span class=cl>        <span class=o>&lt;</span><span class=nx>div</span><span class=o>&gt;</span>
+</span></span><span class=line><span class=cl>            <span class=nx>我是一级路由组件</span> <span class=nx>Layout</span>
+</span></span><span class=line><span class=cl>            <span class=p>{</span><span class=cm>/* 用来跳转的按钮*/</span><span class=p>}</span>
+</span></span><span class=line><span class=cl>            <span class=o>&lt;</span><span class=nx>Link</span> <span class=nx>to</span><span class=o>=</span><span class=p>{</span><span class=s1>&#39;/board&#39;</span><span class=p>}</span><span class=o>&gt;</span><span class=nx>面板</span><span class=o>&lt;</span><span class=err>/Link&gt;</span>
+</span></span><span class=line><span class=cl>            <span class=o>&lt;</span><span class=nx>Link</span> <span class=nx>to</span><span class=o>=</span><span class=p>{</span><span class=s1>&#39;/about&#39;</span><span class=p>}</span><span class=o>&gt;</span><span class=nx>关于</span><span class=o>&lt;</span><span class=err>/Link&gt;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>            <span class=p>{</span><span class=cm>/* 配置二级路由出口，页面就在这个地方渲染 */</span><span class=p>}</span>
+</span></span><span class=line><span class=cl>            <span class=o>&lt;</span><span class=nx>Outlet</span><span class=o>/&gt;</span>
+</span></span><span class=line><span class=cl>        <span class=o>&lt;</span><span class=err>/div&gt;</span>
+</span></span><span class=line><span class=cl>    <span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kr>export</span> <span class=k>default</span> <span class=nx>Layout</span>
+</span></span></code></pre></td></tr></table></div></div><h4 id=默认二级路由配置>默认二级路由配置</h4><p>当访问的是一级路由时，默认的二级路由组件可以得到渲染，只需要在二级路由的位置去掉path，设置index属性为true</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl> <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=nx>path</span><span class=o>:</span> <span class=s1>&#39;/&#39;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>        <span class=nx>element</span><span class=o>:</span> <span class=o>&lt;</span><span class=nx>Layout</span><span class=o>/&gt;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>        <span class=nx>children</span><span class=o>:</span> <span class=p>[</span>
+</span></span><span class=line><span class=cl>            <span class=p>{</span>
+</span></span><span class=line><span class=cl>                <span class=nx>index</span><span class=o>:</span> <span class=kc>true</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>                <span class=nx>element</span><span class=o>:</span> <span class=o>&lt;</span><span class=nx>Board</span><span class=o>/&gt;</span>
+</span></span><span class=line><span class=cl>            <span class=p>},</span>
+</span></span><span class=line><span class=cl>            <span class=p>{</span>
+</span></span><span class=line><span class=cl>                <span class=nx>path</span><span class=o>:</span> <span class=s1>&#39;about&#39;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>                <span class=nx>element</span><span class=o>:</span> <span class=o>&lt;</span><span class=nx>About</span><span class=o>/&gt;</span>
+</span></span><span class=line><span class=cl>            <span class=p>}</span>
+</span></span><span class=line><span class=cl>        <span class=p>]</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span></code></pre></td></tr></table></div></div><h3 id=404-路由配置>404 路由配置</h3><p>场景：当浏览器输入url的路径在整个路由配置中都找不到对应的 path，为了用户体验，可以使用 404 兜底组件进行渲染</p><p>实现步骤：</p><ol><li>准备一个NotFound组件</li><li>在路由表数组的末尾，以*号作为路由path配置路由</li></ol><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl> <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=nx>path</span><span class=o>:</span><span class=s1>&#39;*&#39;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>        <span class=nx>element</span><span class=o>:</span> <span class=o>&lt;</span><span class=nx>NotFound</span><span class=o>/&gt;</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span></code></pre></td></tr></table></div></div><h3 id=两种路由模式>两种路由模式</h3><p>各个主流框架的路由常用的路由模式有俩种，history模式和hash模式, ReactRouter分别由 createBrowerRouter 和 createHashRouter 函数负责创建</p><div class=table-wrapper><table><thead><tr><th>路由模式</th><th>url表现</th><th>底层原理</th><th>是否需要后端支持</th></tr></thead><tbody><tr><td>history</td><td>url/login</td><td>history对象 + pushState事件</td><td>需要</td></tr><tr><td>hash</td><td>url/#/login</td><td>监听hashChange事件</td><td>不需要</td></tr></tbody></table></div><h2 id=参考>参考</h2><p><a class=link href=https://react.dev/learn target=_blank rel=noopener>React 官方文档</a></p><p><a class=link href=https://zh-hans.react.dev/learn target=_blank rel=noopener>React 官方中文文档</a></p><p><a class=link href=https://www.bilibili.com/video/BV1ZB4y1Z7o8 target=_blank rel=noopener>黑马前端 React 18 文档</a></p></section><footer class=article-footer><section class=article-tags><a href=/tags/react/>React</a></section><section class=article-copyright><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><path d="M14.5 9a3.5 4 0 100 6"/></svg><span>Licensed under CC BY-NC-SA 4.0</span></section></footer></article><footer class=site-footer><section class=copyright>&copy;
 2024 林风's Blog</section><section class=powerby>Built with <a href=https://gohugo.io/ target=_blank rel=noopener>Hugo</a><br>Theme <b><a href=https://github.com/CaiJimmy/hugo-theme-stack target=_blank rel=noopener data-version=3.21.0>Stack</a></b> designed by <a href=https://jimmycai.com target=_blank rel=noopener>Jimmy</a></section></footer><div class=pswp tabindex=-1 role=dialog aria-hidden=true><div class=pswp__bg></div><div class=pswp__scroll-wrap><div class=pswp__container><div class=pswp__item></div><div class=pswp__item></div><div class=pswp__item></div></div><div class="pswp__ui pswp__ui--hidden"><div class=pswp__top-bar><div class=pswp__counter></div><button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
 <button class="pswp__button pswp__button--share" title=Share></button>
 <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
