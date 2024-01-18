@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>林风's Blog</title><link>https://leoxiewl.github.io/</link><description>Recent content on 林风's Blog</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Thu, 18 Jan 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://leoxiewl.github.io/index.xml" rel="self" type="application/rss+xml"/><item><title>读书笔记 | JavaScript 高级程序设计（第四版）</title><link>https://leoxiewl.github.io/2024/01/18/professional-javascript-for-web-developers/</link><pubDate>Thu, 18 Jan 2024 00:00:00 +0000</pubDate><guid>https://leoxiewl.github.io/2024/01/18/professional-javascript-for-web-developers/</guid><description>&lt;p>我对自己的定位仍旧是一个后端工程师，学习了解 JavaScript 的原因是，我自己开发项目需要写一些前端。&lt;/p>
 &lt;p>&lt;strong>就主打一个实用，能实现功能即可&lt;/strong>。&lt;/p>
-&lt;h1 id="第1章-什么是javascript">第1章 什么是JavaScript&lt;/h1>
+&lt;h2 id="第1章-什么是javascript">第1章 什么是JavaScript&lt;/h2>
 &lt;p>❑ JavaScript历史回顾&lt;/p>
 &lt;p>❑ JavaScript是什么&lt;/p>
 &lt;p>❑ JavaScript与ECMAScript的关系&lt;/p>
 &lt;p>❑ JavaScript的不同版本&lt;/p>
-&lt;h2 id="历史">历史&lt;/h2>
+&lt;h3 id="历史">历史&lt;/h3>
 &lt;p>1995年，JavaScript问世。当时，它的主要用途是代替Perl等服务器端语言处理输入验证&lt;/p>
 &lt;p>它很简单，学会用只要几分钟；它又很复杂，掌握它要很多年。&lt;/p>
 &lt;blockquote>
 &lt;p>Java 和 JavaScript 的关系&lt;/p>
 &lt;p>在Netscape Navigator 2正式发布前，网景把 LiveScript 改名为 JavaScript，以便搭上媒体当时热烈炒作Java的顺风车。&lt;/p>
 &lt;/blockquote>
-&lt;h2 id="javascript-是什么">JavaScript 是什么&lt;/h2>
+&lt;h3 id="javascript-是什么">JavaScript 是什么&lt;/h3>
 &lt;p>完整的JavaScript实现包含以下几个部分&lt;/p>
 &lt;p>&lt;img src="https://pic.imgdb.cn/item/65a8a008871b83018a4b8d83.jpg"
 loading="lazy"
@@ -70,23 +70,23 @@ alt="image-20240118115119518"
 &lt;p>❑ 移动、缩放和关闭浏览器窗口的能力；&lt;/p>
 &lt;p>❑ 对cookie的支持；&lt;/p>
 &lt;p>❑ 其他自定义对象，如XMLHttpRequest和IE的ActiveXObject。&lt;/p>
-&lt;h2 id="小结">小结&lt;/h2>
+&lt;h3 id="小结">小结&lt;/h3>
 &lt;p>❑ ECMAScript：由ECMA-262定义并提供核心功能。&lt;/p>
 &lt;p>❑ 文档对象模型（DOM）：提供与网页内容交互的方法和接口。&lt;/p>
 &lt;p>❑ 浏览器对象模型（BOM）：提供与浏览器交互的方法和接口。&lt;/p>
-&lt;h1 id="第2章-html中的javascript">第2章 HTML中的JavaScript&lt;/h1>
-&lt;h1 id="第3章-语言基础-基于es6">第3章 语言基础-基于ES6&lt;/h1>
+&lt;h2 id="第2章-html中的javascript">第2章 HTML中的JavaScript&lt;/h2>
+&lt;h2 id="第3章-语言基础-基于es6">第3章 语言基础-基于ES6&lt;/h2>
 &lt;blockquote>
 &lt;p>ECMA-262第5版（ES5）定义的ECMAScript，是目前为止实现得最为广泛（即受浏览器支持最好）的一个版本。&lt;/p>
 &lt;p>第6版（ES6）在浏览器中的实现（即受支持）程度次之。到2017年底，大多数主流浏览器几乎或全部实现了这一版的规范。&lt;/p>
 &lt;p>为此，本章接下来的内容==&lt;strong>主要基于ECMAScript第6版&lt;/strong>==。&lt;/p>
 &lt;/blockquote>
-&lt;h2 id="语法">语法&lt;/h2>
+&lt;h3 id="语法">语法&lt;/h3>
 &lt;p>ECMAScript的语法很大程度上借鉴了C语言和其他类C语言，如Java和Perl。&lt;/p>
-&lt;h3 id="区分大小写">区分大小写&lt;/h3>
+&lt;h4 id="区分大小写">区分大小写&lt;/h4>
 &lt;p>ECMAScript中一切都区分大小写。无论是变量、函数名还是操作符，都区分大小写&lt;/p>
 &lt;p>&lt;strong>变量test和变量Test是两个不同的变量&lt;/strong>&lt;/p>
-&lt;h3 id="标识符">标识符&lt;/h3>
+&lt;h4 id="标识符">标识符&lt;/h4>
 &lt;p>标识符，就是变量、函数、属性或函数参数的名称&lt;/p>
 &lt;p>规则&lt;/p>
 &lt;p>❑ 第一个字符必须是一个字母、下划线（_）或美元符号（$）；&lt;/p>
@@ -105,7 +105,7 @@ alt="image-20240118115119518"
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;p>⚠注意：关键字、保留字、true、false和null不能作为标识符&lt;/p>
-&lt;h3 id="注释">注释&lt;/h3>
+&lt;h4 id="注释">注释&lt;/h4>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
 &lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
@@ -122,7 +122,7 @@ alt="image-20240118115119518"
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="err">＊&lt;/span>&lt;span class="o">/&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
-&lt;/div>&lt;h3 id="严格模式">严格模式&lt;/h3>
+&lt;/div>&lt;h4 id="严格模式">严格模式&lt;/h4>
 &lt;p>启用了严格模式，不规范写法会被处理，不安全活动将抛出错误&lt;/p>
 &lt;blockquote>
 &lt;p>ECMAScript 5增加了严格模式（strict mode）的概念&lt;/p>
@@ -152,7 +152,7 @@ alt="image-20240118115119518"
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span> &lt;span class="p">}&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
-&lt;/div>&lt;h3 id="语句-推荐加分号">语句-推荐加分号&lt;/h3>
+&lt;/div>&lt;h4 id="语句-推荐加分号">语句-推荐加分号&lt;/h4>
 &lt;p>&lt;strong>分号&lt;/strong>&lt;/p>
 &lt;p>ECMAScript中的语句以分号结尾。省略分号意味着由解析器确定语句在哪里结尾&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
@@ -181,7 +181,7 @@ alt="image-20240118115119518"
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">}&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
-&lt;/div>&lt;h2 id="关键字与保留字">关键字与保留字&lt;/h2>
+&lt;/div>&lt;h4 id="关键字与保留字">关键字与保留字&lt;/h4>
 &lt;p>ECMA-262第6版规定的所有关键字如下&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
@@ -233,14 +233,14 @@ alt="image-20240118115119518"
 &lt;/div>&lt;blockquote>
 &lt;p>这些词汇不能用作标识符，但现在还可以用作对象的属性名。一般来说，最好还是不要使用关键字和保留字作为标识符和属性名，以确保兼容过去和未来的ECMAScript版本。&lt;/p>
 &lt;/blockquote>
-&lt;h2 id="变量">变量&lt;/h2>
+&lt;h3 id="变量">变量&lt;/h3>
 &lt;p>ECMAScript变量是松散类型的，意思是变量可以用于保存任何类型的数据&lt;/p>
 &lt;blockquote>
 &lt;p>不是强类型&lt;/p>
 &lt;/blockquote>
 &lt;p>有3个关键字可以声明变量：var、const和let。&lt;/p>
 &lt;p>其中，var在ECMAScript的所有版本中都可以使用，而&lt;strong>const和let&lt;/strong>只能在ECMAScript 6及更晚的版本中使用。&lt;/p>
-&lt;h3 id="var-关键字">var 关键字&lt;/h3>
+&lt;h4 id="var-关键字">var 关键字&lt;/h4>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
 &lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
@@ -382,7 +382,7 @@ alt="image-20240118115119518"
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">foo&lt;/span>&lt;span class="p">();&lt;/span> &lt;span class="c1">// 36
 &lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
-&lt;/div>&lt;h3 id="let声明">let声明&lt;/h3>
+&lt;/div>&lt;h4 id="let声明">let声明&lt;/h4>
 &lt;p>let跟var的作用差不多&lt;/p>
 &lt;p>&lt;strong>最明显的区别是&lt;/strong>，let声明的范围是块作用域，而var声明的范围是函数作用域。&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
@@ -606,7 +606,7 @@ alt="image-20240118115119518"
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="c1">// 会输出0、1、2、3、4
 &lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
-&lt;/div>&lt;h3 id="const声明">const声明&lt;/h3>
+&lt;/div>&lt;h4 id="const声明">const声明&lt;/h4>
 &lt;p>const的行为与let基本相同，唯一一个重要的区别是用它&lt;strong>声明变量时必须同时初始化变量&lt;/strong>，且尝试&lt;strong>修改const声明的变量会导致运行时错误&lt;/strong>。&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
@@ -656,16 +656,16 @@ alt="image-20240118115119518"
 &lt;pre tabindex="0" class="chroma">&lt;code class="language-js" data-lang="js">&lt;span class="line">&lt;span class="cl"> &lt;span class="k">for&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="kr">const&lt;/span> &lt;span class="nx">i&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="mi">0&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="nx">i&lt;/span> &lt;span class="o">&amp;lt;&lt;/span> &lt;span class="mi">10&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="o">++&lt;/span>&lt;span class="nx">i&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="p">{}&lt;/span> &lt;span class="c1">// TypeError：给常量赋值
 &lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
-&lt;/div>&lt;h3 id="声明风格及最佳实践">⭐声明风格及最佳实践&lt;/h3>
+&lt;/div>&lt;h4 id="声明风格及最佳实践">⭐声明风格及最佳实践&lt;/h4>
 &lt;ul>
 &lt;li>&lt;strong>不使用var&lt;/strong>&lt;/li>
 &lt;li>&lt;strong>const优先，let次之&lt;/strong>&lt;/li>
 &lt;/ul>
 &lt;p>对变量有修改的话使用 let，当然修改的是对象内部属性还是继续用 const&lt;/p>
-&lt;h2 id="数据类型">数据类型&lt;/h2>
+&lt;h3 id="数据类型">数据类型&lt;/h3>
 &lt;p>ECMAScript有6种简单数据类型（也称为原始类型）: Undefined、Null、Boolean、Number、String和Symbol。Symbol（符号）是ECMAScript 6新增的。&lt;/p>
 &lt;p>还有一种复杂数据类型叫Object（对象）。Object是一种无序名值对的集合&lt;/p>
-&lt;h3 id="typeof操作符">typeof操作符&lt;/h3>
+&lt;h4 id="typeof操作符">typeof操作符&lt;/h4>
 &lt;p>&lt;strong>确定任意变量数据类型&lt;/strong>&lt;/p>
 &lt;p>对一个值使用typeof操作符会返回下列字符串之一：❑ &amp;ldquo;undefined&amp;quot;表示值未定义；❑ &amp;ldquo;boolean&amp;quot;表示值为布尔值；❑ &amp;ldquo;string&amp;quot;表示值为字符串；❑ &amp;ldquo;number&amp;quot;表示值为数值；❑ &amp;ldquo;object&amp;quot;表示值为对象（而不是函数）或null；❑ &amp;ldquo;function&amp;quot;表示值为函数；❑ &amp;ldquo;symbol&amp;quot;表示值为符号。&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
@@ -684,7 +684,7 @@ alt="image-20240118115119518"
 &lt;/div>
 &lt;/div>&lt;p>注意，因为typeof是一个操作符而不是函数，所以不需要参数（但可以使用参数）。&lt;/p>
 &lt;p>注意typeof在某些情况下返回的结果可能会让人费解，但技术上讲还是正确的。比如，调用typeof null返回的是&amp;quot;object&amp;rdquo;。这是因为特殊值null被认为是一个对空对象的引用。&lt;/p>
-&lt;h3 id="undefined类型">Undefined类型&lt;/h3>
+&lt;h4 id="undefined类型">Undefined类型&lt;/h4>
 &lt;p>Undefined类型只有一个值，就是特殊值undefined。&lt;/p>
 &lt;p>当使用var或let声明了变量但没有初始化时，就相当于给变量赋予了undefined值：&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
@@ -729,7 +729,7 @@ alt="image-20240118115119518"
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span> &lt;span class="p">}&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
-&lt;/div>&lt;h3 id="null类型-对象类型">Null类型-对象类型&lt;/h3>
+&lt;/div>&lt;h4 id="null类型-对象类型">Null类型-对象类型&lt;/h4>
 &lt;p>Null类型同样只有一个值，即特殊值null。逻辑上讲，&lt;strong>null值表示一个空对象指针&lt;/strong>，这也是给typeof传一个null会返回&amp;quot;object&amp;quot;的原因：&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
@@ -791,10 +791,10 @@ alt="image-20240118115119518"
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span> &lt;span class="p">}&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
-&lt;/div>&lt;h4 id="null和undefined">null和undefined&lt;/h4>
+&lt;/div>&lt;h5 id="null和undefined">null和undefined&lt;/h5>
 &lt;p>永远不必显式地将变量值设置为undefined。&lt;/p>
 &lt;p>任何时候，只要变量要保存对象，而当时又没有那个对象可保存，就要用null来填充该变量。这样就可以保持null是空对象指针的语义，并进一步将其与undefined区分开来。&lt;/p>
-&lt;h3 id="boolean类型">Boolean类型&lt;/h3>
+&lt;h4 id="boolean类型">Boolean类型&lt;/h4>
 &lt;p>有两个字面值：true和false。这两个布尔值不同于数值，因此true不等于1，false不等于0。&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
@@ -826,7 +826,7 @@ loading="lazy"
 loading="lazy"
 alt="image-20240118125417737"
 >&lt;/p>
-&lt;h3 id="number类型">Number类型&lt;/h3>
+&lt;h4 id="number类型">Number类型&lt;/h4>
 &lt;p>Number类型使用IEEE 754格式表示整数和浮点值（在某些语言中也叫双精度值）&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
@@ -958,7 +958,7 @@ alt="image-20240118125417737"
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span> &lt;span class="kd">let&lt;/span> &lt;span class="nx">num6&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="nb">parseFloat&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;3.125e7&amp;#34;&lt;/span>&lt;span class="p">);&lt;/span> &lt;span class="c1">// 31250000
 &lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
-&lt;/div>&lt;h3 id="string类型">String类型&lt;/h3>
+&lt;/div>&lt;h4 id="string类型">String类型&lt;/h4>
 &lt;p>String（字符串）数据类型表示零或多个16位Unicode字符序列。字符串可以使用双引号（&amp;quot;）、单引号（&amp;rsquo;）或反引号（`）标示，因此下面的代码都是合法的：&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
@@ -974,7 +974,7 @@ alt="image-20240118125417737"
 &lt;/div>
 &lt;/div>&lt;p>不过要注意的是，以某种引号作为字符串开头，必须仍然以该种引号作为字符串结尾&lt;/p>
 &lt;p>&lt;strong>ECMAScript中的字符串是不可变的（immutable&lt;/strong>），意思是一旦创建，它们的值就不能变了。要修改某个变量中的字符串值，必须先销毁原始的字符串，然后将包含新值的另一个字符串保存到该变量&lt;/p>
-&lt;h4 id="字符字面量">字符字面量&lt;/h4>
+&lt;h5 id="字符字面量">字符字面量&lt;/h5>
 &lt;p>&lt;img src="https://pic.imgdb.cn/item/65a8b4a4871b83018a8e6740.jpg"
 loading="lazy"
 >&lt;/p>
@@ -982,7 +982,7 @@ loading="lazy"
 loading="lazy"
 alt="img"
 >&lt;/p>
-&lt;h4 id="长度">长度&lt;/h4>
+&lt;h5 id="长度">长度&lt;/h5>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
 &lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
@@ -991,7 +991,7 @@ alt="img"
 &lt;pre tabindex="0" class="chroma">&lt;code class="language-js" data-lang="js">&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">console&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">log&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nx">text&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">length&lt;/span>&lt;span class="p">);&lt;/span> &lt;span class="c1">// 28
 &lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
-&lt;/div>&lt;h4 id="转换为字符串">转换为字符串&lt;/h4>
+&lt;/div>&lt;h5 id="转换为字符串">转换为字符串&lt;/h5>
 &lt;p>首先是使用几乎所有值都有的&lt;strong>toString()方法&lt;/strong>。这个方法唯一的用途就是返回当前值的字符串等价物&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
@@ -1030,7 +1030,7 @@ alt="img"
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span> &lt;span class="nx">console&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">log&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nb">String&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nx">value4&lt;/span>&lt;span class="p">));&lt;/span> &lt;span class="c1">// &amp;#34;undefined&amp;#34;
 &lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
-&lt;/div>&lt;h4 id="模板字面量">模板字面量&lt;/h4>
+&lt;/div>&lt;h5 id="模板字面量">模板字面量&lt;/h5>
 &lt;p>ECMAScript 6新增了使用模板字面量定义字符串的能力。与使用单引号或双引号不同，模板字面量保留换行字符，可以跨行定义字符串：&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
@@ -1059,7 +1059,7 @@ alt="img"
 &lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;p>由于模板字面量会保持&lt;strong>反引号&lt;/strong>内部的空格，因此在使用时要格外注意。格式正确的模板字符串看起来可能会缩进不当&lt;/p>
-&lt;h4 id="字符串插值">&lt;strong>字符串插值&lt;/strong>&lt;/h4>
+&lt;h5 id="字符串插值">&lt;strong>字符串插值&lt;/strong>&lt;/h5>
 &lt;p>模板字面量最常用的一个特性是支持字符串插值，也就是可以在一个连续定义中插入一个或多个值&lt;/p>
 &lt;p>字符串插值通过在${}中使用一个JavaScript表达式实现：&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
@@ -1114,7 +1114,7 @@ alt="img"
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">console&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">log&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="sb">`&lt;/span>&lt;span class="si">${&lt;/span> &lt;span class="nx">capitalize&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;hello&amp;#39;&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="si">}&lt;/span>&lt;span class="sb">, &lt;/span>&lt;span class="si">${&lt;/span> &lt;span class="nx">capitalize&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;world&amp;#39;&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="si">}&lt;/span>&lt;span class="sb">! `&lt;/span>&lt;span class="p">);&lt;/span> &lt;span class="c1">// Hello, World!
 &lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
-&lt;/div>&lt;h4 id="模板字面量标签函数">模板字面量标签函数&lt;/h4>
+&lt;/div>&lt;h5 id="模板字面量标签函数">模板字面量标签函数&lt;/h5>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
 &lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
@@ -1155,7 +1155,7 @@ alt="img"
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span> &lt;span class="nx">console&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">log&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nx">taggedResult&lt;/span>&lt;span class="p">);&lt;/span> &lt;span class="c1">// &amp;#34;foobar&amp;#34;
 &lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
-&lt;/div>&lt;h4 id="原始字符串">原始字符串&lt;/h4>
+&lt;/div>&lt;h5 id="原始字符串">原始字符串&lt;/h5>
 &lt;p>使用模板字面量也可以直接获取原始的模板字面量内容（如换行符或Unicode字符），而不是被转换后的字符表示。为此，可以使用默认的String.raw标签函数：&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
@@ -1242,7 +1242,7 @@ alt="img"
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span> &lt;span class="c1">// \n
 &lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
-&lt;/div>&lt;h3 id="symbol类型">Symbol类型&lt;/h3>
+&lt;/div>&lt;h4 id="symbol类型">Symbol类型&lt;/h4>
 &lt;p>符号是原始值，且符号实例是唯一、不可变的。符号的用途是确保对象属性使用唯一标识符，不会发生属性冲突的危险。&lt;/p>
 &lt;p>符号就是用来创建唯一记号，进而用作非字符串形式的对象属性。&lt;/p>
 &lt;p>&lt;strong>符号的基本用法&lt;/strong>&lt;/p>
@@ -1277,7 +1277,7 @@ alt="img"
 &lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;p>未完&lt;/p>
-&lt;h3 id="object类型">Object类型&lt;/h3>
+&lt;h4 id="object类型">Object类型&lt;/h4>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
 &lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
@@ -1287,7 +1287,7 @@ alt="img"
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;p>Object的实例本身并不是很有用，但理解与它相关的概念非常重要。类似Java中的java.lang. Object, ECMAScript中的Object也是派生其他对象的基类。Object类型的所有属性和方法在派生的对象上同样存在。&lt;/p>
-&lt;h2 id="函数">函数&lt;/h2>
+&lt;h3 id="函数">函数&lt;/h3>
 &lt;p>ECMAScript中的函数使用function关键字声明，后跟一组参数，然后是函数体。&lt;/p>
 &lt;p>&lt;strong>函数的基本语法&lt;/strong>&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
@@ -1342,10 +1342,10 @@ alt="img"
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;p>要注意的是，只要碰到return语句，函数就会立即停止执行并退出。因此，return语句后面的代码不会被执行&lt;/p>
-&lt;h1 id="第10章-函数">第10章 函数&lt;/h1>
+&lt;h2 id="第10章-函数">第10章 函数&lt;/h2>
 &lt;p>&lt;strong>函数实际上是对象&lt;/strong>，每个函数都是Function类型的实例&lt;/p>
 &lt;p>因为函数是对象，所以函数名就是指向函数对象的指针，而且不一定与函数本身紧密绑定&lt;/p>
-&lt;h2 id="定义函数的方式">定义函数的方式&lt;/h2>
+&lt;h3 id="定义函数的方式">定义函数的方式&lt;/h3>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
 &lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
@@ -1387,7 +1387,7 @@ alt="img"
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">};&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
-&lt;/div>&lt;h2 id="箭头函数">箭头函数&lt;/h2></description></item><item><title>day04 FORGET ABOUT GOALS, FOCUS ON SYSTEMS INSTEAD</title><link>https://leoxiewl.github.io/2024/01/17/day04-atomic-habits/</link><pubDate>Wed, 17 Jan 2024 00:00:00 +0000</pubDate><guid>https://leoxiewl.github.io/2024/01/17/day04-atomic-habits/</guid><description>&lt;p>Imagine that you have an ice cube sitting on the table in front of you.&lt;/p>
+&lt;/div>&lt;h3 id="箭头函数">箭头函数&lt;/h3></description></item><item><title>day04 FORGET ABOUT GOALS, FOCUS ON SYSTEMS INSTEAD</title><link>https://leoxiewl.github.io/2024/01/17/day04-atomic-habits/</link><pubDate>Wed, 17 Jan 2024 00:00:00 +0000</pubDate><guid>https://leoxiewl.github.io/2024/01/17/day04-atomic-habits/</guid><description>&lt;p>Imagine that you have an ice cube sitting on the table in front of you.&lt;/p>
 &lt;p>The room is cold and you can see your breath. It is currently twenty-five degrees.&lt;/p>
 &lt;p>Ever so slowly, the room begins to heat up.&lt;/p>
 &lt;p>Twenty-six degrees.&lt;/p>
