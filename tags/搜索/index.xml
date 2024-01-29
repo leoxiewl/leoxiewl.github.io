@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>搜索 on 林风's Blog</title><link>https://leoxiewl.github.io/tags/%E6%90%9C%E7%B4%A2/</link><description>Recent content in 搜索 on 林风's Blog</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Mon, 29 Jan 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://leoxiewl.github.io/tags/%E6%90%9C%E7%B4%A2/index.xml" rel="self" type="application/rss+xml"/><item><title>github 搜索技巧</title><link>https://leoxiewl.github.io/2024/01/29/github-search/</link><pubDate>Mon, 29 Jan 2024 00:00:00 +0000</pubDate><guid>https://leoxiewl.github.io/2024/01/29/github-search/</guid><description>&lt;p>&lt;a class="link" href="https://docs.github.com/zh" target="_blank" rel="noopener"
+>github 官方文档&lt;/a>&lt;/p>
+&lt;h2 id="常用搜索语法">常用搜索语法&lt;/h2>
+&lt;h3 id="in-限定搜索范围">in 限定搜索范围&lt;/h3>
+&lt;p>可以限定范围去找 github 仓库&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th style="text-align:left">限定符&lt;/th>
+&lt;th style="text-align:left">示例&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td style="text-align:left">&lt;code>in:name&lt;/code>&lt;/td>
+&lt;td style="text-align:left">&lt;a class="link" href="https://github.com/search?q=jquery&amp;#43;in%3Aname&amp;amp;type=Repositories" target="_blank" rel="noopener"
+>&lt;strong>jquery in:name&lt;/strong>&lt;/a> 匹配名称中带有“jquery”的存储库。&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">&lt;code>in:description&lt;/code>&lt;/td>
+&lt;td style="text-align:left">&lt;a class="link" href="https://github.com/search?q=jquery&amp;#43;in%3Aname%2Cdescription&amp;amp;type=Repositories" target="_blank" rel="noopener"
+>&lt;strong>jquery in:name,description&lt;/strong>&lt;/a> 匹配名称或说明中带有“jquery”的存储库。&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">&lt;code>in:topics&lt;/code>&lt;/td>
+&lt;td style="text-align:left">&lt;a class="link" href="https://github.com/search?q=jquery&amp;#43;in%3Atopics&amp;amp;type=Repositories" target="_blank" rel="noopener"
+>jquery in:topics&lt;/a> 将带“jquery”标签的存储库匹配为主题。&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">&lt;code>in:readme&lt;/code>&lt;/td>
+&lt;td style="text-align:left">&lt;a class="link" href="https://github.com/search?q=jquery&amp;#43;in%3Areadme&amp;amp;type=Repositories" target="_blank" rel="noopener"
+>&lt;strong>jquery in:readme&lt;/strong>&lt;/a> 匹配自述文件中提及“jquery”的存储库。&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">&lt;code>repo:owner/name&lt;/code>&lt;/td>
+&lt;td style="text-align:left">&lt;a class="link" href="https://github.com/search?q=repo%3Aoctocat%2Fhello-world" target="_blank" rel="noopener"
+>&lt;strong>repo:octocat/hello-world&lt;/strong>&lt;/a> 匹配特定的存储库名称。&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h3 id="按照仓库创建或者上次更新时间搜素">按照仓库创建或者上次更新时间搜素&lt;/h3>
+&lt;p>找到当前活跃的仓库&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th style="text-align:left">限定符&lt;/th>
+&lt;th style="text-align:left">示例&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td style="text-align:left">&lt;code>created:&amp;lt;*YYYY-MM-DD*&lt;/code>&lt;/td>
+&lt;td style="text-align:left">&lt;a class="link" href="https://github.com/search?q=webos&amp;#43;created%3A%3c2011-01-01&amp;amp;type=Repositories" target="_blank" rel="noopener"
+>&lt;strong>webos created:&amp;lt;2011-01-01&lt;/strong>&lt;/a> 匹配具有 2011 年之前创建的“webos”一词的存储库。&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">&lt;code>pushed:&amp;gt;*YYYY-MM-DD*&lt;/code>&lt;/td>
+&lt;td style="text-align:left">&lt;a class="link" href="https://github.com/search?utf8=%e2%9c%93&amp;amp;q=css&amp;#43;pushed%3A%3e2013-02-01&amp;amp;type=Repositories" target="_blank" rel="noopener"
+>&lt;strong>css pushed:&amp;gt;2013-02-01&lt;/strong>&lt;/a> 匹配具有在 2013 年 1 月之后推送到其中的“css”一词的存储库。&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">&lt;code>pushed:&amp;gt;=*YYYY-MM-DD*&lt;/code> &lt;code>fork:only&lt;/code>&lt;/td>
+&lt;td style="text-align:left">&lt;a class="link" href="https://github.com/search?q=case&amp;#43;pushed%3A%3e%3D2013-03-06&amp;#43;fork%3Aonly&amp;amp;type=Repositories" target="_blank" rel="noopener"
+>&lt;strong>case pushed:&amp;gt;=2013-03-06 fork:only&lt;/strong>&lt;/a> 匹配在 2013 年 3 月 6 日或之后将“case”一词推送到其中的存储库（即分支）。&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h3 id="按照语言搜索">按照语言搜索&lt;/h3>
+&lt;p>搜索特定的编程语言&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th style="text-align:left">限定符&lt;/th>
+&lt;th style="text-align:left">示例&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td style="text-align:left">&lt;code>language:*LANGUAGE*&lt;/code>&lt;/td>
+&lt;td style="text-align:left">&lt;a class="link" href="https://github.com/search?q=rails&amp;#43;language%3Ajavascript&amp;amp;type=Repositories" target="_blank" rel="noopener"
+>&lt;strong>&lt;code>rails language:javascript&lt;/code>&lt;/strong> &lt;/a>匹配具有以 JavaScript 编写的“rails”一词的存储库。&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h2 id="组合搜索">组合搜索&lt;/h2>
+&lt;p>比如说我现在要寻找 api 开放平台&lt;/p></description></item></channel></rss>
