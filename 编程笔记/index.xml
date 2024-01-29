@@ -1,4 +1,103 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>编程笔记 on 林风's Blog</title><link>https://leoxiewl.github.io/%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AE%B0/</link><description>Recent content in 编程笔记 on 林风's Blog</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Thu, 18 Jan 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://leoxiewl.github.io/%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AE%B0/index.xml" rel="self" type="application/rss+xml"/><item><title>读书笔记 | JavaScript 高级程序设计（第四版）</title><link>https://leoxiewl.github.io/2024/01/18/professional-javascript-for-web-developers/</link><pubDate>Thu, 18 Jan 2024 00:00:00 +0000</pubDate><guid>https://leoxiewl.github.io/2024/01/18/professional-javascript-for-web-developers/</guid><description>&lt;p>我对自己的定位仍旧是一个后端工程师，学习了解 JavaScript 的原因是，我自己开发项目需要写一些前端。&lt;/p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>编程笔记 on 林风's Blog</title><link>https://leoxiewl.github.io/%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AE%B0/</link><description>Recent content in 编程笔记 on 林风's Blog</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Mon, 29 Jan 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://leoxiewl.github.io/%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AE%B0/index.xml" rel="self" type="application/rss+xml"/><item><title>Gin 框架获取请求参数的方式</title><link>https://leoxiewl.github.io/2024/01/29/gin-params/</link><pubDate>Mon, 29 Jan 2024 00:00:00 +0000</pubDate><guid>https://leoxiewl.github.io/2024/01/29/gin-params/</guid><description>&lt;h2 id="get">GET&lt;/h2>
+&lt;p>使用 Query，请求中参数直接拼接在 url 中&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">http://localhost:8888/v1/user/get?id=9
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>router&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">userv1.GET(&amp;#34;/get&amp;#34;, userHandler.Get)
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>参数绑定&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-go" data-lang="go">&lt;span class="line">&lt;span class="cl">&lt;span class="nx">idParam&lt;/span> &lt;span class="o">:=&lt;/span> &lt;span class="nx">c&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nf">Query&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;id&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="post-json">POST-JSON&lt;/h2>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-go" data-lang="go">&lt;span class="line">&lt;span class="cl">&lt;span class="kd">var&lt;/span> &lt;span class="nx">req&lt;/span> &lt;span class="nx">entity&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">User&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">if&lt;/span> &lt;span class="nx">err&lt;/span> &lt;span class="o">:=&lt;/span> &lt;span class="nx">c&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nf">ShouldBindJSON&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="o">&amp;amp;&lt;/span>&lt;span class="nx">req&lt;/span>&lt;span class="p">);&lt;/span> &lt;span class="nx">err&lt;/span> &lt;span class="o">!=&lt;/span> &lt;span class="kc">nil&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">response&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nf">Failed&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nx">c&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="nx">code&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">ErrBind&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="nx">err&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nf">Error&lt;/span>&lt;span class="p">())&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">return&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>绑定方式有两种，Gin 官方文档是这么描述的：&lt;/p>
+&lt;p>Gin提供了两类绑定方法：&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>Type&lt;/p>
+&lt;p>- Must bind&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Methods&lt;/strong> - &lt;code>Bind&lt;/code>, &lt;code>BindJSON&lt;/code>, &lt;code>BindXML&lt;/code>, &lt;code>BindQuery&lt;/code>, &lt;code>BindYAML&lt;/code>&lt;/li>
+&lt;li>&lt;strong>Behavior&lt;/strong> - 这些方法属于 &lt;code>MustBindWith&lt;/code> 的具体调用。 如果发生绑定错误，则请求终止，并触发 &lt;code>c.AbortWithError(400, err).SetType(ErrorTypeBind)&lt;/code>。响应状态码被设置为 400 并且 &lt;code>Content-Type&lt;/code> 被设置为 &lt;code>text/plain; charset=utf-8&lt;/code>。 如果您在此之后尝试设置响应状态码，Gin会输出日志 &lt;code>[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 400 with 422&lt;/code>。 如果您希望更好地控制绑定，考虑使用 &lt;code>ShouldBind&lt;/code> 等效方法。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>Type&lt;/p>
+&lt;p>- Should bind&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Methods&lt;/strong> - &lt;code>ShouldBind&lt;/code>, &lt;code>ShouldBindJSON&lt;/code>, &lt;code>ShouldBindXML&lt;/code>, &lt;code>ShouldBindQuery&lt;/code>, &lt;code>ShouldBindYAML&lt;/code>&lt;/li>
+&lt;li>&lt;strong>Behavior&lt;/strong> - 这些方法属于 &lt;code>ShouldBindWith&lt;/code> 的具体调用。 如果发生绑定错误，Gin 会返回错误并由开发者处理错误和请求。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;p>使用 Bind 方法时，Gin 会尝试根据 Content-Type 推断如何绑定。 如果你明确知道要绑定什么，可以使用 &lt;code>MustBindWith&lt;/code> 或 &lt;code>ShouldBindWith&lt;/code>。****&lt;/p>
+&lt;h2 id="url参数">URL参数&lt;/h2>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-go" data-lang="go">&lt;span class="line">&lt;span class="cl"> &lt;span class="c1">// 使用URL参数并获取参数
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span> &lt;span class="nx">router&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nf">GET&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;/user/:username/:password&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="kd">func&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nx">c&lt;/span> &lt;span class="o">*&lt;/span>&lt;span class="nx">gin&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">Context&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="c1">// 使用Param获取URL参数
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span> &lt;span class="nx">username&lt;/span> &lt;span class="o">:=&lt;/span> &lt;span class="nx">c&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nf">Param&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;username&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">password&lt;/span> &lt;span class="o">:=&lt;/span> &lt;span class="nx">c&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nf">Param&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;password&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="c1">// 返回请求参数
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span> &lt;span class="nx">c&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nf">JSON&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="mi">200&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="nx">gin&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">H&lt;/span>&lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="s">&amp;#34;username&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="nx">username&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="s">&amp;#34;password&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="nx">password&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">})&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">})&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div></description></item><item><title>读书笔记 | JavaScript 高级程序设计（第四版）</title><link>https://leoxiewl.github.io/2024/01/18/professional-javascript-for-web-developers/</link><pubDate>Thu, 18 Jan 2024 00:00:00 +0000</pubDate><guid>https://leoxiewl.github.io/2024/01/18/professional-javascript-for-web-developers/</guid><description>&lt;p>我对自己的定位仍旧是一个后端工程师，学习了解 JavaScript 的原因是，我自己开发项目需要写一些前端。&lt;/p>
 &lt;p>&lt;strong>就主打一个实用，能实现功能即可&lt;/strong>。&lt;/p>
 &lt;h2 id="第1章-什么是javascript">第1章 什么是JavaScript&lt;/h2>
 &lt;p>❑ JavaScript历史回顾&lt;/p>
@@ -1387,106 +1486,7 @@ alt="img"
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">};&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
-&lt;/div>&lt;h3 id="箭头函数">箭头函数&lt;/h3></description></item><item><title>Gin 框架获取请求参数的方式</title><link>https://leoxiewl.github.io/2024/01/16/gin-params/</link><pubDate>Tue, 16 Jan 2024 00:00:00 +0000</pubDate><guid>https://leoxiewl.github.io/2024/01/16/gin-params/</guid><description>&lt;h2 id="get">GET&lt;/h2>
-&lt;p>使用 Query，请求中参数直接拼接在 url 中&lt;/p>
-&lt;div class="highlight">&lt;div class="chroma">
-&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">http://localhost:8888/v1/user/get?id=9
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
-&lt;/div>
-&lt;/div>&lt;p>router&lt;/p>
-&lt;div class="highlight">&lt;div class="chroma">
-&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">userv1.GET(&amp;#34;/get&amp;#34;, userHandler.Get)
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
-&lt;/div>
-&lt;/div>&lt;p>参数绑定&lt;/p>
-&lt;div class="highlight">&lt;div class="chroma">
-&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code class="language-go" data-lang="go">&lt;span class="line">&lt;span class="cl">&lt;span class="nx">idParam&lt;/span> &lt;span class="o">:=&lt;/span> &lt;span class="nx">c&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nf">Query&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;id&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
-&lt;/div>
-&lt;/div>&lt;h2 id="post-json">POST-JSON&lt;/h2>
-&lt;div class="highlight">&lt;div class="chroma">
-&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
-&lt;/span>&lt;span class="lnt">2
-&lt;/span>&lt;span class="lnt">3
-&lt;/span>&lt;span class="lnt">4
-&lt;/span>&lt;span class="lnt">5
-&lt;/span>&lt;span class="lnt">6
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code class="language-go" data-lang="go">&lt;span class="line">&lt;span class="cl">&lt;span class="kd">var&lt;/span> &lt;span class="nx">req&lt;/span> &lt;span class="nx">entity&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">User&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">if&lt;/span> &lt;span class="nx">err&lt;/span> &lt;span class="o">:=&lt;/span> &lt;span class="nx">c&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nf">ShouldBindJSON&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="o">&amp;amp;&lt;/span>&lt;span class="nx">req&lt;/span>&lt;span class="p">);&lt;/span> &lt;span class="nx">err&lt;/span> &lt;span class="o">!=&lt;/span> &lt;span class="kc">nil&lt;/span> &lt;span class="p">{&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">response&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nf">Failed&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nx">c&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="nx">code&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">ErrBind&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="nx">err&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nf">Error&lt;/span>&lt;span class="p">())&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">return&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">}&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
-&lt;/div>
-&lt;/div>&lt;p>绑定方式有两种，Gin 官方文档是这么描述的：&lt;/p>
-&lt;p>Gin提供了两类绑定方法：&lt;/p>
-&lt;ul>
-&lt;li>
-&lt;p>Type&lt;/p>
-&lt;p>- Must bind&lt;/p>
-&lt;ul>
-&lt;li>&lt;strong>Methods&lt;/strong> - &lt;code>Bind&lt;/code>, &lt;code>BindJSON&lt;/code>, &lt;code>BindXML&lt;/code>, &lt;code>BindQuery&lt;/code>, &lt;code>BindYAML&lt;/code>&lt;/li>
-&lt;li>&lt;strong>Behavior&lt;/strong> - 这些方法属于 &lt;code>MustBindWith&lt;/code> 的具体调用。 如果发生绑定错误，则请求终止，并触发 &lt;code>c.AbortWithError(400, err).SetType(ErrorTypeBind)&lt;/code>。响应状态码被设置为 400 并且 &lt;code>Content-Type&lt;/code> 被设置为 &lt;code>text/plain; charset=utf-8&lt;/code>。 如果您在此之后尝试设置响应状态码，Gin会输出日志 &lt;code>[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 400 with 422&lt;/code>。 如果您希望更好地控制绑定，考虑使用 &lt;code>ShouldBind&lt;/code> 等效方法。&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;li>
-&lt;p>Type&lt;/p>
-&lt;p>- Should bind&lt;/p>
-&lt;ul>
-&lt;li>&lt;strong>Methods&lt;/strong> - &lt;code>ShouldBind&lt;/code>, &lt;code>ShouldBindJSON&lt;/code>, &lt;code>ShouldBindXML&lt;/code>, &lt;code>ShouldBindQuery&lt;/code>, &lt;code>ShouldBindYAML&lt;/code>&lt;/li>
-&lt;li>&lt;strong>Behavior&lt;/strong> - 这些方法属于 &lt;code>ShouldBindWith&lt;/code> 的具体调用。 如果发生绑定错误，Gin 会返回错误并由开发者处理错误和请求。&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;/ul>
-&lt;p>使用 Bind 方法时，Gin 会尝试根据 Content-Type 推断如何绑定。 如果你明确知道要绑定什么，可以使用 &lt;code>MustBindWith&lt;/code> 或 &lt;code>ShouldBindWith&lt;/code>。****&lt;/p>
-&lt;h2 id="url参数">URL参数&lt;/h2>
-&lt;div class="highlight">&lt;div class="chroma">
-&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
-&lt;/span>&lt;span class="lnt"> 2
-&lt;/span>&lt;span class="lnt"> 3
-&lt;/span>&lt;span class="lnt"> 4
-&lt;/span>&lt;span class="lnt"> 5
-&lt;/span>&lt;span class="lnt"> 6
-&lt;/span>&lt;span class="lnt"> 7
-&lt;/span>&lt;span class="lnt"> 8
-&lt;/span>&lt;span class="lnt"> 9
-&lt;/span>&lt;span class="lnt">10
-&lt;/span>&lt;span class="lnt">11
-&lt;/span>&lt;span class="lnt">12
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code class="language-go" data-lang="go">&lt;span class="line">&lt;span class="cl"> &lt;span class="c1">// 使用URL参数并获取参数
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span> &lt;span class="nx">router&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nf">GET&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;/user/:username/:password&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="kd">func&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nx">c&lt;/span> &lt;span class="o">*&lt;/span>&lt;span class="nx">gin&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">Context&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="p">{&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="c1">// 使用Param获取URL参数
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span> &lt;span class="nx">username&lt;/span> &lt;span class="o">:=&lt;/span> &lt;span class="nx">c&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nf">Param&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;username&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">password&lt;/span> &lt;span class="o">:=&lt;/span> &lt;span class="nx">c&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nf">Param&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;password&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="c1">// 返回请求参数
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span> &lt;span class="nx">c&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nf">JSON&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="mi">200&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="nx">gin&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">H&lt;/span>&lt;span class="p">{&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="s">&amp;#34;username&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="nx">username&lt;/span>&lt;span class="p">,&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="s">&amp;#34;password&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="nx">password&lt;/span>&lt;span class="p">,&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">})&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">})&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
-&lt;/div>
-&lt;/div></description></item><item><title>React 基础</title><link>https://leoxiewl.github.io/2024/01/16/react-base/</link><pubDate>Tue, 16 Jan 2024 00:00:00 +0000</pubDate><guid>https://leoxiewl.github.io/2024/01/16/react-base/</guid><description>&lt;h2 id="react-基础">React 基础&lt;/h2>
+&lt;/div>&lt;h3 id="箭头函数">箭头函数&lt;/h3></description></item><item><title>React 基础</title><link>https://leoxiewl.github.io/2024/01/16/react-base/</link><pubDate>Tue, 16 Jan 2024 00:00:00 +0000</pubDate><guid>https://leoxiewl.github.io/2024/01/16/react-base/</guid><description>&lt;h2 id="react-基础">React 基础&lt;/h2>
 &lt;p>React由Meta公司开发，是一个用于 构建Web和原生交互界面的库&lt;/p>
 &lt;blockquote>
 &lt;p>The library for web and native user interfaces&lt;/p>
