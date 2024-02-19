@@ -1,4 +1,208 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>林风's Blog</title><link>https://leoxiewl.github.io/</link><description>Recent content on 林风's Blog</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Mon, 29 Jan 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://leoxiewl.github.io/index.xml" rel="self" type="application/rss+xml"/><item><title>Gin 框架获取请求参数的方式</title><link>https://leoxiewl.github.io/2024/01/29/gin-params/</link><pubDate>Mon, 29 Jan 2024 00:00:00 +0000</pubDate><guid>https://leoxiewl.github.io/2024/01/29/gin-params/</guid><description>&lt;h2 id="get">GET&lt;/h2>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>林风's Blog</title><link>https://leoxiewl.github.io/</link><description>Recent content on 林风's Blog</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Fri, 09 Feb 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://leoxiewl.github.io/index.xml" rel="self" type="application/rss+xml"/><item><title>高性能MySQL-MySQL查询优化</title><link>https://leoxiewl.github.io/2024/02/09/high-performance-mysql/</link><pubDate>Fri, 09 Feb 2024 00:00:00 +0000</pubDate><guid>https://leoxiewl.github.io/2024/02/09/high-performance-mysql/</guid><description>&lt;p>要实现高效的查询，&lt;strong>查询优化、索引优化、库表结构优化&lt;/strong>需要齐头并进。&lt;/p>
+&lt;p>本文主要围绕查询性能的优化&lt;/p>
+&lt;h2 id="为什么查询的速度会慢">为什么查询的速度会慢？&lt;/h2>
+&lt;p>关键在于响应时间。&lt;/p>
+&lt;p>执行一个任务，可能这个任务由一系列的任务组成，只要优化它其中的子任务，让子任务运行的快，或者直接消除子任务，就能让整个响应时间快起来。在查询的整个过程中，从客户端到服务器，然后在服务器上进行语法解析，生成执行计划之后执行，再返回到客户端，要经过复杂的历程。&lt;/p>
+&lt;p>&lt;img src="https://leoxiewl.github.io/%e9%ab%98%e6%80%a7%e8%83%bdMySQL-MySQL%e6%9f%a5%e8%af%a2%e4%bc%98%e5%8c%96.assets/image-20240209143039415.png"
+loading="lazy"
+alt="image-20240209143039415"
+>&lt;/p>
+&lt;p>在完成这些任务的时候，查询需要在不同的地方花费时间：&lt;/p>
+&lt;ul>
+&lt;li>包括网络&lt;/li>
+&lt;li>CPU计算&lt;/li>
+&lt;li>生成统计信息和执行计划&lt;/li>
+&lt;li>锁等待（互斥等待）等操作&lt;/li>
+&lt;/ul>
+&lt;p>尤其是&lt;strong>向底层存储引擎检索数据的调用操作&lt;/strong>，这些调用需要在内存操作、CPU操作和内存不足时导致的I/O操作上消耗时间。根据存储引擎不同，可能还会产生&lt;strong>大量的上下文切换以及系统调用&lt;/strong>。&lt;/p>
+&lt;p>&lt;strong>优化查询的目的就是，减少和消除一些不必要的操作、消除重复了很多次的操作、优化某些执行太慢的操作&lt;/strong>。&lt;/p>
+&lt;h2 id="优化查询排查的基本步骤">优化查询排查的基本步骤&lt;/h2>
+&lt;h3 id="1-不访问不必要的数据">1. 不访问不必要的数据&lt;/h3>
+&lt;ul>
+&lt;li>确认应用程序是否在检索大量且不必要的数据。这通常意味着访问了太多的行，但有时候也可能是访问了太多的列。&lt;/li>
+&lt;li>确认MySQL服务器层是否在分析大量不需要的数据行。&lt;/li>
+&lt;li>向数据库请求了不需要的数据&lt;/li>
+&lt;/ul>
+&lt;blockquote>
+&lt;p>有些查询会请求超过实际需要的数据，然后这些多余的数据会被应用程序丢弃。这会给MySQL服务器带来额外的负担，并增加网络开销，另外，这也会消耗应用服务器的CPU和内存资源。&lt;/p>
+&lt;/blockquote>
+&lt;p>&lt;strong>查询了不需要的记录&lt;/strong>&lt;/p>
+&lt;p>一个常见的错误是，常常会误以为MySQL只会返回需要的数据，实际上MySQL却是先返回全部结果集再进行计算。&lt;/p>
+&lt;blockquote>
+&lt;p>例如，在新闻网站中取出100条记录，但是只是在页面上显示前面10条。有人会误以为MySQL执行查询只返回他们需要的10条数据，然后停止查询，实际情况是，MySQL会查询出全部的结果，然后客户端应用程序接收后再抛弃其中大部分数据。&lt;/p>
+&lt;/blockquote>
+&lt;p>&lt;strong>解决方案&lt;/strong>：在这样的查询后面加上&lt;strong>LIMIT子句&lt;/strong>&lt;/p>
+&lt;p>&lt;strong>多表联接时返回全部列&lt;/strong>&lt;/p>
+&lt;p>&lt;img src="https://leoxiewl.github.io/%e9%ab%98%e6%80%a7%e8%83%bdMySQL-MySQL%e6%9f%a5%e8%af%a2%e4%bc%98%e5%8c%96.assets/image-20240209143259425.png"
+loading="lazy"
+alt="image-20240209143259425"
+>&lt;/p>
+&lt;p>这将返回这三个表的全部数据列&lt;/p>
+&lt;p>正确的方式应该是像下面这样只取需要的列：&lt;/p>
+&lt;p>&lt;img src="https://leoxiewl.github.io/%e9%ab%98%e6%80%a7%e8%83%bdMySQL-MySQL%e6%9f%a5%e8%af%a2%e4%bc%98%e5%8c%96.assets/image-20240209143341307.png"
+loading="lazy"
+alt="image-20240209143341307"
+>&lt;/p>
+&lt;p>&lt;strong>总是取出全部列&lt;/strong>&lt;/p>
+&lt;p>每次看到&lt;code>SELECT *&lt;/code>的时候都需要用怀疑的眼光审视，是不是真的需要返回全部的列，很可能不是必需的&lt;/p>
+&lt;p>使用 &lt;code>SELECT *&lt;/code> 的缺点&lt;/p>
+&lt;ul>
+&lt;li>取出全部列，会让优化器无法完成索引覆盖扫描这类优化&lt;/li>
+&lt;li>给服务器带来额外的I/O、内存和CPU的消耗&lt;/li>
+&lt;/ul>
+&lt;p>&lt;u>当然，查询返回超过需要的数据也不总是坏事&lt;/u>&lt;/p>
+&lt;p>这种方式可以简化开发，能够提高相同代码片段的复用性。&lt;strong>如果清楚这样做对性能的影响，那么这种做法也是值得考虑的&lt;/strong>&lt;/p>
+&lt;p>&lt;strong>重复查询相同的数据&lt;/strong>&lt;/p>
+&lt;p>例如，在用户评论的地方需要查询用户头像的URL，那么在用户多次评论的时候，可能就会反复查询这个数据。比较好的方案是，当初次查询的时候将这个数据缓存起来，需要的时候从缓存中取出&lt;/p>
+&lt;h3 id="2-mysql是否在扫描额外的记录">2. MySQL是否在扫描额外的记录&lt;/h3>
+&lt;p>对于MySQL，最简单的衡量查询开销的三个指标如下：&lt;/p>
+&lt;ul>
+&lt;li>响应时间&lt;/li>
+&lt;li>扫描的行数&lt;/li>
+&lt;li>返回的行数&lt;/li>
+&lt;/ul>
+&lt;p>检查慢日志记录是找出扫描行数过多的查询的好办法。&lt;/p>
+&lt;p>&lt;strong>响应时间&lt;/strong>&lt;/p>
+&lt;p>响应时间是两部分之和：&lt;strong>服务时间和排队时间&lt;/strong>。服务时间是指数据库处理这个查询真正花了多长时间。排队时间是指服务器因为等待某些资源而没有真正执行查询的时间——可能是等I/O操作完成，也可能是等待行锁。遗憾的是，我们无法把响应时间细分到上面这些部分&lt;/p>
+&lt;p>当你看到一个查询的响应时间时，首先需要问问自己，这个响应时间是否是一个合理的值。实际上可以使用“快速上限估计”法来估算查询的响应时间&lt;/p>
+&lt;blockquote>
+&lt;p>这是在Tapio Lahdenmaki和Mike Leach编写的Relational Database Index Design and the Optimizers（Wiley出版社出版）一书中提到的技术&lt;/p>
+&lt;/blockquote>
+&lt;p>概括地说，了解这个查询需要哪些索引以及它的执行计划是什么，然后计算大概需要多少个顺序和随机I/O，再用其乘以在具体硬件条件下一次I/O的消耗时间。最后把这些消耗都加起来，就可以获得一个大概参考值来判断当前响应时间是不是一个合理的值。&lt;/p>
+&lt;p>&lt;strong>扫描的行数和返回的行数&lt;/strong>&lt;/p>
+&lt;p>查看该查询扫描的行数是非常有帮助的。这在一定程度上能够说明该查询找到需要的数据的效率高不高。&lt;/p>
+&lt;p>&lt;strong>扫描的行数和访问类型&lt;/strong>&lt;/p>
+&lt;p>有些访问方式可能需要扫描很多行才能返回一行结果，也有些访问方式可能无须扫描就能返回结果。&lt;/p>
+&lt;p>EXPLAIN语句中的type列反映了访问类型。访问类型有很多种，从全表扫描到索引扫描、范围扫描、唯一索引查询、常数引用等。这里列出的这些，速度从慢到快，扫描的行数从多到少&lt;/p>
+&lt;p>如果你没办法找到合适的访问类型，那么最好的解决办法通常就是增加一个合适的索引&lt;/p>
+&lt;p>&lt;strong>一般地，MySQL能够使用如下三种方式应用WHERE条件，从好到坏依次为：&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>在&lt;strong>索引中使用WHERE条件&lt;/strong>来过滤不匹配的记录。这是在存储引擎层完成的&lt;/li>
+&lt;/ul>
+&lt;p>所以where条件后面的字段一定要加索引&lt;/p>
+&lt;ul>
+&lt;li>使用索引覆盖扫描（在Extra列中出现了Using index）来返回记录，直接从索引中过滤不需要的记录并返回命中的结果。这是在MySQL服务器层完成的，但无须再回表查询记录。&lt;/li>
+&lt;/ul>
+&lt;p>从整个索引树中拿到想要的记录&lt;/p>
+&lt;ul>
+&lt;li>从数据表中返回数据，然后过滤不满足条件的记录（在Extra列中出现Using where）。这在MySQL服务器层完成，MySQL需要先从数据表中读出记录然后过滤。&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>如果发现查询需要扫描大量的数据但只返回少数行，那么通常可以尝试下面的技巧去优化它：&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>使用索引覆盖扫描，把所有需要用的列都放到索引中，这样存储引擎无须回表获取对应行就可以返回结果了&lt;/li>
+&lt;li>改变库表结构。例如，使用单独的汇总表&lt;/li>
+&lt;li>重写这个复杂的查询，让MySQL优化器能够以更优化的方式执行这个查询&lt;/li>
+&lt;/ul>
+&lt;h3 id="3-重构查询">3. 重构查询&lt;/h3>
+&lt;p>将查询转换为返回相同结果的等价形式，以获得更好的性能&lt;/p>
+&lt;h4 id="一个复杂查询还是多个简单查询">一个复杂查询还是多个简单查询&lt;/h4>
+&lt;p>&lt;strong>设计查询的时候，一个需要考虑的重要问题是，是否需要将一个复杂的查询分成多个简单的查询。&lt;/strong>&lt;/p>
+&lt;p>在其他条件都相同的时候，使用尽可能少的查询当然是更好的。但是有时候，将一个大查询分解为多个小查询是很有必要的。&lt;/p>
+&lt;blockquote>
+&lt;p>别害怕这样做，好好衡量一下这样做是不是会减少工作量&lt;/p>
+&lt;/blockquote>
+&lt;p>不过，在设计应用的时候，&lt;strong>一个查询可以做的事情，就不要把这个查询设计成多个&lt;/strong>。&lt;/p>
+&lt;blockquote>
+&lt;p>我们看到有些应用对一个数据表做10次独立的查询来返回10行数据，每个查询返回一条结果，查询10次，这时可以使用单个查询获取10行数据。有的应用甚至每次只查询一个字段，获取一行数据就需要执行多次查询。&lt;/p>
+&lt;/blockquote>
+&lt;h4 id="将大查询切分成小查询">将大查询切分成小查询&lt;/h4>
+&lt;p>&lt;strong>例子：删除旧的数据&lt;/strong>&lt;/p>
+&lt;p>定期清除大量数据时，如果用一个大的语句一次性完成的话，则可能需要一次锁住很多数据、占满整个事务日志、耗尽系统资源、阻塞很多小的但重要的查询。将一个大的DELETE语句切分成多个较小的查询可以尽可能小地影响MySQL的性能，同时还可以降低MySQL复制的延迟&lt;/p>
+&lt;p>&lt;img src="https://prod-files-secure.s3.us-west-2.amazonaws.com/68316fde-9d30-4ee4-abfe-555755ca144e/48f2eff0-1b81-4dc5-b147-9feb1673f0a7/Untitled.png"
+loading="lazy"
+alt="Untitled"
+>&lt;/p>
+&lt;p>一次删除一万行数据一般来说是一个比较高效而且对服务器[插图]影响最小的做法（如果是事务型引擎，很多时候小事务能够更高效）&lt;/p>
+&lt;p>如果每次删除数据后，都&lt;strong>暂停一会儿再做下一次删除&lt;/strong>，也可以将服务器上原本一次性的压力分散到一个很长的时间段中，可以大大降低对服务器的影响，还可以大大减少删除时锁的持有时间。&lt;/p>
+&lt;h4 id="干掉连接查询-join">干掉连接查询 join&lt;/h4>
+&lt;p>&lt;strong>高性能的应用都会对联接查询进行分解&lt;/strong>&lt;/p>
+&lt;p>简单地说，可以对每一个表进行一次单表查询，然后将结果在应用程序中进行联接&lt;/p>
+&lt;p>例如，下面这个查询&lt;/p>
+&lt;p>&lt;img src="https://prod-files-secure.s3.us-west-2.amazonaws.com/68316fde-9d30-4ee4-abfe-555755ca144e/5ea768cd-bf0b-4f2d-8842-9d69ae1328ee/Untitled.png"
+loading="lazy"
+alt="Untitled"
+>&lt;/p>
+&lt;p>可以分解成下面这些查询来代替：&lt;/p>
+&lt;p>&lt;img src="https://prod-files-secure.s3.us-west-2.amazonaws.com/68316fde-9d30-4ee4-abfe-555755ca144e/b0a75c70-2efd-4f84-bcf6-15eb1e82e3c3/Untitled.png"
+loading="lazy"
+alt="Untitled"
+>&lt;/p>
+&lt;p>&lt;strong>用分解联接查询的方式重构查询有如下优势&lt;/strong>：&lt;/p>
+&lt;ul>
+&lt;li>让缓存的效率更高&lt;/li>
+&lt;/ul>
+&lt;p>许多应用程序可以方便地缓存单表查询对应的结果对象&lt;/p>
+&lt;blockquote>
+&lt;p>例如，上面查询中的tag mysql已经被缓存了，那么应用就可以跳过第一个查询。再例如，应用中已经缓存了ID为123、567、9098的内容，那么第三个查询的IN()中就可以少几个ID。&lt;/p>
+&lt;/blockquote>
+&lt;ul>
+&lt;li>将查询分解后，执行单个查询可以减少锁的竞争。&lt;/li>
+&lt;li>在应用层做联接，可以更容易对数据库进行拆分，更容易做到高性能和可扩展。&lt;/li>
+&lt;li>查询本身的效率也可能会有所提升&lt;/li>
+&lt;/ul>
+&lt;p>在这个例子中，使用IN()代替联接查询，可以让MySQL按照ID顺序进行查询，这可能比随机的联接要更高效。&lt;/p>
+&lt;ul>
+&lt;li>可以减少对冗余记录的访问&lt;/li>
+&lt;/ul>
+&lt;p>在应用层做联接查询，意味着对于某条记录应用只需要查询一次，而在数据库中做联接查询，则可能需要重复地访问一部分数据。从这点看，这样的重构还可能会减少网络和内存的消耗。&lt;/p>
+&lt;p>&lt;strong>在有些场景下，在应用程序中执行联接操作会更加有效&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>当可以缓存和重用之前查询结果中的数据时&lt;/li>
+&lt;li>当在多台服务器上分发数据时&lt;/li>
+&lt;li>当能够使用IN()列表替代联接查询大型表时&lt;/li>
+&lt;li>当一次联接查询中多次引用同一张表时&lt;/li>
+&lt;/ul>
+&lt;p>下面的解释由AI生成&lt;/p>
+&lt;ol>
+&lt;li>&lt;strong>当可以缓存和重用之前查询结果中的数据时&lt;/strong>：在某些情况下，你可能会在查询中重复使用某个子查询的结果。在这种情况下，联接查询可以帮助你避免重复查询数据库。例如：&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-sql" data-lang="sql">&lt;span class="line">&lt;span class="cl">&lt;span class="k">SELECT&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">a&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">name&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">b&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">address&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="k">FROM&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="k">SELECT&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">id&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">name&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">FROM&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">users&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">WHERE&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">age&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">&amp;gt;&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="mi">20&lt;/span>&lt;span class="p">)&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">a&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="k">JOIN&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="k">SELECT&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">user_id&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">address&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">FROM&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">addresses&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">WHERE&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">city&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s1">&amp;#39;北京&amp;#39;&lt;/span>&lt;span class="p">)&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">b&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="k">ON&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">a&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">id&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">b&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">user_id&lt;/span>&lt;span class="p">;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>在这个例子中，我们在子查询中获取了所有年龄大于20岁的用户和住在北京的地址，然后将这两个子查询的结果进行联接。&lt;/p>
+&lt;ol>
+&lt;li>&lt;strong>当在多台服务器上分发数据时&lt;/strong>：当你的数据被分布在多台服务器上时，你可能需要通过联接查询来获取你需要的数据。例如，你的用户数据和订单数据可能被存储在不同的服务器上，你可以通过联接查询来获取用户的订单信息。&lt;/li>
+&lt;li>&lt;strong>当能够使用IN()列表替代联接查询大型表时&lt;/strong>：在某些情况下，使用IN()列表可能会比联接大型表更高效。例如，如果你只需要从大型表中获取少量数据，你可以先从小表中获取这些数据的ID，然后再使用IN()列表来查询大表。例如：&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-sql" data-lang="sql">&lt;span class="line">&lt;span class="cl">&lt;span class="k">SELECT&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">*&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">FROM&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">big_table&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="k">WHERE&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">id&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">IN&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="k">SELECT&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">id&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">FROM&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">small_table&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">WHERE&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">condition&lt;/span>&lt;span class="p">);&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;ol>
+&lt;li>&lt;strong>当一次联接查询中多次引用同一张表时&lt;/strong>：在某些情况下，你可能需要在同一次查询中多次引用同一张表。在这种情况下，联接查询可以帮助你更方便地获取你需要的数据。例如，你可能需要获取用户的订单信息和地址信息，这两个信息可能都存储在同一张表中，你可以通过联接查询来获取这些信息。例如：&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-sql" data-lang="sql">&lt;span class="line">&lt;span class="cl">&lt;span class="k">SELECT&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">a&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">name&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">b&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="k">order&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">c&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">address&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="k">FROM&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">users&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">a&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="k">JOIN&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">orders&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">b&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">ON&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">a&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">id&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">b&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">user_id&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="k">JOIN&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">addresses&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">c&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">ON&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">a&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">id&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">c&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">user_id&lt;/span>&lt;span class="p">;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div></description></item><item><title>Gin 框架获取请求参数的方式</title><link>https://leoxiewl.github.io/2024/01/29/gin-params/</link><pubDate>Mon, 29 Jan 2024 00:00:00 +0000</pubDate><guid>https://leoxiewl.github.io/2024/01/29/gin-params/</guid><description>&lt;h2 id="get">GET&lt;/h2>
 &lt;p>使用 Query，请求中参数直接拼接在 url 中&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
