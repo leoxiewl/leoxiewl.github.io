@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>搜索 on 林风's Blog</title><link>https://leoxiewl.github.io/tags/%E6%90%9C%E7%B4%A2/</link><description>Recent content in 搜索 on 林风's Blog</description><generator>Hugo</generator><language>zh-CN</language><copyright>林风的博客</copyright><lastBuildDate>Mon, 29 Jan 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://leoxiewl.github.io/tags/%E6%90%9C%E7%B4%A2/index.xml" rel="self" type="application/rss+xml"/><item><title>github 搜索技巧</title><link>https://leoxiewl.github.io/github%E6%90%9C%E7%B4%A2%E6%8A%80%E5%B7%A7/</link><pubDate>Mon, 29 Jan 2024 00:00:00 +0000</pubDate><guid>https://leoxiewl.github.io/github%E6%90%9C%E7%B4%A2%E6%8A%80%E5%B7%A7/</guid><description>&lt;p>&lt;a href="https://docs.github.com/zh">github 官方文档&lt;/a>&lt;/p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>技术 on 林风's Blog</title><link>https://leoxiewl.github.io/categories/%E6%8A%80%E6%9C%AF/</link><description>Recent content in 技术 on 林风's Blog</description><generator>Hugo</generator><language>zh-CN</language><copyright>林风的博客</copyright><lastBuildDate>Mon, 04 Aug 2025 22:54:31 +0800</lastBuildDate><atom:link href="https://leoxiewl.github.io/categories/%E6%8A%80%E6%9C%AF/index.xml" rel="self" type="application/rss+xml"/><item><title>github 搜索技巧</title><link>https://leoxiewl.github.io/github%E6%90%9C%E7%B4%A2%E6%8A%80%E5%B7%A7/</link><pubDate>Mon, 29 Jan 2024 00:00:00 +0000</pubDate><guid>https://leoxiewl.github.io/github%E6%90%9C%E7%B4%A2%E6%8A%80%E5%B7%A7/</guid><description>&lt;p>&lt;a href="https://docs.github.com/zh">github 官方文档&lt;/a>&lt;/p>
 &lt;h2 id="常用搜索语法">常用搜索语法&lt;/h2>
 &lt;h3 id="in-限定搜索范围">in 限定搜索范围&lt;/h3>
 &lt;p>可以限定范围去找 github 仓库&lt;/p>
@@ -33,4 +33,9 @@
  &lt;/tbody>
 &lt;/table>
 &lt;h3 id="按照仓库创建或者上次更新时间搜素">按照仓库创建或者上次更新时间搜素&lt;/h3>
-&lt;p>找到当前活跃的仓库&lt;/p></description></item></channel></rss>
+&lt;p>找到当前活跃的仓库&lt;/p></description></item><item><title>Github Action 自动部署发布</title><link>https://leoxiewl.github.io/github-page-deploy/</link><pubDate>Sun, 14 Jan 2024 00:00:00 +0000</pubDate><guid>https://leoxiewl.github.io/github-page-deploy/</guid><description>&lt;h2 id="1-创建两个仓库">1. 创建两个仓库&lt;/h2>
+&lt;p>一个用来存放 Hugo 源文件，私有、公有都可以&lt;/p>
+&lt;p>一个用来托管网站，用户名.github.io&lt;/p>
+&lt;h2 id="2-生成部署密钥">2. 生成部署密钥&lt;/h2>
+&lt;pre tabindex="0">&lt;code>ssh-keygen -t rsa -b 4096 -C user.email
+&lt;/code>&lt;/pre>&lt;p>这种方式可以输入自定义的路径来保存SSH Key，这样就不会影响到电脑中旧的SSH Key。&lt;/p></description></item></channel></rss>

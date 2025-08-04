@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Awesome on 林风's Blog</title><link>https://leoxiewl.github.io/categories/awesome/</link><description>Recent content in Awesome on 林风's Blog</description><generator>Hugo</generator><language>zh-CN</language><copyright>林风的博客</copyright><atom:link href="https://leoxiewl.github.io/categories/awesome/index.xml" rel="self" type="application/rss+xml"/><item><title>JavaScript 常用网站&amp;资源汇总</title><link>https://leoxiewl.github.io/javascript-awesome/</link><pubDate>Wed, 17 Jan 2024 00:00:00 +0000</pubDate><guid>https://leoxiewl.github.io/javascript-awesome/</guid><description>&lt;h2 id="教程">教程&lt;/h2>
+&lt;h3 id="快速入门">快速入门&lt;/h3>
+&lt;ul>
+&lt;li>
+&lt;p>&lt;a href="https://developer.mozilla.org/zh-CN/docs/Learn/Getting_started_with_the_web/JavaScript_basics">MDN Web Docs-JavaScript&lt;/a>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;a href="https://www.liaoxuefeng.com/wiki/1022910821149312/1023020895584256">廖雪峰 JavaScript教程&lt;/a>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;a href="https://www.bilibili.com/video/BV15L4y1a7or">四十分钟JavaScript快速入门 | 无废话且清晰流畅 | 手敲键盘&lt;/a>&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="书籍推荐">书籍推荐&lt;/h3>
+&lt;ul>
+&lt;li>
+&lt;p>《JavaScript DOM 编程艺术》
+被推荐最多的前端入门书籍&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>《JavsScript高级程序设计（第三版）》
+学习 JS 最好的书，学习 JS 每个阶段再去读，仍然会有收获。&lt;/p></description></item><item><title>React 常用网站&amp;资源汇总</title><link>https://leoxiewl.github.io/react-awesome/</link><pubDate>Tue, 16 Jan 2024 00:00:00 +0000</pubDate><guid>https://leoxiewl.github.io/react-awesome/</guid><description>&lt;h2 id="react-官方网站">React 官方网站&lt;/h2>
+&lt;p>官网地址：https://react.dev/&lt;/p>
+&lt;p>GitHub 地址：https://github.com/facebook/react&lt;/p>
+&lt;h2 id="教程">教程&lt;/h2>
+&lt;h3 id="文档">文档&lt;/h3>
+&lt;ul>
+&lt;li>&lt;a href="https://react.dev/learn">React 官方文档&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://zh-hans.react.dev/learn">React 官方中文文档&lt;/a>&lt;/li>
+&lt;li>&lt;a href="http://nav.react-china.org/">React 中文索引&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://www.runoob.com/react/react-tutorial.html">React 菜鸟教程&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="视频">视频&lt;/h3>
+&lt;ul>
+&lt;li>&lt;a href="https://www.bilibili.com/video/BV1ZB4y1Z7o8/">黑马程序员前端React18入门到实战视频教程&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>有基础有实战，学完基础直接上手开发小案例&lt;/p></description></item><item><title>什么是 Awesome | Awesome 系列</title><link>https://leoxiewl.github.io/awesome/</link><pubDate>Tue, 16 Jan 2024 00:00:00 +0000</pubDate><guid>https://leoxiewl.github.io/awesome/</guid><description>&lt;h2 id="awesome-介绍">Awesome 介绍&lt;/h2>
+&lt;p>Awesome 是在 GitHub 中一个经过精选和认可的高质量资源列表，以帮助用户发现与特定主题或领域相关的有价值的资源。这些资源列表通常包含与特定主题、技术或领域相关的链接、工具、库、框架、教程或其他资源。&lt;/p></description></item></channel></rss>
