@@ -1,21 +1,21 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>React on 林风's Blog</title><link>https://leoxiewl.github.io/tags/react/</link><description>Recent content in React on 林风's Blog</description><generator>Hugo</generator><language>zh-CN</language><copyright>林风的博客</copyright><lastBuildDate>Mon, 04 Aug 2025 22:54:31 +0800</lastBuildDate><atom:link href="https://leoxiewl.github.io/tags/react/index.xml" rel="self" type="application/rss+xml"/><item><title>React 常用网站&amp;资源汇总</title><link>https://leoxiewl.github.io/react-awesome/</link><pubDate>Tue, 16 Jan 2024 00:00:00 +0000</pubDate><guid>https://leoxiewl.github.io/react-awesome/</guid><description>&lt;h2 id="react-官方网站">React 官方网站&lt;/h2>
-&lt;p>官网地址：https://react.dev/&lt;/p>
-&lt;p>GitHub 地址：https://github.com/facebook/react&lt;/p>
-&lt;h2 id="教程">教程&lt;/h2>
-&lt;h3 id="文档">文档&lt;/h3>
-&lt;ul>
-&lt;li>&lt;a href="https://react.dev/learn">React 官方文档&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://zh-hans.react.dev/learn">React 官方中文文档&lt;/a>&lt;/li>
-&lt;li>&lt;a href="http://nav.react-china.org/">React 中文索引&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://www.runoob.com/react/react-tutorial.html">React 菜鸟教程&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h3 id="视频">视频&lt;/h3>
-&lt;ul>
-&lt;li>&lt;a href="https://www.bilibili.com/video/BV1ZB4y1Z7o8/">黑马程序员前端React18入门到实战视频教程&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;p>有基础有实战，学完基础直接上手开发小案例&lt;/p></description></item><item><title>React 基础</title><link>https://leoxiewl.github.io/react-base/</link><pubDate>Tue, 16 Jan 2024 00:00:00 +0000</pubDate><guid>https://leoxiewl.github.io/react-base/</guid><description>&lt;h2 id="react-基础">React 基础&lt;/h2>
-&lt;p>React由Meta公司开发，是一个用于 构建Web和原生交互界面的库&lt;/p>
-&lt;blockquote>
-&lt;p>The library for web and native user interfaces&lt;/p>&lt;/blockquote>
-&lt;h2 id="react-优势">React 优势&lt;/h2>
-&lt;p>&lt;strong>虚拟DOM（Virtual DOM）&lt;/strong>&lt;/p></description></item></channel></rss>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>React - 标签 - 林风's Blog</title><link>https://leoxiewl.github.io/tags/react/</link><description>React - 标签 - 林风's Blog</description><generator>Hugo -- gohugo.io</generator><language>zh-CN</language><copyright>林风的博客</copyright><lastBuildDate>Tue, 16 Jan 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://leoxiewl.github.io/tags/react/" rel="self" type="application/rss+xml"/><item><title>React 常用网站&amp;资源汇总</title><link>https://leoxiewl.github.io/react-awesome/</link><pubDate>Tue, 16 Jan 2024 00:00:00 +0000</pubDate><author>xxxx</author><guid>https://leoxiewl.github.io/react-awesome/</guid><description><![CDATA[<h2 id="react-官方网站">React 官方网站</h2>
+<p>官网地址：https://react.dev/</p>
+<p>GitHub 地址：https://github.com/facebook/react</p>
+<h2 id="教程">教程</h2>
+<h3 id="文档">文档</h3>
+<ul>
+<li><a href="https://react.dev/learn" target="_blank" rel="noopener noreffer ">React 官方文档</a></li>
+<li><a href="https://zh-hans.react.dev/learn" target="_blank" rel="noopener noreffer ">React 官方中文文档</a></li>
+<li><a href="http://nav.react-china.org/" target="_blank" rel="noopener noreffer ">React 中文索引</a></li>
+<li><a href="https://www.runoob.com/react/react-tutorial.html" target="_blank" rel="noopener noreffer ">React 菜鸟教程</a></li>
+</ul>
+<h3 id="视频">视频</h3>
+<ul>
+<li><a href="https://www.bilibili.com/video/BV1ZB4y1Z7o8/" target="_blank" rel="noopener noreffer ">黑马程序员前端React18入门到实战视频教程</a></li>
+</ul>
+<p>有基础有实战，学完基础直接上手开发小案例</p>]]></description></item><item><title>React 基础</title><link>https://leoxiewl.github.io/react-base/</link><pubDate>Tue, 16 Jan 2024 00:00:00 +0000</pubDate><author>xxxx</author><guid>https://leoxiewl.github.io/react-base/</guid><description><![CDATA[<h2 id="react-基础">React 基础</h2>
+<p>React由Meta公司开发，是一个用于 构建Web和原生交互界面的库</p>
+<blockquote>
+<p>The library for web and native user interfaces</p></blockquote>
+<h2 id="react-优势">React 优势</h2>
+<p><strong>虚拟DOM（Virtual DOM）</strong></p>]]></description></item></channel></rss>

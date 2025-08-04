@@ -1,36 +1,36 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>搜索 on 林风's Blog</title><link>https://leoxiewl.github.io/tags/%E6%90%9C%E7%B4%A2/</link><description>Recent content in 搜索 on 林风's Blog</description><generator>Hugo</generator><language>zh-CN</language><copyright>林风的博客</copyright><lastBuildDate>Mon, 29 Jan 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://leoxiewl.github.io/tags/%E6%90%9C%E7%B4%A2/index.xml" rel="self" type="application/rss+xml"/><item><title>github 搜索技巧</title><link>https://leoxiewl.github.io/github%E6%90%9C%E7%B4%A2%E6%8A%80%E5%B7%A7/</link><pubDate>Mon, 29 Jan 2024 00:00:00 +0000</pubDate><guid>https://leoxiewl.github.io/github%E6%90%9C%E7%B4%A2%E6%8A%80%E5%B7%A7/</guid><description>&lt;p>&lt;a href="https://docs.github.com/zh">github 官方文档&lt;/a>&lt;/p>
-&lt;h2 id="常用搜索语法">常用搜索语法&lt;/h2>
-&lt;h3 id="in-限定搜索范围">in 限定搜索范围&lt;/h3>
-&lt;p>可以限定范围去找 github 仓库&lt;/p>
-&lt;table>
- &lt;thead>
- &lt;tr>
- &lt;th style="text-align: left">限定符&lt;/th>
- &lt;th style="text-align: left">示例&lt;/th>
- &lt;/tr>
- &lt;/thead>
- &lt;tbody>
- &lt;tr>
- &lt;td style="text-align: left">&lt;code>in:name&lt;/code>&lt;/td>
- &lt;td style="text-align: left">&lt;a href="https://github.com/search?q=jquery+in%3Aname&amp;amp;type=Repositories">&lt;strong>jquery in:name&lt;/strong>&lt;/a> 匹配名称中带有“jquery”的存储库。&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td style="text-align: left">&lt;code>in:description&lt;/code>&lt;/td>
- &lt;td style="text-align: left">&lt;a href="https://github.com/search?q=jquery+in%3Aname%2Cdescription&amp;amp;type=Repositories">&lt;strong>jquery in:name,description&lt;/strong>&lt;/a> 匹配名称或说明中带有“jquery”的存储库。&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td style="text-align: left">&lt;code>in:topics&lt;/code>&lt;/td>
- &lt;td style="text-align: left">&lt;a href="https://github.com/search?q=jquery+in%3Atopics&amp;amp;type=Repositories">jquery in:topics&lt;/a> 将带“jquery”标签的存储库匹配为主题。&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td style="text-align: left">&lt;code>in:readme&lt;/code>&lt;/td>
- &lt;td style="text-align: left">&lt;a href="https://github.com/search?q=jquery+in%3Areadme&amp;amp;type=Repositories">&lt;strong>jquery in:readme&lt;/strong>&lt;/a> 匹配自述文件中提及“jquery”的存储库。&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td style="text-align: left">&lt;code>repo:owner/name&lt;/code>&lt;/td>
- &lt;td style="text-align: left">&lt;a href="https://github.com/search?q=repo%3Aoctocat%2Fhello-world">&lt;strong>repo:octocat/hello-world&lt;/strong>&lt;/a> 匹配特定的存储库名称。&lt;/td>
- &lt;/tr>
- &lt;/tbody>
-&lt;/table>
-&lt;h3 id="按照仓库创建或者上次更新时间搜素">按照仓库创建或者上次更新时间搜素&lt;/h3>
-&lt;p>找到当前活跃的仓库&lt;/p></description></item></channel></rss>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>搜索 - 标签 - 林风's Blog</title><link>https://leoxiewl.github.io/tags/%E6%90%9C%E7%B4%A2/</link><description>搜索 - 标签 - 林风's Blog</description><generator>Hugo -- gohugo.io</generator><language>zh-CN</language><copyright>林风的博客</copyright><lastBuildDate>Mon, 29 Jan 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://leoxiewl.github.io/tags/%E6%90%9C%E7%B4%A2/" rel="self" type="application/rss+xml"/><item><title>github 搜索技巧</title><link>https://leoxiewl.github.io/github%E6%90%9C%E7%B4%A2%E6%8A%80%E5%B7%A7/</link><pubDate>Mon, 29 Jan 2024 00:00:00 +0000</pubDate><author>xxxx</author><guid>https://leoxiewl.github.io/github%E6%90%9C%E7%B4%A2%E6%8A%80%E5%B7%A7/</guid><description><![CDATA[<p><a href="https://docs.github.com/zh" target="_blank" rel="noopener noreffer ">github 官方文档</a></p>
+<h2 id="常用搜索语法">常用搜索语法</h2>
+<h3 id="in-限定搜索范围">in 限定搜索范围</h3>
+<p>可以限定范围去找 github 仓库</p>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: left">限定符</th>
+          <th style="text-align: left">示例</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left"><code>in:name</code></td>
+          <td style="text-align: left"><a href="https://github.com/search?q=jquery&#43;in%3Aname&amp;type=Repositories" target="_blank" rel="noopener noreffer "><strong>jquery in:name</strong></a> 匹配名称中带有“jquery”的存储库。</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><code>in:description</code></td>
+          <td style="text-align: left"><a href="https://github.com/search?q=jquery&#43;in%3Aname%2Cdescription&amp;type=Repositories" target="_blank" rel="noopener noreffer "><strong>jquery in:name,description</strong></a> 匹配名称或说明中带有“jquery”的存储库。</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><code>in:topics</code></td>
+          <td style="text-align: left"><a href="https://github.com/search?q=jquery&#43;in%3Atopics&amp;type=Repositories" target="_blank" rel="noopener noreffer ">jquery in:topics</a> 将带“jquery”标签的存储库匹配为主题。</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><code>in:readme</code></td>
+          <td style="text-align: left"><a href="https://github.com/search?q=jquery&#43;in%3Areadme&amp;type=Repositories" target="_blank" rel="noopener noreffer "><strong>jquery in:readme</strong></a> 匹配自述文件中提及“jquery”的存储库。</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><code>repo:owner/name</code></td>
+          <td style="text-align: left"><a href="https://github.com/search?q=repo%3Aoctocat%2Fhello-world" target="_blank" rel="noopener noreffer "><strong>repo:octocat/hello-world</strong></a> 匹配特定的存储库名称。</td>
+      </tr>
+  </tbody>
+</table>
+<h3 id="按照仓库创建或者上次更新时间搜素">按照仓库创建或者上次更新时间搜素</h3>
+<p>找到当前活跃的仓库</p>]]></description></item></channel></rss>

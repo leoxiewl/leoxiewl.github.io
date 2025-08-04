@@ -1,20 +1,35 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Gin on 林风's Blog</title><link>https://leoxiewl.github.io/tags/gin/</link><description>Recent content in Gin on 林风's Blog</description><generator>Hugo</generator><language>zh-CN</language><copyright>林风的博客</copyright><lastBuildDate>Mon, 04 Aug 2025 22:54:31 +0800</lastBuildDate><atom:link href="https://leoxiewl.github.io/tags/gin/index.xml" rel="self" type="application/rss+xml"/><item><title>Gin 框架获取请求参数的方式</title><link>https://leoxiewl.github.io/gin-params/</link><pubDate>Mon, 29 Jan 2024 00:00:00 +0000</pubDate><guid>https://leoxiewl.github.io/gin-params/</guid><description>&lt;h2 id="get">GET&lt;/h2>
-&lt;p>使用 Query，请求中参数直接拼接在 url 中&lt;/p>
-&lt;pre tabindex="0">&lt;code>http://localhost:8888/v1/user/get?id=9
-&lt;/code>&lt;/pre>&lt;p>router&lt;/p>
-&lt;pre tabindex="0">&lt;code>userv1.GET(&amp;#34;/get&amp;#34;, userHandler.Get)
-&lt;/code>&lt;/pre>&lt;p>参数绑定&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">idParam&lt;/span> &lt;span style="color:#f92672">:=&lt;/span> &lt;span style="color:#a6e22e">c&lt;/span>.&lt;span style="color:#a6e22e">Query&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;id&amp;#34;&lt;/span>)
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="post-json">POST-JSON&lt;/h2>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">var&lt;/span> &lt;span style="color:#a6e22e">req&lt;/span> &lt;span style="color:#a6e22e">entity&lt;/span>.&lt;span style="color:#a6e22e">User&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#66d9ef">if&lt;/span> &lt;span style="color:#a6e22e">err&lt;/span> &lt;span style="color:#f92672">:=&lt;/span> &lt;span style="color:#a6e22e">c&lt;/span>.&lt;span style="color:#a6e22e">ShouldBindJSON&lt;/span>(&lt;span style="color:#f92672">&amp;amp;&lt;/span>&lt;span style="color:#a6e22e">req&lt;/span>); &lt;span style="color:#a6e22e">err&lt;/span> &lt;span style="color:#f92672">!=&lt;/span> &lt;span style="color:#66d9ef">nil&lt;/span> {
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>		&lt;span style="color:#a6e22e">response&lt;/span>.&lt;span style="color:#a6e22e">Failed&lt;/span>(&lt;span style="color:#a6e22e">c&lt;/span>, &lt;span style="color:#a6e22e">code&lt;/span>.&lt;span style="color:#a6e22e">ErrBind&lt;/span>, &lt;span style="color:#a6e22e">err&lt;/span>.&lt;span style="color:#a6e22e">Error&lt;/span>())
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>		&lt;span style="color:#66d9ef">return&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	}
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>绑定方式有两种，Gin 官方文档是这么描述的：&lt;/p>
-&lt;p>Gin提供了两类绑定方法：&lt;/p>
-&lt;ul>
-&lt;li>
-&lt;p>Type&lt;/p>
-&lt;p>- Must bind&lt;/p></description></item></channel></rss>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>Gin - 标签 - 林风's Blog</title><link>https://leoxiewl.github.io/tags/gin/</link><description>Gin - 标签 - 林风's Blog</description><generator>Hugo -- gohugo.io</generator><language>zh-CN</language><copyright>林风的博客</copyright><lastBuildDate>Mon, 29 Jan 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://leoxiewl.github.io/tags/gin/" rel="self" type="application/rss+xml"/><item><title>Gin 框架获取请求参数的方式</title><link>https://leoxiewl.github.io/gin-params/</link><pubDate>Mon, 29 Jan 2024 00:00:00 +0000</pubDate><author>xxxx</author><guid>https://leoxiewl.github.io/gin-params/</guid><description><![CDATA[<h2 id="get">GET</h2>
+<p>使用 Query，请求中参数直接拼接在 url 中</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="复制到剪贴板"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><pre tabindex="0"><code>http://localhost:8888/v1/user/get?id=9</code></pre></div>
+<p>router</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="复制到剪贴板"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><pre tabindex="0"><code>userv1.GET(&#34;/get&#34;, userHandler.Get)</code></pre></div>
+<p>参数绑定</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-go">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="复制到剪贴板"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="nx">idParam</span> <span class="o">:=</span> <span class="nx">c</span><span class="p">.</span><span class="nf">Query</span><span class="p">(</span><span class="s">&#34;id&#34;</span><span class="p">)</span></span></span></code></pre></div></div>
+<h2 id="post-json">POST-JSON</h2>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-go">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="复制到剪贴板"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">req</span> <span class="nx">entity</span><span class="p">.</span><span class="nx">User</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="k">if</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">c</span><span class="p">.</span><span class="nf">ShouldBindJSON</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">req</span><span class="p">);</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">response</span><span class="p">.</span><span class="nf">Failed</span><span class="p">(</span><span class="nx">c</span><span class="p">,</span> <span class="nx">code</span><span class="p">.</span><span class="nx">ErrBind</span><span class="p">,</span> <span class="nx">err</span><span class="p">.</span><span class="nf">Error</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl">		<span class="k">return</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span></span></span></code></pre></div></div>
+<p>绑定方式有两种，Gin 官方文档是这么描述的：</p>]]></description></item></channel></rss>

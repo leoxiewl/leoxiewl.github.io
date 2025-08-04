@@ -1,35 +1,50 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>编程笔记 on 林风's Blog</title><link>https://leoxiewl.github.io/categories/%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AE%B0/</link><description>Recent content in 编程笔记 on 林风's Blog</description><generator>Hugo</generator><language>zh-CN</language><copyright>林风的博客</copyright><lastBuildDate>Mon, 04 Aug 2025 22:54:31 +0800</lastBuildDate><atom:link href="https://leoxiewl.github.io/categories/%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AE%B0/index.xml" rel="self" type="application/rss+xml"/><item><title>高性能MySQL-高性能MySQL-schema设计与管理</title><link>https://leoxiewl.github.io/%E9%AB%98%E6%80%A7%E8%83%BDmysql-schema%E8%AE%BE%E8%AE%A1%E4%B8%8E%E7%AE%A1%E7%90%86/</link><pubDate>Mon, 26 Feb 2024 00:00:00 +0000</pubDate><guid>https://leoxiewl.github.io/%E9%AB%98%E6%80%A7%E8%83%BDmysql-schema%E8%AE%BE%E8%AE%A1%E4%B8%8E%E7%AE%A1%E7%90%86/</guid><description>&lt;h2 id="数据类型设计基本原则">数据类型设计基本原则&lt;/h2>
-&lt;p>&lt;strong>更小的通常更好&lt;/strong>&lt;/p>
-&lt;p>一般来说，尽量使用能够正确存储和表示数据的最小数据类型。&lt;/p>
-&lt;p>更小的数据类型&lt;strong>更快&lt;/strong>，因为他们占用的磁盘、内存和CPU缓存的空间更少，处理时需要的CPU周期也更少。&lt;/p></description></item><item><title>高性能MySQL-MySQL查询优化</title><link>https://leoxiewl.github.io/%E9%AB%98%E6%80%A7%E8%83%BDmysql-mysql%E6%9F%A5%E8%AF%A2%E4%BC%98%E5%8C%96/</link><pubDate>Fri, 09 Feb 2024 00:00:00 +0000</pubDate><guid>https://leoxiewl.github.io/%E9%AB%98%E6%80%A7%E8%83%BDmysql-mysql%E6%9F%A5%E8%AF%A2%E4%BC%98%E5%8C%96/</guid><description>&lt;p>要实现高效的查询，&lt;strong>查询优化、索引优化、库表结构优化&lt;/strong>需要齐头并进。&lt;/p>
-&lt;p>本文主要围绕查询性能的优化&lt;/p>
-&lt;h2 id="为什么查询的速度会慢">为什么查询的速度会慢？&lt;/h2>
-&lt;p>关键在于响应时间。&lt;/p>
-&lt;p>执行一个任务，可能这个任务由一系列的任务组成，只要优化它其中的子任务，让子任务运行的快，或者直接消除子任务，就能让整个响应时间快起来。在查询的整个过程中，从客户端到服务器，然后在服务器上进行语法解析，生成执行计划之后执行，再返回到客户端，要经过复杂的历程。&lt;/p></description></item><item><title>Gin 框架获取请求参数的方式</title><link>https://leoxiewl.github.io/gin-params/</link><pubDate>Mon, 29 Jan 2024 00:00:00 +0000</pubDate><guid>https://leoxiewl.github.io/gin-params/</guid><description>&lt;h2 id="get">GET&lt;/h2>
-&lt;p>使用 Query，请求中参数直接拼接在 url 中&lt;/p>
-&lt;pre tabindex="0">&lt;code>http://localhost:8888/v1/user/get?id=9
-&lt;/code>&lt;/pre>&lt;p>router&lt;/p>
-&lt;pre tabindex="0">&lt;code>userv1.GET(&amp;#34;/get&amp;#34;, userHandler.Get)
-&lt;/code>&lt;/pre>&lt;p>参数绑定&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">idParam&lt;/span> &lt;span style="color:#f92672">:=&lt;/span> &lt;span style="color:#a6e22e">c&lt;/span>.&lt;span style="color:#a6e22e">Query&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;id&amp;#34;&lt;/span>)
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="post-json">POST-JSON&lt;/h2>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">var&lt;/span> &lt;span style="color:#a6e22e">req&lt;/span> &lt;span style="color:#a6e22e">entity&lt;/span>.&lt;span style="color:#a6e22e">User&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#66d9ef">if&lt;/span> &lt;span style="color:#a6e22e">err&lt;/span> &lt;span style="color:#f92672">:=&lt;/span> &lt;span style="color:#a6e22e">c&lt;/span>.&lt;span style="color:#a6e22e">ShouldBindJSON&lt;/span>(&lt;span style="color:#f92672">&amp;amp;&lt;/span>&lt;span style="color:#a6e22e">req&lt;/span>); &lt;span style="color:#a6e22e">err&lt;/span> &lt;span style="color:#f92672">!=&lt;/span> &lt;span style="color:#66d9ef">nil&lt;/span> {
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>		&lt;span style="color:#a6e22e">response&lt;/span>.&lt;span style="color:#a6e22e">Failed&lt;/span>(&lt;span style="color:#a6e22e">c&lt;/span>, &lt;span style="color:#a6e22e">code&lt;/span>.&lt;span style="color:#a6e22e">ErrBind&lt;/span>, &lt;span style="color:#a6e22e">err&lt;/span>.&lt;span style="color:#a6e22e">Error&lt;/span>())
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>		&lt;span style="color:#66d9ef">return&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	}
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>绑定方式有两种，Gin 官方文档是这么描述的：&lt;/p>
-&lt;p>Gin提供了两类绑定方法：&lt;/p>
-&lt;ul>
-&lt;li>
-&lt;p>Type&lt;/p>
-&lt;p>- Must bind&lt;/p></description></item><item><title>读书笔记 | JavaScript 高级程序设计（第四版）</title><link>https://leoxiewl.github.io/javascript%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E7%AC%AC%E5%9B%9B%E7%89%88/</link><pubDate>Thu, 18 Jan 2024 00:00:00 +0000</pubDate><guid>https://leoxiewl.github.io/javascript%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E7%AC%AC%E5%9B%9B%E7%89%88/</guid><description>&lt;p>我对自己的定位仍旧是一个后端工程师，学习了解 JavaScript 的原因是，我自己开发项目需要写一些前端。&lt;/p>
-&lt;p>&lt;strong>就主打一个实用，能实现功能即可&lt;/strong>。&lt;/p>
-&lt;h2 id="第1章-什么是javascript">第1章 什么是JavaScript&lt;/h2>
-&lt;p>❑ JavaScript历史回顾&lt;/p></description></item><item><title>React 基础</title><link>https://leoxiewl.github.io/react-base/</link><pubDate>Tue, 16 Jan 2024 00:00:00 +0000</pubDate><guid>https://leoxiewl.github.io/react-base/</guid><description>&lt;h2 id="react-基础">React 基础&lt;/h2>
-&lt;p>React由Meta公司开发，是一个用于 构建Web和原生交互界面的库&lt;/p>
-&lt;blockquote>
-&lt;p>The library for web and native user interfaces&lt;/p>&lt;/blockquote>
-&lt;h2 id="react-优势">React 优势&lt;/h2>
-&lt;p>&lt;strong>虚拟DOM（Virtual DOM）&lt;/strong>&lt;/p></description></item></channel></rss>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>编程笔记 - 分类 - 林风's Blog</title><link>https://leoxiewl.github.io/categories/%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AE%B0/</link><description>编程笔记 - 分类 - 林风's Blog</description><generator>Hugo -- gohugo.io</generator><language>zh-CN</language><copyright>林风的博客</copyright><lastBuildDate>Mon, 26 Feb 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://leoxiewl.github.io/categories/%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AE%B0/" rel="self" type="application/rss+xml"/><item><title>高性能MySQL-高性能MySQL-schema设计与管理</title><link>https://leoxiewl.github.io/%E9%AB%98%E6%80%A7%E8%83%BDmysql-schema%E8%AE%BE%E8%AE%A1%E4%B8%8E%E7%AE%A1%E7%90%86/</link><pubDate>Mon, 26 Feb 2024 00:00:00 +0000</pubDate><author>xxxx</author><guid>https://leoxiewl.github.io/%E9%AB%98%E6%80%A7%E8%83%BDmysql-schema%E8%AE%BE%E8%AE%A1%E4%B8%8E%E7%AE%A1%E7%90%86/</guid><description><![CDATA[<h2 id="数据类型设计基本原则">数据类型设计基本原则</h2>
+<p><strong>更小的通常更好</strong></p>
+<p>一般来说，尽量使用能够正确存储和表示数据的最小数据类型。</p>
+<p>更小的数据类型<strong>更快</strong>，因为他们占用的磁盘、内存和CPU缓存的空间更少，处理时需要的CPU周期也更少。</p>]]></description></item><item><title>高性能MySQL-MySQL查询优化</title><link>https://leoxiewl.github.io/%E9%AB%98%E6%80%A7%E8%83%BDmysql-mysql%E6%9F%A5%E8%AF%A2%E4%BC%98%E5%8C%96/</link><pubDate>Fri, 09 Feb 2024 00:00:00 +0000</pubDate><author>xxxx</author><guid>https://leoxiewl.github.io/%E9%AB%98%E6%80%A7%E8%83%BDmysql-mysql%E6%9F%A5%E8%AF%A2%E4%BC%98%E5%8C%96/</guid><description><![CDATA[<p>要实现高效的查询，<strong>查询优化、索引优化、库表结构优化</strong>需要齐头并进。</p>
+<p>本文主要围绕查询性能的优化</p>
+<h2 id="为什么查询的速度会慢">为什么查询的速度会慢？</h2>
+<p>关键在于响应时间。</p>
+<p>执行一个任务，可能这个任务由一系列的任务组成，只要优化它其中的子任务，让子任务运行的快，或者直接消除子任务，就能让整个响应时间快起来。在查询的整个过程中，从客户端到服务器，然后在服务器上进行语法解析，生成执行计划之后执行，再返回到客户端，要经过复杂的历程。</p>]]></description></item><item><title>Gin 框架获取请求参数的方式</title><link>https://leoxiewl.github.io/gin-params/</link><pubDate>Mon, 29 Jan 2024 00:00:00 +0000</pubDate><author>xxxx</author><guid>https://leoxiewl.github.io/gin-params/</guid><description><![CDATA[<h2 id="get">GET</h2>
+<p>使用 Query，请求中参数直接拼接在 url 中</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="复制到剪贴板"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><pre tabindex="0"><code>http://localhost:8888/v1/user/get?id=9</code></pre></div>
+<p>router</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="复制到剪贴板"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><pre tabindex="0"><code>userv1.GET(&#34;/get&#34;, userHandler.Get)</code></pre></div>
+<p>参数绑定</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-go">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="复制到剪贴板"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="nx">idParam</span> <span class="o">:=</span> <span class="nx">c</span><span class="p">.</span><span class="nf">Query</span><span class="p">(</span><span class="s">&#34;id&#34;</span><span class="p">)</span></span></span></code></pre></div></div>
+<h2 id="post-json">POST-JSON</h2>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-go">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="复制到剪贴板"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">req</span> <span class="nx">entity</span><span class="p">.</span><span class="nx">User</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="k">if</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">c</span><span class="p">.</span><span class="nf">ShouldBindJSON</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">req</span><span class="p">);</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">response</span><span class="p">.</span><span class="nf">Failed</span><span class="p">(</span><span class="nx">c</span><span class="p">,</span> <span class="nx">code</span><span class="p">.</span><span class="nx">ErrBind</span><span class="p">,</span> <span class="nx">err</span><span class="p">.</span><span class="nf">Error</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl">		<span class="k">return</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span></span></span></code></pre></div></div>
+<p>绑定方式有两种，Gin 官方文档是这么描述的：</p>]]></description></item><item><title>读书笔记 | JavaScript 高级程序设计（第四版）</title><link>https://leoxiewl.github.io/javascript%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E7%AC%AC%E5%9B%9B%E7%89%88/</link><pubDate>Thu, 18 Jan 2024 00:00:00 +0000</pubDate><author>xxxx</author><guid>https://leoxiewl.github.io/javascript%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E7%AC%AC%E5%9B%9B%E7%89%88/</guid><description><![CDATA[<p>我对自己的定位仍旧是一个后端工程师，学习了解 JavaScript 的原因是，我自己开发项目需要写一些前端。</p>
+<p><strong>就主打一个实用，能实现功能即可</strong>。</p>
+<h2 id="第1章-什么是javascript">第1章 什么是JavaScript</h2>
+<p>❑ JavaScript历史回顾</p>]]></description></item><item><title>React 基础</title><link>https://leoxiewl.github.io/react-base/</link><pubDate>Tue, 16 Jan 2024 00:00:00 +0000</pubDate><author>xxxx</author><guid>https://leoxiewl.github.io/react-base/</guid><description><![CDATA[<h2 id="react-基础">React 基础</h2>
+<p>React由Meta公司开发，是一个用于 构建Web和原生交互界面的库</p>
+<blockquote>
+<p>The library for web and native user interfaces</p></blockquote>
+<h2 id="react-优势">React 优势</h2>
+<p><strong>虚拟DOM（Virtual DOM）</strong></p>]]></description></item></channel></rss>
