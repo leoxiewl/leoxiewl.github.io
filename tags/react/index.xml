@@ -1,4 +1,4 @@
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>React - 标签 - 林风's Blog</title><link>https://leoxiewl.github.io/tags/react/</link><description>React - 标签 - 林风's Blog</description><generator>Hugo -- gohugo.io</generator><language>zh-CN</language><copyright>林风的博客</copyright><lastBuildDate>Tue, 16 Jan 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://leoxiewl.github.io/tags/react/" rel="self" type="application/rss+xml"/><item><title>React 常用网站&amp;资源汇总</title><link>https://leoxiewl.github.io/react-awesome/</link><pubDate>Tue, 16 Jan 2024 00:00:00 +0000</pubDate><author>xxxx</author><guid>https://leoxiewl.github.io/react-awesome/</guid><description><![CDATA[<h2 id="react-官方网站">React 官方网站</h2>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>React - 标签 - 林风's Blog</title><link>https://leoxiewl.github.io/tags/react/</link><description>React - 标签 - 林风's Blog</description><generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>leoxiewl@163.com (林风Leo)</managingEditor><webMaster>leoxiewl@163.com (林风Leo)</webMaster><copyright>林风的博客</copyright><lastBuildDate>Tue, 16 Jan 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://leoxiewl.github.io/tags/react/" rel="self" type="application/rss+xml"/><item><title>React 常用网站&amp;资源汇总</title><link>https://leoxiewl.github.io/react-awesome/</link><pubDate>Tue, 16 Jan 2024 00:00:00 +0000</pubDate><author>林风Leo</author><guid>https://leoxiewl.github.io/react-awesome/</guid><description><![CDATA[<h2 id="react-官方网站">React 官方网站</h2>
 <p>官网地址：https://react.dev/</p>
 <p>GitHub 地址：https://github.com/facebook/react</p>
 <h2 id="教程">教程</h2>
@@ -13,7 +13,7 @@
 <ul>
 <li><a href="https://www.bilibili.com/video/BV1ZB4y1Z7o8/" target="_blank" rel="noopener noreffer ">黑马程序员前端React18入门到实战视频教程</a></li>
 </ul>
-<p>有基础有实战，学完基础直接上手开发小案例</p>]]></description></item><item><title>React 基础</title><link>https://leoxiewl.github.io/react-base/</link><pubDate>Tue, 16 Jan 2024 00:00:00 +0000</pubDate><author>xxxx</author><guid>https://leoxiewl.github.io/react-base/</guid><description><![CDATA[<h2 id="react-基础">React 基础</h2>
+<p>有基础有实战，学完基础直接上手开发小案例</p>]]></description></item><item><title>React 基础</title><link>https://leoxiewl.github.io/react-base/</link><pubDate>Tue, 16 Jan 2024 00:00:00 +0000</pubDate><author>林风Leo</author><guid>https://leoxiewl.github.io/react-base/</guid><description><![CDATA[<h2 id="react-基础">React 基础</h2>
 <p>React由Meta公司开发，是一个用于 构建Web和原生交互界面的库</p>
 <blockquote>
 <p>The library for web and native user interfaces</p></blockquote>
