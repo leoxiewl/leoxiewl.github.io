@@ -1,4 +1,4 @@
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>技术 - 分类 - 林风's Blog</title><link>https://leoxiewl.github.io/categories/%E6%8A%80%E6%9C%AF/</link><description>技术 - 分类 - 林风's Blog</description><generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>leoxiewl@163.com (林风Leo)</managingEditor><webMaster>leoxiewl@163.com (林风Leo)</webMaster><copyright>林风的博客</copyright><lastBuildDate>Mon, 29 Jan 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://leoxiewl.github.io/categories/%E6%8A%80%E6%9C%AF/" rel="self" type="application/rss+xml"/><item><title>github 搜索技巧</title><link>https://leoxiewl.github.io/github%E6%90%9C%E7%B4%A2%E6%8A%80%E5%B7%A7/</link><pubDate>Mon, 29 Jan 2024 00:00:00 +0000</pubDate><author>林风Leo</author><guid>https://leoxiewl.github.io/github%E6%90%9C%E7%B4%A2%E6%8A%80%E5%B7%A7/</guid><description><![CDATA[<p><a href="https://docs.github.com/zh" target="_blank" rel="noopener noreffer ">github 官方文档</a></p>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>技术 - 分类 - 林风's Blog</title><link>https://leoxiewl.github.io/categories/%E6%8A%80%E6%9C%AF/</link><description>技术 - 分类 - 林风's Blog</description><generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>leoxiewl@163.com (林风Leo)</managingEditor><webMaster>leoxiewl@163.com (林风Leo)</webMaster><copyright>林风的博客</copyright><lastBuildDate>Mon, 29 Jan 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://leoxiewl.github.io/categories/%E6%8A%80%E6%9C%AF/" rel="self" type="application/rss+xml"/><item><title>github 搜索技巧</title><link>https://leoxiewl.github.io/2024/01/29/github%E6%90%9C%E7%B4%A2%E6%8A%80%E5%B7%A7/</link><pubDate>Mon, 29 Jan 2024 00:00:00 +0000</pubDate><author>林风Leo</author><guid>https://leoxiewl.github.io/2024/01/29/github%E6%90%9C%E7%B4%A2%E6%8A%80%E5%B7%A7/</guid><description><![CDATA[<p><a href="https://docs.github.com/zh" target="_blank" rel="noopener noreffer ">github 官方文档</a></p>
 <h2 id="常用搜索语法">常用搜索语法</h2>
 <h3 id="in-限定搜索范围">in 限定搜索范围</h3>
 <p>可以限定范围去找 github 仓库</p>
@@ -33,7 +33,7 @@
   </tbody>
 </table>
 <h3 id="按照仓库创建或者上次更新时间搜素">按照仓库创建或者上次更新时间搜素</h3>
-<p>找到当前活跃的仓库</p>]]></description></item><item><title>Github Action 自动部署发布</title><link>https://leoxiewl.github.io/github-page-deploy/</link><pubDate>Sun, 14 Jan 2024 00:00:00 +0000</pubDate><author>林风Leo</author><guid>https://leoxiewl.github.io/github-page-deploy/</guid><description><![CDATA[<h2 id="1-创建两个仓库">1. 创建两个仓库</h2>
+<p>找到当前活跃的仓库</p>]]></description></item><item><title>Github Action 自动部署发布</title><link>https://leoxiewl.github.io/2024/01/14/github-page-deploy/</link><pubDate>Sun, 14 Jan 2024 00:00:00 +0000</pubDate><author>林风Leo</author><guid>https://leoxiewl.github.io/2024/01/14/github-page-deploy/</guid><description><![CDATA[<h2 id="1-创建两个仓库">1. 创建两个仓库</h2>
 <p>一个用来存放 Hugo 源文件，私有、公有都可以</p>
 <p>一个用来托管网站，用户名.github.io</p>
 <h2 id="2-生成部署密钥">2. 生成部署密钥</h2>
